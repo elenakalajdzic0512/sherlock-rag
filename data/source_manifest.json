@@ -1,0 +1,33 @@
+{
+  "book": {
+    "title": "The Adventures of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "gutenberg_id": 1661,
+    "page_url": "https://www.gutenberg.org/ebooks/1661",
+    "txt_url": "https://www.gutenberg.org/cache/epub/1661/pg1661.txt"
+  },
+  "acquisition": {
+    "method": "download",
+    "acquired_at_utc": "2026-10-13T18:30:26+00:00"
+  },
+  "raw": {
+    "path": "data/raw/sherlock_holmes.txt",
+    "sha256": "922e2a12ccb43a4c9544c260b2166c6ad2097aeb5957faeee113f173bb857cd0",
+    "bytes": 607606,
+    "lines": 12310,
+    "words": 107558
+  },
+  "processed": {
+    "path": "data/processed/book.txt",
+    "sha256": "d46abd0f05ef0a55f321bf3bdb7fac0302e1843afcf0e4840b46a806518ffb6a",
+    "bytes": 575243,
+    "lines": 11899,
+    "words": 104423,
+    "source_lines_inclusive": {
+      "start": 55,
+      "end": 11953
+    },
+    "processing": "extract-v1: strict UTF-8; CRLF and CR to LF; exact inclusive narrative line interval"
+  },
+  "counting": "Lines are str.splitlines() logical lines; a trailing newline adds no line. Words are str.split() whitespace-delimited tokens."
+}
