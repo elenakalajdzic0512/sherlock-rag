@@ -12,6 +12,7 @@ dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff"]
+semantic = ["numpy>=1.26,<3", "sentence-transformers>=5,<6", "transformers>=4.51,<5"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

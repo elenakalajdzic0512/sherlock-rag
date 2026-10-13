@@ -2,7 +2,7 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 4 BM25 retrieval and its fixed-set evaluation are ready for review. Grounded answers, semantic and hybrid retrieval, question generation, and the interface are not implemented yet.
+**Status:** Phase 5a local semantic retrieval and comparison with BM25 are ready for review. Grounded answers, hybrid retrieval, question generation, and the interface are not implemented yet.
 
 ## Planned features
 
@@ -13,7 +13,7 @@ A book-grounded retrieval-augmented generation (RAG) project based on Arthur Con
 - Evaluate retrieval and answer quality.
 - Provide a simple user interface.
 
-See [the roadmap](docs/roadmap.md), [progress](docs/progress.md), [corpus audit](docs/corpus-audit.md), [chunking audit](docs/chunking-audit.md), and [retrieval baseline](docs/retrieval-baseline.md).
+See [the roadmap](docs/roadmap.md), [progress](docs/progress.md), [corpus audit](docs/corpus-audit.md), [chunking audit](docs/chunking-audit.md), [retrieval baseline](docs/retrieval-baseline.md), and [semantic baseline](docs/semantic-baseline.md).
 
 ## Development setup
 
@@ -78,6 +78,25 @@ conda run -n sherlock-rag python -m sherlock_rag.evaluate
 ```
 
 See [the baseline report](docs/retrieval-baseline.md) for tokenization, formulas, split metrics, context size, and concrete successes and misses. The evaluator validates the source-grounded questions before searching.
+
+## Local semantic retrieval (Phase 5a)
+
+Install the optional semantic extra only in the project environment:
+
+```sh
+conda run -n sherlock-rag python -m pip install -e '.[semantic]'
+```
+
+The verified [Qwen/Qwen3-Embedding-0.6B](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B) model is pinned to revision `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3`. Build a local index for either configuration after restoring the verified source and chunk JSONL. The model download and matrices stay outside Git:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.semantic build --config w250_o50
+conda run -n sherlock-rag python -m sherlock_rag.semantic build --config w500_o100
+conda run -n sherlock-rag python -m sherlock_rag.semantic search --config w250_o50 --query "Who was the beggar?" --top-k 5
+conda run -n sherlock-rag python -m sherlock_rag.evaluate --method semantic
+```
+
+Each command verifies the selected source, chunks, and index. A missing index reports its rebuild command. BM25 remains available without installing this extra. The [semantic report](docs/semantic-baseline.md) records the actual versions, device, token-length audit, index hashes, and comparison on the unchanged reference set. Similarity scores are not confidence percentages or decisions about answerability. Hybrid search is planned for Phase 5b.
 
 ## Checks
 
