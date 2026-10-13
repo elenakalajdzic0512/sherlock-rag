@@ -2,7 +2,7 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 5a local semantic retrieval and comparison with BM25 are ready for review. Grounded answers, hybrid retrieval, question generation, and the interface are not implemented yet.
+**Status:** Phase 5b retrieval comparison is complete. Phase 6a adds a local grounded-answer pipeline with mechanically resolved citations and basic abstention; full answer evaluation, question generation, and the interface remain planned.
 
 ## Planned features
 
@@ -13,7 +13,7 @@ A book-grounded retrieval-augmented generation (RAG) project based on Arthur Con
 - Evaluate retrieval and answer quality.
 - Provide a simple user interface.
 
-See [the roadmap](docs/roadmap.md), [progress](docs/progress.md), [corpus audit](docs/corpus-audit.md), [chunking audit](docs/chunking-audit.md), [retrieval baseline](docs/retrieval-baseline.md), and [semantic baseline](docs/semantic-baseline.md).
+See [the roadmap](docs/roadmap.md), [progress](docs/progress.md), [corpus audit](docs/corpus-audit.md), [chunking audit](docs/chunking-audit.md), [retrieval baseline](docs/retrieval-baseline.md), [semantic baseline](docs/semantic-baseline.md), and [hybrid baseline](docs/hybrid-baseline.md).
 
 ## Development setup
 
@@ -108,6 +108,21 @@ conda run -n sherlock-rag python -m sherlock_rag.evaluate --method hybrid
 ```
 
 The JSON output records ranks, raw method scores, RRF contributions, exact chunk text and source locations, and all parameters. Missing or invalid saved semantic indexes fail with a rebuild command; the chosen configuration works even if the other one is missing locally. See the [hybrid report](docs/hybrid-baseline.md) for dev/test results and candidate-union misses. [`config/retrieval.json`](config/retrieval.json) selects semantic A for the next phase by a predeclared dev-only rule. Search results alone are not evidence of answerability.
+
+## Local grounded answers (Phase 6a)
+
+Install the optional generation dependencies in the project environment, then run the pinned local model:
+
+```sh
+conda run -n sherlock-rag python -m pip install -e '.[generation]'
+conda run -n sherlock-rag python -m sherlock_rag.rag --query "What kind of creature caused Roylott’s death?"
+```
+
+The selected retrieval method and chunk configuration come from [`config/retrieval.json`](config/retrieval.json). [`config/generation.json`](config/generation.json) pins the Qwen/Qwen3-4B-Instruct-2507 revision, bfloat16 MPS runtime, 6144 input-token budget, and 768 greedy output tokens. The full chat prompt is measured without truncation. When it exceeds the input budget, entire lowest-ranked chunks are removed and listed in `dropped_chunk_ids`; if the question and instructions alone are too long, the command returns `invalid_input`.
+
+Each result contains a status, reason code, the exact passages supplied to the model, raw model outputs, token counts and timing, and validated claims with resolved source citations. Whitespace-only display normalization is mapped back to original character offsets and source lines. Repeated quotes resolve to their first occurrence within the cited passage. A malformed JSON response or citation gets at most one repair attempt with the same passages, then returns `error`. A citation's existence is mechanically checked; whether the cited words support the claim still needs review. The model and cache are outside Git.
+
+The fixed eight-question engineering audit is in [the local smoke report](docs/local-rag-smoke.md). Full answer and abstention evaluation belongs to Phase 6b.
 
 ## Checks
 
