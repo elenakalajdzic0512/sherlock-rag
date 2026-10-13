@@ -3,25 +3,26 @@
 ## Implemented
 
 - **Phase 0:** Private `elenakalajdzic0512/sherlock-rag` repository and initial `main` commit `8250000d31dfa5a828d3e5102645bf745c80c49e`.
-- **Phase 1:** Minimal setuptools `src/` package, dedicated Python 3.11 conda environment, editable installation, development tools, and documentation. PR #1 was merged into `main` as `da4eb37c38673a4a46c7e408dcb1ccc2ba432105`.
-- **Phase 2:** Standard-library ingestion command, strict Gutenberg #1661 validation, preservation of original bytes, exact narrative extraction, tracked manifest and audit, and offline behavior tests.
+- **Phase 1:** Minimal setuptools `src/` package and dedicated Python 3.11 environment. PR #1 merged as `da4eb37c38673a4a46c7e408dcb1ccc2ba432105`.
+- **Phase 2:** Verified Gutenberg #1661 acquisition, exact narrative extraction, manifest, audit, and offline tests. PR #2 merged as `49f8dd6adee7c0244d7988ca61170898225ca7c9`.
+- **Phase 3:** Deterministic, story-bounded sliding-word chunks with exact text slices and word, character, processed-line, and source-line provenance. Both requested configurations and their manifest were generated from the verified local book.
 
-## Phase 2 source and verification
+## Phase 3 verification
 
-- Acquired by download from `https://www.gutenberg.org/cache/epub/1661/pg1661.txt` on `2026-10-13T18:30:26+00:00`.
-- Raw original: 607606 bytes, 12310 lines, 107558 whitespace-delimited tokens; SHA-256 `922e2a12ccb43a4c9544c260b2166c6ad2097aeb5957faeee113f173bb857cd0`.
-- Processed narrative: 575243 bytes, 11899 lines, 104423 whitespace-delimited tokens; SHA-256 `d46abd0f05ef0a55f321bf3bdb7fac0302e1843afcf0e4840b46a806518ffb6a`.
-- Exact inclusive original interval: lines 55–11953. Independent byte comparison after CRLF/CR-to-LF normalization passed. Twelve story headings were found in order, each with nonempty content; see [corpus audit](corpus-audit.md).
-- A repeated run left raw, processed, and manifest SHA-256 values unchanged, including the recorded acquisition date.
-- `conda run -n sherlock-rag python -m pytest -q`: 17 passed, offline.
+- Before chunking, raw SHA-256 `922e2a12ccb43a4c9544c260b2166c6ad2097aeb5957faeee113f173bb857cd0` and processed SHA-256 `d46abd0f05ef0a55f321bf3bdb7fac0302e1843afcf0e4840b46a806518ffb6a` matched `data/source_manifest.json`; fresh `extract_book` output matched `book.txt` exactly.
+- Configuration A (250 words, 50 overlap) produced 525 chunks, min/max/mean 86/250/247.76 words; JSONL SHA-256 `2e652bf929a39136726f9f78102f5ca5fcf11bb7b73e155382dd0b88dff979cd`.
+- Configuration B (500 words, 100 overlap) produced 265 chunks, min/max/mean 109/500/489.52 words; JSONL SHA-256 `e8e886a889f8e1d7916eb236a800d694abb1f5c496ea4114c9e16a5a26eee87e`.
+- Fresh-clone simulation copied only verified raw/book files and the source/chunk manifests into a temporary folder. A then B regenerated 525 and 265 chunks with the original JSONL hashes, kept both manifest entries byte-identical, and repeated both runs without byte changes. The original project inputs were unchanged. Missing other-configuration outputs no longer block regeneration; a present one with a wrong hash still blocks before writes.
+- Every saved JSONL record was audited for exact substring, one-story boundary, size, word coverage, Unicode character and line mapping, and unique ID. Both configurations were repeated with byte-identical JSONL and chunk manifest output. See [chunking audit](chunking-audit.md).
+- `conda run -n sherlock-rag python -m pytest -q --tb=short`: 32 passed, offline.
 - `conda run -n sherlock-rag ruff check .`: passed.
 - `conda run -n sherlock-rag ruff format --check .`: passed.
 - `conda run -n sherlock-rag python -m pip check`: no broken requirements.
-- `git diff --check`: passed. The raw and processed files are ignored by Git.
+- `git diff --check`: passed. Generated JSONL files remain ignored by Git.
 
 ## Planned
 
-Phases 3–7 cover chunking, retrieval, grounded answers and evaluation, question generation, and an interface. See [roadmap.md](roadmap.md).
+Phase 4 adds and evaluates a BM25 retrieval baseline. Semantic and hybrid retrieval, grounded answers, answer evaluation, question generation, and the interface remain planned. No model tokenizer has been selected.
 
 ## Blocked
 

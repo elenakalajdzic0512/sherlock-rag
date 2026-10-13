@@ -2,7 +2,7 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 2 source ingestion is ready for review. Chunking, retrieval, answers, evaluation, question generation, and the interface are not implemented yet.
+**Status:** Phase 3 traceable chunking is ready for review. Retrieval, answers, evaluation, question generation, and the interface are not implemented yet.
 
 ## Planned features
 
@@ -13,7 +13,7 @@ A book-grounded retrieval-augmented generation (RAG) project based on Arthur Con
 - Evaluate retrieval and answer quality.
 - Provide a simple user interface.
 
-See [the roadmap](docs/roadmap.md), [progress](docs/progress.md), and [corpus audit](docs/corpus-audit.md).
+See [the roadmap](docs/roadmap.md), [progress](docs/progress.md), [corpus audit](docs/corpus-audit.md), and [chunking audit](docs/chunking-audit.md).
 
 ## Development setup
 
@@ -46,6 +46,19 @@ To use a manually downloaded TXT instead:
 ```sh
 conda run -n sherlock-rag python -m sherlock_rag.ingest --input-file /absolute/path/to/pg1661.txt
 ```
+
+## Traceable word chunks
+
+Verify the existing raw and processed files against `data/source_manifest.json`, then create either configuration:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.chunking --chunk-size-words 250 --overlap-words 50
+conda run -n sherlock-rag python -m sherlock_rag.chunking --chunk-size-words 500 --overlap-words 100
+```
+
+The commands write separate ignored `data/processed/chunks_w250_o50.jsonl` and `data/processed/chunks_w500_o100.jsonl` files. The tracked [chunk manifest](data/chunk_manifest.json) retains both configurations, their output hashes, and summary statistics. Chunk sizes and overlaps count `\S+` whitespace-delimited words, not model tokens. Each chunk contains an exact substring of `book.txt` and carries story, word, character, and source-line positions. The command refuses missing or changed source files and never downloads the book. No retrieval ranking is implemented yet.
+
+After a fresh clone, restore the exact `data/raw/sherlock_holmes.txt` and `data/processed/book.txt` files recorded by `data/source_manifest.json`, then run the two commands above in either order. The tracked chunk manifest describes expected JSONL artifacts; missing local JSONL files are regenerated without dropping the other configuration entry. An existing output for the other configuration with a mismatched hash is rejected before any files are changed.
 
 ## Checks
 

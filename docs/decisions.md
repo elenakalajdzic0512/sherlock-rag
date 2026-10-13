@@ -6,3 +6,4 @@
 - **Dependencies:** Add them only when a phase needs them. Phase 1 has no runtime dependencies; its development extra contains pytest and Ruff.
 - **Retrieval:** BM25, semantic retrieval, and hybrid retrieval are planned experiments. No method is assumed to be best in advance.
 - **Models and services:** The LLM provider and embedding model are undecided.
+- **Chunking:** Use deterministic sliding windows within each story. Sizes of 250/50 and 500/100 mean `\S+` whitespace-delimited words and overlap, not model tokens. Preserve exact book substrings and source-line provenance. The embedding model, LLM, and their tokenizer remain undecided.
