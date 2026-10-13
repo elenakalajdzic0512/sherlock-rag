@@ -11,6 +11,6 @@ Each phase is scoped and reviewed separately. Later criteria describe planned wo
 | 4 | Add a lexical retrieval baseline. | Implement BM25 retrieval and measure it on documented book-grounded queries. | Complete |
 | 5a | Add local semantic retrieval. | Build pinned, source-verified embedding indexes and compare exact cosine retrieval with BM25 on the fixed question set. | Complete; PR #5 merged |
 | 5b | Compare hybrid retrieval. | Combine candidate retrieval methods and compare them with the same evaluation set and metrics. | Complete; PR #6 merged |
-| 6a | Add local grounded answers. | Run a pinned local model on selected retrieval passages; resolve citation offsets and audit a fixed smoke set. | Ready for review |
-| 6b | Evaluate answers and abstention. | Measure content support, citation quality, and unsupported-question behavior on a documented full set. | Planned |
-| 7 | Add question generation and a simple interface. | Generate verifiable questions from source text and expose supported search and answer flows through a usable interface. | Planned |
+| 6a | Add local grounded answers. | Run a pinned local model on selected retrieval passages; resolve citation offsets and audit a fixed smoke set. | Complete; PR #7 merged |
+| 6b | Evaluate answers and abstention. | Measure content support, citation quality, and unsupported-question behavior on a documented full set. | Complete; ready for PR review |
+| 7 | Add question generation and a simple interface. | Generate verifiable questions from source text and expose supported search and answer flows through a usable interface. | Planned; depends on Phase 6b quality review |

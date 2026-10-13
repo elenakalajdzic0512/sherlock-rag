@@ -2,7 +2,7 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 5b retrieval comparison is complete. Phase 6a adds a local grounded-answer pipeline with mechanically resolved citations and basic abstention; full answer evaluation, question generation, and the interface remain planned.
+**Status:** Phase 6a local grounded answers were merged in PR #7. Phase 6b evaluates the pinned local pipeline on frozen original and challenge questions; question generation and the interface remain planned.
 
 ## Planned features
 
@@ -124,7 +124,18 @@ Each result contains a status, reason code, the exact passages supplied to the m
 
 Reason codes distinguish outcomes: empty retrieval or a valid model refusal returns `abstained` with `insufficient_evidence`; an oversized question and instructions returns `error` with `invalid_input`; retrieved passages that all exceed the context budget return `error` with `context_budget_exceeded` and their IDs in `dropped_chunk_ids`; invalid JSON or citations after the repair limit return `error` with `invalid_model_output`. A context-budget error does not call the generator and is not an evidence-based refusal.
 
-The fixed eight-question engineering audit is in [the local smoke report](docs/local-rag-smoke.md). Full answer and abstention evaluation belongs to Phase 6b.
+The fixed eight-question engineering audit is in [the local smoke report](docs/local-rag-smoke.md). Phase 6a was merged in PR #7.
+
+## Answer evaluation (Phase 6b)
+
+Restore the verified source, 250/50 chunks, and semantic index, then use the same pinned generation environment and configuration:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.evaluate_rag --run-id baseline_v1
+conda run -n sherlock-rag python -m sherlock_rag.review_rag --run-id baseline_v1
+```
+
+The first command runs the 30 unchanged reference questions and 12 source-reviewed challenge questions. It passes only each query to the pipeline, checkpoints after every case, and resumes only with an identical input and runtime fingerprint. Once all 42 cases finish, it freezes `results.json` with `results.sha256`; rerunning a completed run never regenerates answers. The second command requires separate implementation-agent content ratings in `reviews.json`, checks the frozen result hash and every cited support quote, and writes `metrics.json`. It never changes raw answers. The challenge set was written after previous findings, so the [answer baseline report](docs/answer-baseline.md) treats it as an internal stress test rather than an independent benchmark.
 
 ## Checks
 
