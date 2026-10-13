@@ -237,9 +237,75 @@ def test_modified_source_or_stale_manifest_is_rejected(tmp_path: Path) -> None:
         run_chunking(10, 0, tmp_path)
 
 
-def test_missing_other_configuration_output_is_rejected(tmp_path: Path) -> None:
+@pytest.mark.parametrize("order", [((8, 2), (10, 0)), ((10, 0), (8, 2))])
+def test_missing_both_outputs_regenerate_in_either_order(
+    tmp_path: Path, order: tuple[tuple[int, int], tuple[int, int]]
+) -> None:
+    fixture_root(tmp_path)
+    expected = {}
+    original_files = {}
+    for size, overlap in ((8, 2), (10, 0)):
+        result = run_chunking(size, overlap, tmp_path)
+        expected[(size, overlap)] = result
+        output = tmp_path / result["output_path"]
+        original_files[(size, overlap)] = output.read_bytes()
+    manifest_path = tmp_path / "data/chunk_manifest.json"
+    original_manifest = manifest_path.read_bytes()
+    for result in expected.values():
+        (tmp_path / result["output_path"]).unlink()
+    for size, overlap in order:
+        assert run_chunking(size, overlap, tmp_path) == expected[(size, overlap)]
+        assert manifest_path.read_bytes() == original_manifest
+        assert set(json.loads(manifest_path.read_text())["configurations"]) == {
+            "w8_o2",
+            "w10_o0",
+        }
+    for config, result in expected.items():
+        assert (tmp_path / result["output_path"]).read_bytes() == original_files[config]
+    for size, overlap in order:
+        assert run_chunking(size, overlap, tmp_path) == expected[(size, overlap)]
+    assert manifest_path.read_bytes() == original_manifest
+    for config, result in expected.items():
+        assert (tmp_path / result["output_path"]).read_bytes() == original_files[config]
+
+
+@pytest.mark.parametrize("requested,missing", [((8, 2), (10, 0)), ((10, 0), (8, 2))])
+def test_missing_other_output_keeps_both_manifest_entries(
+    tmp_path: Path, requested: tuple[int, int], missing: tuple[int, int]
+) -> None:
+    fixture_root(tmp_path)
+    results = {config: run_chunking(*config, tmp_path) for config in ((8, 2), (10, 0))}
+    manifest_path = tmp_path / "data/chunk_manifest.json"
+    original_manifest = manifest_path.read_bytes()
+    requested_path = tmp_path / results[requested]["output_path"]
+    requested_bytes = requested_path.read_bytes()
+    missing_path = tmp_path / results[missing]["output_path"]
+    missing_path.unlink()
+    assert run_chunking(*requested, tmp_path) == results[requested]
+    assert requested_path.read_bytes() == requested_bytes
+    assert not missing_path.exists()
+    assert manifest_path.read_bytes() == original_manifest
+    assert set(json.loads(manifest_path.read_text())["configurations"]) == {
+        "w8_o2",
+        "w10_o0",
+    }
+
+
+def test_changed_existing_other_output_blocks_without_modifications(
+    tmp_path: Path,
+) -> None:
     fixture_root(tmp_path)
     a = run_chunking(8, 2, tmp_path)
-    (tmp_path / a["output_path"]).unlink()
-    with pytest.raises(ChunkingError, match="missing or has changed"):
-        run_chunking(10, 0, tmp_path)
+    b = run_chunking(10, 0, tmp_path)
+    a_path = tmp_path / a["output_path"]
+    b_path = tmp_path / b["output_path"]
+    manifest_path = tmp_path / "data/chunk_manifest.json"
+    b_path.write_bytes(b"changed output")
+    before = (a_path.read_bytes(), b_path.read_bytes(), manifest_path.read_bytes())
+    with pytest.raises(ChunkingError, match="Existing output for w10_o0 has changed"):
+        run_chunking(8, 2, tmp_path)
+    assert (
+        a_path.read_bytes(),
+        b_path.read_bytes(),
+        manifest_path.read_bytes(),
+    ) == before

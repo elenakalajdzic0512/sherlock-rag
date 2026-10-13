@@ -395,13 +395,11 @@ def run_chunking(
             if other_key == key:
                 continue
             other_path = root / entry["output_path"]
-            if (
+            if other_path.exists() and (
                 not other_path.is_file()
                 or sha256(other_path.read_bytes()) != entry["sha256"]
             ):
-                raise ChunkingError(
-                    f"Existing output for {other_key} is missing or has changed"
-                )
+                raise ChunkingError(f"Existing output for {other_key} has changed")
     else:
         existing = {
             "algorithm_version": ALGORITHM_VERSION,

@@ -36,4 +36,10 @@ Both saved JSONL files were read back and every record was checked for exact `bo
 
 Both commands were run a second time. The two JSONL files and the chunk manifest remained byte-identical, including their SHA-256 values. The source manifest and book text were verified before generation and were not changed.
 
+## Fresh-clone regeneration check
+
+An isolated temporary folder received only the verified original, `book.txt`, `source_manifest.json`, and the tracked `chunk_manifest.json`; neither JSONL file was copied. Generating A then B succeeded: A produced 525 chunks with SHA-256 `2e652bf929a39136726f9f78102f5ca5fcf11bb7b73e155382dd0b88dff979cd`, and B produced 265 chunks with SHA-256 `e8e886a889f8e1d7916eb236a800d694abb1f5c496ea4114c9e16a5a26eee87e`. Both manifest entries remained byte-identical to the tracked copy. Repeating both runs left both JSONL files and the manifest byte-identical. The original project files were unchanged.
+
+Offline tests also rebuilt both missing outputs in A-then-B and B-then-A order, kept both manifest entries when only the other output was missing, and confirmed that a present other output with a wrong hash stops the operation without modifying either output or the manifest.
+
 These statistics describe chunk construction only. Retrieval quality has not been measured; BM25 is planned for Phase 4. No embedding model, LLM, or model tokenizer has been selected.

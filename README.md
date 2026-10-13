@@ -58,6 +58,8 @@ conda run -n sherlock-rag python -m sherlock_rag.chunking --chunk-size-words 500
 
 The commands write separate ignored `data/processed/chunks_w250_o50.jsonl` and `data/processed/chunks_w500_o100.jsonl` files. The tracked [chunk manifest](data/chunk_manifest.json) retains both configurations, their output hashes, and summary statistics. Chunk sizes and overlaps count `\S+` whitespace-delimited words, not model tokens. Each chunk contains an exact substring of `book.txt` and carries story, word, character, and source-line positions. The command refuses missing or changed source files and never downloads the book. No retrieval ranking is implemented yet.
 
+After a fresh clone, restore the exact `data/raw/sherlock_holmes.txt` and `data/processed/book.txt` files recorded by `data/source_manifest.json`, then run the two commands above in either order. The tracked chunk manifest describes expected JSONL artifacts; missing local JSONL files are regenerated without dropping the other configuration entry. An existing output for the other configuration with a mismatched hash is rejected before any files are changed.
+
 ## Checks
 
 ```sh
