@@ -9,7 +9,8 @@
 - **Phase 4:** Verified loading of either selected JSONL, Unicode lexical tokenization, in-memory BM25, JSON search CLI, fixed 30-question source-grounded benchmark, and machine-readable evaluation for both chunk configurations. PR #4 merged as `6465decce4f2b40f2d547072fea5fbdf46d1bb77`. See [retrieval baseline](retrieval-baseline.md).
 - **Phase 5a:** Pinned local Qwen embedding model, checked MPS encoding, verified float32 indexes for both configurations, exact cosine search, and comparison with the unchanged BM25 reference set. PR #5 merged as `7965d0c100bad64610313a579aaca00ab5153fde`. See [semantic baseline](semantic-baseline.md).
 - **Phase 5b:** Verified equal-weight RRF across existing BM25 and semantic rankings, candidate-union diagnostics, unchanged reference-set evaluation, and a dev-only choice for Phase 6. PR #6 merged as `f2f718797128c557627363bd2d7aa476a9e1e45b`. See [hybrid baseline](hybrid-baseline.md).
-- **Phase 6a (ready for review):** Local pinned answer model, selected semantic A retrieval, complete-prompt token budgeting, mechanically resolved book citations, basic abstention, one repair attempt, and fixed eight-question engineering smoke audit. See [local smoke report](local-rag-smoke.md).
+- **Phase 6a:** Local pinned answer model, selected semantic A retrieval, complete-prompt token budgeting, mechanically resolved book citations, basic abstention, one repair attempt, and fixed eight-question engineering smoke audit. PR #7 merged as `da435faf301054de4e5aad1b99b489d93387a67c`. See [local smoke report](local-rag-smoke.md).
+- **Phase 6b (ready for review):** Frozen 30 original and 12 source-reviewed challenge questions, checkpointed 42-case local run, separate implementation-agent content review, explicit-denominator metrics, and [answer baseline report](answer-baseline.md). No generation or retrieval setting was tuned.
 
 ## Phase 3 verification
 
@@ -56,9 +57,18 @@
 - Full offline pytest suite: 91 passed. Ruff check, Ruff format check, pip check, and git diff --check passed.
 - **Phase 6a review fix:** When retrieval succeeds but no whole passage fits the input budget, the pipeline now returns `error` / `context_budget_exceeded`, retains every dropped chunk ID, and makes zero generation attempts. Empty retrieval and valid model refusal remain `abstained` / `insufficient_evidence`. Both generation token budgets are validated as positive integers before model loading. Offline budget reproductions and type/value tests cover the distinction; the eight recorded smoke outputs were not regenerated. Full offline suite: 107 passed; Ruff check/format, pip check, and git diff --check passed.
 
+## Phase 6b verification
+
+- Original question SHA-256 `fb2dfa8a302055b9993f06933d4fa15190041ca411b582ad5263336f3192de0b`; pre-run challenge SHA-256 `cdf59802eeeddde1b3d0430651d999abcc51f5f1186a36b44a8a8bd0fdafe006`. Full runtime fingerprint SHA-256 `115287d5caac7917599e324dcd759836aeb0596d69542e6090d2ed21d83ed589`.
+- All 42 local results were frozen at SHA-256 `18019b31adec06a9ea061e5794e4ffa87317cb6c7160c70a4f7bacc4621d7721` before content review. Separate review SHA-256 `4507af793178a88b23e7139bf698dd8437b00ebee61e5feffe99e4504395cea5`.
+- Automatic statuses: 15 answered, 20 abstained, seven invalid-model-output errors. First-pass mechanical success 20/42; 22/42 repair attempts. Generation took 345.39 seconds and produced 5,910 output tokens.
+- Implementation-agent review: supported correct answer 10/24 original answerable; displayed-answer correctness 11/15; unsupported claims 5/15 displayed; sufficient sent context 17/24, with supported correct generation 10/17 and unjustified abstention 0/17. Original unsupported refusals 6/6; unmentioned-detail 6/6; false-premise 3/4 with one invalid output and one supported correction in a refusal reason; other-book 2/2. This is not independent human adjudication.
+- Full offline pytest suite: 113 passed. Ruff check and format check, pip check, and git diff --check passed.
+- **Phase 6b PR #8 review fix:** New fingerprint schema v2 covers sorted relative paths and SHA-256 contents for all package Python source, including `semantic.py` and the runner. A changed module blocks checkpoint resume before model loading and file writes. `baseline_v1` keeps its old, narrower fingerprint and frozen result; review remains available without the model. Metrics now record missing attempt/token/time fields and classify `runner_error` as a technical error. Recomputed baseline metrics retain the original outcome counts and content scores. GitHub visibility was restored to `PRIVATE` and verified. Full offline suite: 116 passed; Ruff check/format, pip check, and git diff --check passed.
+
 ## Planned
 
-Phase 6b performs full answer, citation-support, and abstention evaluation. Question generation and the interface remain planned.
+The next step depends on the answer-quality findings. A separate reviewed task should address retrieval misses, unsupported assertions, and invalid structured outputs before question generation or the interface.
 
 ## Blocked
 

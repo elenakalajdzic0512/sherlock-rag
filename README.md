@@ -2,7 +2,7 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 5b retrieval comparison is complete. Phase 6a adds a local grounded-answer pipeline with mechanically resolved citations and basic abstention; full answer evaluation, question generation, and the interface remain planned.
+**Status:** Phase 6a local grounded answers were merged in PR #7. Phase 6b evaluates the pinned local pipeline on frozen original and challenge questions; question generation and the interface remain planned.
 
 ## Planned features
 
@@ -124,7 +124,23 @@ Each result contains a status, reason code, the exact passages supplied to the m
 
 Reason codes distinguish outcomes: empty retrieval or a valid model refusal returns `abstained` with `insufficient_evidence`; an oversized question and instructions returns `error` with `invalid_input`; retrieved passages that all exceed the context budget return `error` with `context_budget_exceeded` and their IDs in `dropped_chunk_ids`; invalid JSON or citations after the repair limit return `error` with `invalid_model_output`. A context-budget error does not call the generator and is not an evidence-based refusal.
 
-The fixed eight-question engineering audit is in [the local smoke report](docs/local-rag-smoke.md). Full answer and abstention evaluation belongs to Phase 6b.
+The fixed eight-question engineering audit is in [the local smoke report](docs/local-rag-smoke.md). Phase 6a was merged in PR #7.
+
+## Answer evaluation (Phase 6b)
+
+The original `baseline_v1` results are frozen and remain reviewable without loading a model:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.review_rag --run-id baseline_v1
+```
+
+The original run used a legacy fingerprint that hashed only `rag.py` as pipeline code. It could miss changes in retrieval modules such as `semantic.py`. New runs use fingerprint schema v2, with sorted relative paths and SHA-256 hashes for all Python source files in `src/sherlock_rag`, including ingestion, retrieval, generation, and runner code; cache and generated directories are excluded. A changed source file rejects checkpoint resume before model loading or writing. The old `baseline_v1` result and its fingerprint are not migrated or regenerated. To run the current code after restoring the verified source, 250/50 chunks, and semantic index, use a **new run ID**:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.evaluate_rag --run-id followup_v2
+```
+
+The runner sends only the query from each of the 30 unchanged reference questions and 12 source-reviewed challenges, checkpoints after every case, and resumes only with an identical fingerprint. Once all 42 cases finish, it freezes `results.json` with `results.sha256`; rerunning a completed matching run never regenerates answers. The review command requires separate implementation-agent content ratings in `reviews.json`, checks the frozen result hash and every cited support quote, and writes `metrics.json`. It never changes raw answers. The challenge set was written after previous findings, so the [answer baseline report](docs/answer-baseline.md) treats it as an internal stress test rather than an independent benchmark. If a runner-level exception lacks attempt, token, or timing fields, metrics report those measurements as missing, with explicit recorded/missing counts, and count the result as a technical error.
 
 ## Checks
 
