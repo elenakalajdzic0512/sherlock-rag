@@ -1,0 +1,61 @@
+{
+  "algorithm_version": "sliding-word-v1",
+  "configurations": {
+    "w250_o50": {
+      "average_words": 247.76,
+      "bytes": 1072037,
+      "chunk_count": 525,
+      "chunk_size_words": 250,
+      "chunks_per_story": [
+        43,
+        46,
+        35,
+        48,
+        37,
+        46,
+        39,
+        49,
+        42,
+        41,
+        49,
+        50
+      ],
+      "max_words": 250,
+      "min_words": 86,
+      "output_path": "data/processed/chunks_w250_o50.jsonl",
+      "overlap_words": 50,
+      "sha256": "2e652bf929a39136726f9f78102f5ca5fcf11bb7b73e155382dd0b88dff979cd"
+    },
+    "w500_o100": {
+      "average_words": 489.52,
+      "bytes": 901264,
+      "chunk_count": 265,
+      "chunk_size_words": 500,
+      "chunks_per_story": [
+        22,
+        23,
+        18,
+        24,
+        19,
+        23,
+        20,
+        25,
+        21,
+        21,
+        24,
+        25
+      ],
+      "max_words": 500,
+      "min_words": 109,
+      "output_path": "data/processed/chunks_w500_o100.jsonl",
+      "overlap_words": 100,
+      "sha256": "e8e886a889f8e1d7916eb236a800d694abb1f5c496ea4114c9e16a5a26eee87e"
+    }
+  },
+  "source": {
+    "gutenberg_id": 1661,
+    "processed_sha256": "d46abd0f05ef0a55f321bf3bdb7fac0302e1843afcf0e4840b46a806518ffb6a",
+    "raw_sha256": "922e2a12ccb43a4c9544c260b2166c6ad2097aeb5957faeee113f173bb857cd0",
+    "source_line_start": 55
+  }
+}
