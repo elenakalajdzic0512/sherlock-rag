@@ -31,3 +31,7 @@ chroma/
 
 # macOS
 .DS_Store
+
+# Downloaded and generated book data
+data/raw/
+data/processed/
