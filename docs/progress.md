@@ -5,7 +5,8 @@
 - **Phase 0:** Private `elenakalajdzic0512/sherlock-rag` repository and initial `main` commit `8250000d31dfa5a828d3e5102645bf745c80c49e`.
 - **Phase 1:** Minimal setuptools `src/` package and dedicated Python 3.11 environment. PR #1 merged as `da4eb37c38673a4a46c7e408dcb1ccc2ba432105`.
 - **Phase 2:** Verified Gutenberg #1661 acquisition, exact narrative extraction, manifest, audit, and offline tests. PR #2 merged as `49f8dd6adee7c0244d7988ca61170898225ca7c9`.
-- **Phase 3:** Deterministic, story-bounded sliding-word chunks with exact text slices and word, character, processed-line, and source-line provenance. Both requested configurations and their manifest were generated from the verified local book.
+- **Phase 3:** Deterministic, story-bounded sliding-word chunks with exact text slices and word, character, processed-line, and source-line provenance. Both requested configurations and their manifest were generated from the verified local book. PR #3 merged as `7f2e5be6b8959bf27dd543caca7f8adc5372af0d`.
+- **Phase 4 (ready for review):** Verified loading of either selected JSONL, Unicode lexical tokenization, in-memory BM25, JSON search CLI, fixed 30-question source-grounded benchmark, and machine-readable evaluation for both chunk configurations. See [retrieval baseline](retrieval-baseline.md).
 
 ## Phase 3 verification
 
@@ -20,9 +21,17 @@
 - `conda run -n sherlock-rag python -m pip check`: no broken requirements.
 - `git diff --check`: passed. Generated JSONL files remain ignored by Git.
 
+## Phase 4 verification
+
+- The 24 answerable questions (two distinct facts per story) and six unsupported questions were written against the real book before the first BM25 measurement. Each dev/test split has 12 answerable questions (six direct, six paraphrase) and three unsupported. The frozen question JSONL SHA-256 is `fb2dfa8a302055b9993f06933d4fa15190041ca411b582ad5263336f3192de0b`.
+- A (250/50): dev Hit@5 0.500, MRR@5 0.319, mean top-five context 1,216.6 whitespace words; test Hit@5 0.583, MRR@5 0.312, mean context 1,225.0 words.
+- B (500/100): dev Hit@5 0.583, MRR@5 0.424, mean top-five context 2,379.1 words; test Hit@5 0.833, MRR@5 0.586, mean context 2,421.3 words. Full Hit@1/3/5 and kind-specific metrics appear in the baseline report and tracked JSON.
+- Unsupported queries returned five lexical candidates each in both configurations. They are excluded from answerable metrics; this phase makes no answerability decision.
+- Full offline pytest suite: 53 passed. Ruff check and format check passed; pip check found no broken requirements; git diff --check passed.
+
 ## Planned
 
-Phase 4 adds and evaluates a BM25 retrieval baseline. Semantic and hybrid retrieval, grounded answers, answer evaluation, question generation, and the interface remain planned. No model tokenizer has been selected.
+Phase 5 compares semantic and hybrid retrieval. Grounded answers, answer evaluation, question generation, and the interface remain planned. No model tokenizer has been selected.
 
 ## Blocked
 
