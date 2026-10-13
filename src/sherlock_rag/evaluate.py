@@ -133,7 +133,11 @@ def evaluate_questions(index: BM25Index, questions: list[dict]) -> dict:
     """Pass only each query to search; gold never modifies the index or ranking."""
     details = []
     for q in questions:
-        results = index.search(q["query"], 5)
+        hybrid = hasattr(index, "search_with_candidates")
+        if hybrid:
+            results, candidates = index.search_with_candidates(q["query"], 5)
+        else:
+            results = index.search(q["query"], 5)
         detail = {
             "question_id": q["question_id"],
             "split": q["split"],
@@ -148,11 +152,32 @@ def evaluate_questions(index: BM25Index, questions: list[dict]) -> dict:
                     "story_id": r["story_id"],
                     "char_start": r["char_start"],
                     "char_end": r["char_end"],
+                    **(
+                        {
+                            key: r[key]
+                            for key in (
+                                "bm25_rank",
+                                "bm25_score",
+                                "semantic_rank",
+                                "semantic_score",
+                                "bm25_rrf_contribution",
+                                "semantic_rrf_contribution",
+                            )
+                        }
+                        if hybrid
+                        else {}
+                    ),
                     **({"relevant": is_relevant(r, q)} if q["answerable"] else {}),
                 }
                 for r in results
             ],
         }
+        if hybrid:
+            detail["candidate_union_size"] = len(candidates)
+            if q["answerable"]:
+                detail["candidate_union_hit"] = any(
+                    is_relevant(candidate, q) for candidate in candidates
+                )
         if q["answerable"]:
             detail["first_relevant_rank"] = next(
                 (r["rank"] for r in results if is_relevant(r, q)), None
@@ -176,6 +201,16 @@ def evaluate_questions(index: BM25Index, questions: list[dict]) -> dict:
             "average_top_5_context_words": sum(d["top_5_context_words"] for d in items)
             / len(items),
         }
+        if hybrid:
+            for kind in ("all", "direct", "paraphrase"):
+                subset = (
+                    items
+                    if kind == "all"
+                    else [item for item in items if item["kind"] == kind]
+                )
+                metrics[split][kind]["candidate_union_hit_rate"] = sum(
+                    item["candidate_union_hit"] for item in subset
+                ) / len(subset)
     return {"metrics": metrics, "queries": details}
 
 
@@ -280,14 +315,92 @@ def run_semantic_evaluation(
     return result
 
 
+def run_hybrid_evaluation(
+    root: Path = PROJECT_ROOT, encoder: object | None = None
+) -> dict:
+    """Evaluate fixed RRF settings over the two existing, verified index sets."""
+    from sherlock_rag.hybrid import (
+        DEFAULT_CANDIDATE_K,
+        DEFAULT_RRF_K,
+        METHOD,
+        HybridIndex,
+    )
+    from sherlock_rag.semantic import (
+        INDEX_VERSION,
+        MODEL_ID,
+        MODEL_REVISION,
+        SemanticIndex,
+        load_encoder,
+        load_index,
+    )
+
+    questions, question_sha = load_questions(root)
+    # Fail on absent or changed saved indexes before loading a model.
+    indexed = {config: load_index(config, root) for config in CONFIGURATIONS}
+    if encoder is None:
+        encoder, device_note = load_encoder()
+    else:
+        device_note = None
+    max_query_tokens = encoder.measure_queries([q["query"] for q in questions])
+    source_bytes = (root / "data/source_manifest.json").read_bytes()
+    source = json.loads(source_bytes)
+    manifest_bytes = (root / "data/chunk_manifest.json").read_bytes()
+    result = {
+        "method": METHOD,
+        "model_id": MODEL_ID,
+        "model_revision": MODEL_REVISION,
+        "parameters": {
+            "top_k": 5,
+            "candidate_k_each": DEFAULT_CANDIDATE_K,
+            "rrf_k": DEFAULT_RRF_K,
+            "weights": {"bm25": 1, "semantic": 1},
+            "bm25_method": "bm25-positive-idf-v1",
+            "semantic_method": INDEX_VERSION,
+        },
+        "evaluation_device": encoder.device,
+        "evaluation_device_note": device_note,
+        "max_query_tokens": max_query_tokens,
+        "zero_truncated_queries": True,
+        "input_sha256": {
+            "questions_jsonl": question_sha,
+            "source_manifest_json": sha256(source_bytes),
+            "processed_book": source["processed"]["sha256"],
+            "chunk_manifest_json": sha256(manifest_bytes),
+            "bm25_results_json": sha256((root / "eval/bm25_results.json").read_bytes()),
+            "semantic_results_json": sha256(
+                (root / "eval/semantic_results.json").read_bytes()
+            ),
+        },
+        "configurations": {},
+    }
+    for config, (chunks, vectors, meta) in indexed.items():
+        index = HybridIndex(BM25Index(chunks), SemanticIndex(chunks, vectors, encoder))
+        result["configurations"][config] = {
+            "chunk_count": len(chunks),
+            "chunks_sha256": meta["chunks_sha256"],
+            "vectors_sha256": sha256((root / f"indexes/{config}.npy").read_bytes()),
+            **evaluate_questions(index, questions),
+        }
+    output = (
+        json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
+    ).encode("utf-8")
+    atomic_write(root / "eval/hybrid_results.json", output)
+    return result
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--method", choices=("bm25", "semantic"), default="bm25")
+    parser.add_argument(
+        "--method", choices=("bm25", "semantic", "hybrid"), default="bm25"
+    )
     args = parser.parse_args(argv)
     try:
-        result = (
-            run_evaluation() if args.method == "bm25" else run_semantic_evaluation()
-        )
+        if args.method == "bm25":
+            result = run_evaluation()
+        elif args.method == "semantic":
+            result = run_semantic_evaluation()
+        else:
+            result = run_hybrid_evaluation()
     except (EvaluationError, OSError, ValueError, KeyError, IndexError) as exc:
         print(f"Evaluation failed: {exc}", file=sys.stderr)
         return 1

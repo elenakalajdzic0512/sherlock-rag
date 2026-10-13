@@ -7,7 +7,8 @@
 - **Phase 2:** Verified Gutenberg #1661 acquisition, exact narrative extraction, manifest, audit, and offline tests. PR #2 merged as `49f8dd6adee7c0244d7988ca61170898225ca7c9`.
 - **Phase 3:** Deterministic, story-bounded sliding-word chunks with exact text slices and word, character, processed-line, and source-line provenance. Both requested configurations and their manifest were generated from the verified local book. PR #3 merged as `7f2e5be6b8959bf27dd543caca7f8adc5372af0d`.
 - **Phase 4:** Verified loading of either selected JSONL, Unicode lexical tokenization, in-memory BM25, JSON search CLI, fixed 30-question source-grounded benchmark, and machine-readable evaluation for both chunk configurations. PR #4 merged as `6465decce4f2b40f2d547072fea5fbdf46d1bb77`. See [retrieval baseline](retrieval-baseline.md).
-- **Phase 5a (ready for review):** Pinned local Qwen embedding model, checked MPS encoding, verified float32 indexes for both configurations, exact cosine search, and comparison with the unchanged BM25 reference set. See [semantic baseline](semantic-baseline.md).
+- **Phase 5a:** Pinned local Qwen embedding model, checked MPS encoding, verified float32 indexes for both configurations, exact cosine search, and comparison with the unchanged BM25 reference set. PR #5 merged as `7965d0c100bad64610313a579aaca00ab5153fde`. See [semantic baseline](semantic-baseline.md).
+- **Phase 5b (ready for review):** Verified equal-weight RRF across existing BM25 and semantic rankings, candidate-union diagnostics, unchanged reference-set evaluation, and a dev-only choice for Phase 6. See [hybrid baseline](hybrid-baseline.md).
 
 ## Phase 3 verification
 
@@ -38,9 +39,17 @@
 - Repeating evaluation from the saved indexes produced identical rankings, scores, and JSON bytes on this MPS run. Source, chunk JSONL, questions, and BM25 results retain their original SHA-256 values.
 - Full offline pytest suite: 64 passed, 0 skipped. Ruff check/format, pip check, and git diff --check passed.
 
+## Phase 5b verification
+
+- Both existing indexes were loaded and checked; no document embeddings were rebuilt. RRF uses 20 candidates per method, `rrf_k=60`, equal weights, and top five results. The same 30 questions and previous BM25/semantic JSON bytes were preserved.
+- Hybrid A dev/test Hit@5 0.500/0.500, MRR@5 0.444/0.361, and candidate-union hit 0.917/1.000. Hybrid B dev/test Hit@5 0.583/0.833, MRR@5 0.500/0.494, and candidate-union hit 0.917/1.000. The [report](hybrid-baseline.md) gives full metrics, context, by-kind results, and fusion misses.
+- A second evaluation from the same saved indexes produced byte-identical JSON, SHA-256 `226d999f964a0cf21322d42fa0e19b088c1aa1e3864adfd18b0d25ea6e77126e`. No floating-point difference was observed on this MPS run.
+- Semantic A was selected for Phase 6 using only dev Hit@5, MRR@5, and context, following the rule recorded before measurement. Test results were excluded from the choice.
+- Full offline pytest suite: 77 passed. Ruff check and format check passed; pip check found no broken requirements; git diff --check passed.
+
 ## Planned
 
-Phase 5b compares hybrid retrieval. Grounded answers, answer evaluation, question generation, and the interface remain planned.
+Phase 6 adds evidence-grounded answers, source citations, and refusal when evidence is insufficient. Answer evaluation, question generation, and the interface remain planned.
 
 ## Blocked
 
