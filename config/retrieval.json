@@ -1,0 +1,15 @@
+{
+  "method": "semantic",
+  "configuration": "w250_o50",
+  "top_k": 5,
+  "model_id": "Qwen/Qwen3-Embedding-0.6B",
+  "model_revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "score": "exact cosine dot product",
+  "selection": {
+    "split": "dev",
+    "hit_at_5": 0.5833333333333334,
+    "mrr_at_5": 0.5,
+    "average_top_5_context_words": 1229.0833333333333,
+    "reason": "Ties hybrid w500_o100 on dev Hit@5 and MRR@5, then wins on lower average top-five context words under the predeclared rule."
+  }
+}

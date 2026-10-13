@@ -96,7 +96,18 @@ conda run -n sherlock-rag python -m sherlock_rag.semantic search --config w250_o
 conda run -n sherlock-rag python -m sherlock_rag.evaluate --method semantic
 ```
 
-Each command verifies the selected source, chunks, and index. A missing index reports its rebuild command. BM25 remains available without installing this extra. The [semantic report](docs/semantic-baseline.md) records the actual versions, device, token-length audit, index hashes, and comparison on the unchanged reference set. Similarity scores are not confidence percentages or decisions about answerability. Hybrid search is planned for Phase 5b.
+Each command verifies the selected source, chunks, and index. A missing index reports its rebuild command. BM25 remains available without installing this extra. The [semantic report](docs/semantic-baseline.md) records the actual versions, device, token-length audit, index hashes, and comparison on the unchanged reference set. Similarity scores are not confidence percentages or decisions about answerability. Phase 5a was merged in PR #5.
+
+## Hybrid retrieval (Phase 5b)
+
+Search one verified configuration with equal-weight reciprocal rank fusion of the top 20 BM25 and semantic candidates:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.hybrid --config w250_o50 --query "Where was Irene Adler’s photograph hidden?" --top-k 5 --candidate-k 20 --rrf-k 60
+conda run -n sherlock-rag python -m sherlock_rag.evaluate --method hybrid
+```
+
+The JSON output records ranks, raw method scores, RRF contributions, exact chunk text and source locations, and all parameters. Missing or invalid saved semantic indexes fail with a rebuild command; the chosen configuration works even if the other one is missing locally. See the [hybrid report](docs/hybrid-baseline.md) for dev/test results and candidate-union misses. [`config/retrieval.json`](config/retrieval.json) selects semantic A for the next phase by a predeclared dev-only rule. Search results alone are not evidence of answerability.
 
 ## Checks
 
