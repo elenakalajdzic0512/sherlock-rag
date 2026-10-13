@@ -1,0 +1,33 @@
+# Python bytecode and build output
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Generated retrieval indexes
+indexes/
+indices/
+vector_store/
+chroma/
+*.faiss
+*.index
+
+# macOS
+.DS_Store
