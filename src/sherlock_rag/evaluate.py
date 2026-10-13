@@ -213,10 +213,81 @@ def run_evaluation(root: Path = PROJECT_ROOT) -> dict:
     return result
 
 
+def run_semantic_evaluation(
+    root: Path = PROJECT_ROOT, encoder: object | None = None
+) -> dict:
+    """Evaluate saved semantic document matrices with unchanged gold rules."""
+    from sherlock_rag.semantic import (
+        DIMENSION,
+        INDEX_VERSION,
+        MAX_SEQ_LENGTH,
+        MODEL_ID,
+        MODEL_REVISION,
+        QUERY_PREFIX,
+        SemanticIndex,
+        load_encoder,
+        load_index,
+    )
+
+    questions, question_sha = load_questions(root)
+    if encoder is None:
+        encoder, device_note = load_encoder()
+    else:
+        device_note = None
+    max_query_tokens = encoder.measure_queries([q["query"] for q in questions])
+    source_bytes = (root / "data/source_manifest.json").read_bytes()
+    source = json.loads(source_bytes)
+    chunk_manifest_bytes = (root / "data/chunk_manifest.json").read_bytes()
+    result = {
+        "method": INDEX_VERSION,
+        "model_id": MODEL_ID,
+        "model_revision": MODEL_REVISION,
+        "parameters": {
+            "top_k": 5,
+            "score": "exact cosine dot product",
+            "query_prefix": QUERY_PREFIX,
+            "dimension": DIMENSION,
+            "max_seq_length": MAX_SEQ_LENGTH,
+        },
+        "evaluation_device": encoder.device,
+        "evaluation_device_note": device_note,
+        "max_query_tokens": max_query_tokens,
+        "zero_truncated_queries": True,
+        "input_sha256": {
+            "questions_jsonl": question_sha,
+            "source_manifest_json": sha256(source_bytes),
+            "processed_book": source["processed"]["sha256"],
+            "chunk_manifest_json": sha256(chunk_manifest_bytes),
+        },
+        "configurations": {},
+    }
+    for config in CONFIGURATIONS:
+        chunks, vectors, meta = load_index(config, root)
+        index = SemanticIndex(chunks, vectors, encoder)
+        vector_path = root / f"indexes/{config}.npy"
+        result["configurations"][config] = {
+            "chunk_count": len(chunks),
+            "chunks_sha256": meta["chunks_sha256"],
+            "vectors_sha256": sha256(vector_path.read_bytes()),
+            "max_document_tokens": meta["max_document_tokens"],
+            "build_seconds": meta["build_seconds"],
+            **evaluate_questions(index, questions),
+        }
+    output = (
+        json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
+    ).encode("utf-8")
+    atomic_write(root / "eval/semantic_results.json", output)
+    return result
+
+
 def main(argv: list[str] | None = None) -> int:
-    argparse.ArgumentParser(description=__doc__).parse_args(argv)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--method", choices=("bm25", "semantic"), default="bm25")
+    args = parser.parse_args(argv)
     try:
-        result = run_evaluation()
+        result = (
+            run_evaluation() if args.method == "bm25" else run_semantic_evaluation()
+        )
     except (EvaluationError, OSError, ValueError, KeyError, IndexError) as exc:
         print(f"Evaluation failed: {exc}", file=sys.stderr)
         return 1

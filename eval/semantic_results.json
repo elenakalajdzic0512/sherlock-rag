@@ -1,0 +1,3610 @@
+{
+  "configurations": {
+    "w250_o50": {
+      "build_seconds": 39.406059624998306,
+      "chunk_count": 525,
+      "chunks_sha256": "2e652bf929a39136726f9f78102f5ca5fcf11bb7b73e155382dd0b88dff979cd",
+      "max_document_tokens": 384,
+      "metrics": {
+        "dev": {
+          "all": {
+            "count": 12,
+            "hit_at_1": 0.4166666666666667,
+            "hit_at_3": 0.5833333333333334,
+            "hit_at_5": 0.5833333333333334,
+            "mrr_at_5": 0.5
+          },
+          "average_top_5_context_words": 1229.0833333333333,
+          "direct": {
+            "count": 6,
+            "hit_at_1": 0.16666666666666666,
+            "hit_at_3": 0.3333333333333333,
+            "hit_at_5": 0.3333333333333333,
+            "mrr_at_5": 0.25
+          },
+          "paraphrase": {
+            "count": 6,
+            "hit_at_1": 0.6666666666666666,
+            "hit_at_3": 0.8333333333333334,
+            "hit_at_5": 0.8333333333333334,
+            "mrr_at_5": 0.75
+          }
+        },
+        "test": {
+          "all": {
+            "count": 12,
+            "hit_at_1": 0.25,
+            "hit_at_3": 0.4166666666666667,
+            "hit_at_5": 0.5833333333333334,
+            "mrr_at_5": 0.375
+          },
+          "average_top_5_context_words": 1208.1666666666667,
+          "direct": {
+            "count": 6,
+            "hit_at_1": 0.0,
+            "hit_at_3": 0.16666666666666666,
+            "hit_at_5": 0.3333333333333333,
+            "mrr_at_5": 0.125
+          },
+          "paraphrase": {
+            "count": 6,
+            "hit_at_1": 0.5,
+            "hit_at_3": 0.6666666666666666,
+            "hit_at_5": 0.8333333333333334,
+            "mrr_at_5": 0.625
+          }
+        }
+      },
+      "queries": [
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            38918,
+            39002
+          ],
+          "gold_story_id": "gutenberg-1661-story-01",
+          "kind": "direct",
+          "question_id": "q01",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 43935,
+              "char_start": 42557,
+              "chunk_id": "sh1661-3619bc00d97d13fda30c38d0afddb5bca89fea2501b4bc9cd9491d24d912d642",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6876832246780396,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 23583,
+              "char_start": 22240,
+              "chunk_id": "sh1661-7e527a60f03b588a05e830b64e2d0bfaa7a591513d5ab8edbca55d15e55d9cd5",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6678789854049683,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 15804,
+              "char_start": 14330,
+              "chunk_id": "sh1661-24295453c899210956bc18c4d7b8658ada5968d343bdceba7d4ccaed3329afef",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.628559947013855,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 2565,
+              "char_start": 1105,
+              "chunk_id": "sh1661-dd8164addd4e61de6cd6e7d8532595f91c709a5e6f38917bb7ffd710733b0dab",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6192954182624817,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 45060,
+              "char_start": 43665,
+              "chunk_id": "sh1661-a64b3770dec43636d3479bedfc6fe5ed7aecdd58b83e1591a729439bd6cd730d",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6111037731170654,
+              "story_id": "gutenberg-1661-story-01"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            26927,
+            27001
+          ],
+          "gold_story_id": "gutenberg-1661-story-01",
+          "kind": "paraphrase",
+          "question_id": "q02",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 23583,
+              "char_start": 22240,
+              "chunk_id": "sh1661-7e527a60f03b588a05e830b64e2d0bfaa7a591513d5ab8edbca55d15e55d9cd5",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.7015049457550049,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 41677,
+              "char_start": 40283,
+              "chunk_id": "sh1661-c630f3b4c9d8b670b606888655ae21eaeefe129a5e1aafaa9f2a43eeb80f8001",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6664068698883057,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 2565,
+              "char_start": 1105,
+              "chunk_id": "sh1661-dd8164addd4e61de6cd6e7d8532595f91c709a5e6f38917bb7ffd710733b0dab",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6167440414428711,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 15804,
+              "char_start": 14330,
+              "chunk_id": "sh1661-24295453c899210956bc18c4d7b8658ada5968d343bdceba7d4ccaed3329afef",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6074255704879761,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 1392,
+              "char_start": 0,
+              "chunk_id": "sh1661-3d58a2fb364fe89951b0dacbce7f0437255770f685f9939b665df2d81f5a3b3f",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5845741033554077,
+              "story_id": "gutenberg-1661-story-01"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            64281,
+            64326
+          ],
+          "gold_story_id": "gutenberg-1661-story-02",
+          "kind": "direct",
+          "question_id": "q03",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 61817,
+              "char_start": 60534,
+              "chunk_id": "sh1661-5cbaa26916587343807654ea4071e131658bd289bf5432f6432df6a3cf430a48",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6504747867584229,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 53461,
+              "char_start": 52088,
+              "chunk_id": "sh1661-e7ae48d63d998e4521b6f6aa4abbad596d15faf30b82bd137892588f8a3b3fd1",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5799589157104492,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 47902,
+              "char_start": 46523,
+              "chunk_id": "sh1661-7683d749481338168e53887a2bfb80bf3ca0906259d8d10df44da7775a6518a4",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5705990195274353,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 70231,
+              "char_start": 68951,
+              "chunk_id": "sh1661-c51be79018bcad64e29e4ead558b7b9ca86d781fc5ed05a377769d6adcc6047a",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5646228194236755,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 95433,
+              "char_start": 94041,
+              "chunk_id": "sh1661-65a04abb97f57809c985087016f4c7bd5c956ed2b50453b00e1da35de5a00bc5",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5579295754432678,
+              "story_id": "gutenberg-1661-story-02"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            92127,
+            92256
+          ],
+          "gold_story_id": "gutenberg-1661-story-02",
+          "kind": "paraphrase",
+          "question_id": "q04",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 93248,
+              "char_start": 91896,
+              "chunk_id": "sh1661-f722a6fc0839956a463f5d55fbbda9e80e68c1ed74d3c47175ce6f97cdc1ccf3",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.6329896450042725,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 92172,
+              "char_start": 90805,
+              "chunk_id": "sh1661-9569255b3f3a6bf1c989b6f9a3a4f8a755698f4cf76f0a12c1b09c113f40c71a",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5532913208007812,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 57661,
+              "char_start": 56362,
+              "chunk_id": "sh1661-7130b53edfca9fbdf967d0734516cc4f50dd7e5f2a43cfbdaec1db0bcc186c2a",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5289618968963623,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 54531,
+              "char_start": 53191,
+              "chunk_id": "sh1661-0a54da8e51d28f9c3b09bd755aab6b705f80052f7f6728422c3b12071ceeeb53",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5274137854576111,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 61817,
+              "char_start": 60534,
+              "chunk_id": "sh1661-5cbaa26916587343807654ea4071e131658bd289bf5432f6432df6a3cf430a48",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.48117682337760925,
+              "story_id": "gutenberg-1661-story-02"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 2,
+          "gold_interval": [
+            124753,
+            124857
+          ],
+          "gold_story_id": "gutenberg-1661-story-03",
+          "kind": "direct",
+          "question_id": "q05",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 126423,
+              "char_start": 125063,
+              "chunk_id": "sh1661-e555dacbd700eeb59d58fdecdb362464eb1bfcc95da354279dee7c2da9f024ab",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.7972379326820374,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 125343,
+              "char_start": 123950,
+              "chunk_id": "sh1661-0adea27a9f2da74199e4ad9574f860ea1fce3a4c57c860113255f0fa1ca6b267",
+              "rank": 2,
+              "relevant": true,
+              "score": 0.7846314907073975,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 127473,
+              "char_start": 126155,
+              "chunk_id": "sh1661-2dc83aba87d01f61c7b924f989d39c06966b62733012f25a7d63203b650e78a3",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6748152375221252,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 124217,
+              "char_start": 122864,
+              "chunk_id": "sh1661-e6f7e92fe1ceb295927d3930799f5d2fc13befe990e9eb8bd04bc56ef952a891",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6570273041725159,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 133700,
+              "char_start": 132676,
+              "chunk_id": "sh1661-1101daa23c0ae3c2ca28d2858046cec2ac69b19481870cdb6d441f058e50968f",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6441081762313843,
+              "story_id": "gutenberg-1661-story-03"
+            }
+          ],
+          "top_5_context_words": 1180
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            133231,
+            133384
+          ],
+          "gold_story_id": "gutenberg-1661-story-03",
+          "kind": "paraphrase",
+          "question_id": "q06",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 133700,
+              "char_start": 132676,
+              "chunk_id": "sh1661-1101daa23c0ae3c2ca28d2858046cec2ac69b19481870cdb6d441f058e50968f",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.5923195481300354,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 124217,
+              "char_start": 122864,
+              "chunk_id": "sh1661-e6f7e92fe1ceb295927d3930799f5d2fc13befe990e9eb8bd04bc56ef952a891",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.577793538570404,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 127473,
+              "char_start": 126155,
+              "chunk_id": "sh1661-2dc83aba87d01f61c7b924f989d39c06966b62733012f25a7d63203b650e78a3",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5443111658096313,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 126423,
+              "char_start": 125063,
+              "chunk_id": "sh1661-e555dacbd700eeb59d58fdecdb362464eb1bfcc95da354279dee7c2da9f024ab",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5390818119049072,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 130765,
+              "char_start": 129448,
+              "chunk_id": "sh1661-3b1fe3675d75567bfe1ff86acbb6ffc802a1c9c2600f4742c30cc20906a69af2",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5291142463684082,
+              "story_id": "gutenberg-1661-story-03"
+            }
+          ],
+          "top_5_context_words": 1180
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            173664,
+            173675
+          ],
+          "gold_story_id": "gutenberg-1661-story-04",
+          "kind": "direct",
+          "question_id": "q07",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 179241,
+              "char_start": 178021,
+              "chunk_id": "sh1661-1661f8781be1dfe7c765640fbfd818d44ce10b6a848f558cd6fc72c89a4c5539",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6425521373748779,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 178269,
+              "char_start": 176983,
+              "chunk_id": "sh1661-977fb77bc5c028ce562234b9035d948928810de275dc8caac0e920e6494b5af4",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6312888264656067,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 181188,
+              "char_start": 179989,
+              "chunk_id": "sh1661-349d36bfa48126c984a486e0e64f2ef237526fa938a55f9e425b4a171b528023",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6088147163391113,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 172873,
+              "char_start": 171474,
+              "chunk_id": "sh1661-aa1dca88f0a8886f66df5e427c2ee291bca76e974001052ce1a50a4c995c9c47",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6051315665245056,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 151313,
+              "char_start": 149938,
+              "chunk_id": "sh1661-5670ae2a358793fcd899c16c1006fe624f718719afede770b0df3b9ec5d0d5db",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6046868562698364,
+              "story_id": "gutenberg-1661-story-04"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 2,
+          "gold_interval": [
+            175108,
+            175242
+          ],
+          "gold_story_id": "gutenberg-1661-story-04",
+          "kind": "paraphrase",
+          "question_id": "q08",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 171768,
+              "char_start": 170319,
+              "chunk_id": "sh1661-9477ff1f9de02ce75ddef728b8761e7df61665597907ef23b164bd093ef52b45",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.7073882818222046,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 176154,
+              "char_start": 174794,
+              "chunk_id": "sh1661-b2420883e31dc1658da4d5ea6985df189360cc4e4f8a776a56aadadc501924f9",
+              "rank": 2,
+              "relevant": true,
+              "score": 0.6611263751983643,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 336589,
+              "char_start": 335232,
+              "chunk_id": "sh1661-b1a0cae74155cfe264e4f9a2f09c6d33e3f9451c33d3592813c78d723b936bda",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5934432744979858,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 177246,
+              "char_start": 175903,
+              "chunk_id": "sh1661-6b41854cb991583306fd1dc51f58649a763dfa1ad1403b1691380d87070c1c3b",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5873714089393616,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 131826,
+              "char_start": 130494,
+              "chunk_id": "sh1661-877be65350f4bc64d368bde79f2a43eff6c811768bdd481f6a80f871587f0b23",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5793076157569885,
+              "story_id": "gutenberg-1661-story-03"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            214650,
+            214693
+          ],
+          "gold_story_id": "gutenberg-1661-story-05",
+          "kind": "direct",
+          "question_id": "q09",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 215495,
+              "char_start": 214086,
+              "chunk_id": "sh1661-8a7033c6b00872d6058ef4fe0e631ee1de58b90c0d6928be3e28ebea0e66c86c",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.5972645878791809,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 194921,
+              "char_start": 193610,
+              "chunk_id": "sh1661-db0be9c113693392483f7e1b99c930bf95eb9a8eabb31bd524fb4f956a0672ce",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.48613977432250977,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 201231,
+              "char_start": 199858,
+              "chunk_id": "sh1661-833cc759d0aefdd797c91930504246c41cd155538c3ca2b93dbfa72d4ccf4e8d",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.4501558542251587,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 58690,
+              "char_start": 57380,
+              "chunk_id": "sh1661-6ddeefd2f21023c00f1c9d9c4badb0105b1ec30780ab57a7bf28452dea2b422e",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.43656933307647705,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 195935,
+              "char_start": 194650,
+              "chunk_id": "sh1661-bf6e460c0d129246306ca66a3b3b66354e9db0b2af10be6b89af64d5322c313f",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.42429840564727783,
+              "story_id": "gutenberg-1661-story-05"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            221916,
+            221976
+          ],
+          "gold_story_id": "gutenberg-1661-story-05",
+          "kind": "paraphrase",
+          "question_id": "q10",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 223085,
+              "char_start": 221711,
+              "chunk_id": "sh1661-c55392a0166615d3a359b3cc52dad4f1adce43d175f20fec2c218b3eed8d2633",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.536302924156189,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 224165,
+              "char_start": 222823,
+              "chunk_id": "sh1661-541c5f60299620761a70e4bc7d6bcac7320039f8d7d947542e4c6d265ebd891b",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5153583288192749,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 224507,
+              "char_start": 223885,
+              "chunk_id": "sh1661-b63fc6207fe7ab0137fe4fbb77a6614b493b282891ac9eb5aaaf94fe5ca059aa",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5102069973945618,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 81256,
+              "char_start": 79879,
+              "chunk_id": "sh1661-db0854ea43fff84a91dcfd0002626220b476a8a462ed548918a79ff106512e18",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5092964172363281,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 87813,
+              "char_start": 86455,
+              "chunk_id": "sh1661-db661de9e77ec4dbb7126d498fd845e3139ac23a950c74d5e619729ba7d10817",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.48003461956977844,
+              "story_id": "gutenberg-1661-story-02"
+            }
+          ],
+          "top_5_context_words": 1119
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            265163,
+            265386
+          ],
+          "gold_story_id": "gutenberg-1661-story-06",
+          "kind": "direct",
+          "question_id": "q11",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 36330,
+              "char_start": 35030,
+              "chunk_id": "sh1661-c830c583d52b356c1bf7c6ff47ba0fa5c3e8305f770ce8752ba6b76b7d66c5db",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6606436967849731,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 233075,
+              "char_start": 231766,
+              "chunk_id": "sh1661-345d464391f9b3b2b757fe062826f37872770478de8f82054916868f377d4ec0",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.659045934677124,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 273672,
+              "char_start": 272581,
+              "chunk_id": "sh1661-7906674487c58b3416eaa9ee6e75c6f02fbbe53088cb0531d2913c8ef485590f",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6466033458709717,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 377762,
+              "char_start": 376362,
+              "chunk_id": "sh1661-c29d0d32ac0e0a2476592f84ab998b7c9aa8a0e8c43fe112a9a5d14cad895018",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6450200080871582,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 340971,
+              "char_start": 339594,
+              "chunk_id": "sh1661-2a552ceb0eb5c6b187036c125bb67c8c8311e8f4817367bc2b8bbd49aaa7a57d",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6434768438339233,
+              "story_id": "gutenberg-1661-story-08"
+            }
+          ],
+          "top_5_context_words": 1206
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 4,
+          "gold_interval": [
+            271786,
+            271852
+          ],
+          "gold_story_id": "gutenberg-1661-story-06",
+          "kind": "paraphrase",
+          "question_id": "q12",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 248239,
+              "char_start": 246845,
+              "chunk_id": "sh1661-2c4902a178bfd6ed2e5f011f402a7c2ac6c9540e2cfc6e19337ff808910c7d88",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.686424970626831,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 236352,
+              "char_start": 234977,
+              "chunk_id": "sh1661-7711ff8f35219812390b4226c5956706e7aaa0ef63eafa1d33921ea40a289e78",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6727064251899719,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 243864,
+              "char_start": 242540,
+              "chunk_id": "sh1661-5df759a3c5db63d536ca9a19ae49049d3c5240be1467c0539cd2ef365ea5f21b",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6615002155303955,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 272868,
+              "char_start": 271513,
+              "chunk_id": "sh1661-2b1f47948e6ca6f2ba69058d242131da52c1a8f5ae0314841763c78a228ef59b",
+              "rank": 4,
+              "relevant": true,
+              "score": 0.6602122783660889,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 256842,
+              "char_start": 255511,
+              "chunk_id": "sh1661-92788b402a6307a2f27f0449da2b03df5c1564efe19b932d6828b01dee38a508",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.660041868686676,
+              "story_id": "gutenberg-1661-story-06"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 2,
+          "gold_interval": [
+            285643,
+            285689
+          ],
+          "gold_story_id": "gutenberg-1661-story-07",
+          "kind": "paraphrase",
+          "question_id": "q13",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 289497,
+              "char_start": 288067,
+              "chunk_id": "sh1661-c06b3271656a296ef6b38843dec3664e61f625a456cd955a4cba2963baf00190",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.5853715538978577,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 286034,
+              "char_start": 284643,
+              "chunk_id": "sh1661-ce0b405e9b8e05782fccc919314a6a8065d37d0e607acf94e3b8e7ff10419950",
+              "rank": 2,
+              "relevant": true,
+              "score": 0.576604962348938,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 284922,
+              "char_start": 283571,
+              "chunk_id": "sh1661-d34b4ac9798aad838fbeaaa721a91ba058b4b2c0bded6a0a777f40f98d1f0619",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5716779232025146,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 312830,
+              "char_start": 311570,
+              "chunk_id": "sh1661-836a71a5fd79d0bdffa71e89cb9824e5e96d8df0ff7ef06c005fa41a3c074346",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5654101371765137,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 277309,
+              "char_start": 275901,
+              "chunk_id": "sh1661-65fe334730e0a01a3ac9161303d3b70d441547e36553dfffaa2d76018a2788da",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5618081092834473,
+              "story_id": "gutenberg-1661-story-07"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 2,
+          "gold_interval": [
+            305664,
+            305716
+          ],
+          "gold_story_id": "gutenberg-1661-story-07",
+          "kind": "direct",
+          "question_id": "q14",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 441592,
+              "char_start": 440160,
+              "chunk_id": "sh1661-de47d2040a9209ee30dbec5b3ac13c49526928bb36527301096a05ad92482de4",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.5356779098510742,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 306678,
+              "char_start": 305312,
+              "chunk_id": "sh1661-6f39bbe2a56aa263abf26c515427c2cc8b780e5f348a46fa66fd30bf0da79c78",
+              "rank": 2,
+              "relevant": true,
+              "score": 0.5187435150146484,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 433830,
+              "char_start": 432445,
+              "chunk_id": "sh1661-d6f67cfd58d1eaa377d0dcf439bf6ad8acb67a12fc87a262682fbc0c81a0a49f",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.49550148844718933,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 457201,
+              "char_start": 455829,
+              "chunk_id": "sh1661-b47061d1eba508125cf136af18f6f193ba50619d79b141fb1a3a39f34a86852a",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.4913210868835449,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 377762,
+              "char_start": 376362,
+              "chunk_id": "sh1661-c29d0d32ac0e0a2476592f84ab998b7c9aa8a0e8c43fe112a9a5d14cad895018",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.4889986217021942,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            364278,
+            364345
+          ],
+          "gold_story_id": "gutenberg-1661-story-08",
+          "kind": "paraphrase",
+          "question_id": "q15",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 364714,
+              "char_start": 363326,
+              "chunk_id": "sh1661-7e39aa6a7f95d93887aecca70cafb826419dc7e80752ec45e0265467160a99ba",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.6529691219329834,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 368745,
+              "char_start": 367633,
+              "chunk_id": "sh1661-7a8aa2074e45e58c78e8fe0ec23a143c1522664fbf11fcc18822eab436ed2868",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6079788208007812,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 365774,
+              "char_start": 364452,
+              "chunk_id": "sh1661-703ff9895b40b10c03ea52e7ee0b45c446fdc9e758d708dcb159ce7d559c22be",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6005196571350098,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 363607,
+              "char_start": 362287,
+              "chunk_id": "sh1661-dfe9be4202451a7224caa5d05d402de6aa1251460387ceac833d99bca5e2b179",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5649430155754089,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 325793,
+              "char_start": 324415,
+              "chunk_id": "sh1661-662d4668be03c202747c3e12dac435dcb51d5447e794a9988b351be75dd224a2",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.558749794960022,
+              "story_id": "gutenberg-1661-story-08"
+            }
+          ],
+          "top_5_context_words": 1212
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            367317,
+            367356
+          ],
+          "gold_story_id": "gutenberg-1661-story-08",
+          "kind": "direct",
+          "question_id": "q16",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 364714,
+              "char_start": 363326,
+              "chunk_id": "sh1661-7e39aa6a7f95d93887aecca70cafb826419dc7e80752ec45e0265467160a99ba",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6446002721786499,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 329031,
+              "char_start": 327661,
+              "chunk_id": "sh1661-fc53f2c070c9bab622fdb94cedd78cb9a46ffb149edf2397a4fb26ccd79247cd",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.608063817024231,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 368745,
+              "char_start": 367633,
+              "chunk_id": "sh1661-7a8aa2074e45e58c78e8fe0ec23a143c1522664fbf11fcc18822eab436ed2868",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5609647631645203,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 351921,
+              "char_start": 350513,
+              "chunk_id": "sh1661-cd9346bb3bd21ab9178d7f4b787bc91eded3434656d231af2320afd3e3fe9caa",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5551230907440186,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 363607,
+              "char_start": 362287,
+              "chunk_id": "sh1661-dfe9be4202451a7224caa5d05d402de6aa1251460387ceac833d99bca5e2b179",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5548465847969055,
+              "story_id": "gutenberg-1661-story-08"
+            }
+          ],
+          "top_5_context_words": 1212
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            385602,
+            385824
+          ],
+          "gold_story_id": "gutenberg-1661-story-09",
+          "kind": "paraphrase",
+          "question_id": "q17",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 386408,
+              "char_start": 385097,
+              "chunk_id": "sh1661-7473b2a72c3b80b8249e782075fec5da04ee016407e90199cde8a3a5da716acf",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.6355724930763245,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 413119,
+              "char_start": 411712,
+              "chunk_id": "sh1661-4e65261dbcc7a339b1d0f0111b0b30c7a105ba4a9214513d51df8c8549ac6f9f",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6201779842376709,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 378871,
+              "char_start": 377480,
+              "chunk_id": "sh1661-d6c032f73a1ad855667784252425a634d8afddbc572df94db0ebf016088dff83",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6090212464332581,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 397110,
+              "char_start": 395758,
+              "chunk_id": "sh1661-b22b3507491a29f1bd813dafe259f4abdd61ee24fce0af3f82041c10fd45ab60",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6089602112770081,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 396035,
+              "char_start": 394681,
+              "chunk_id": "sh1661-e8daaa2118a65654fe182c7cd224b65136a53e98ce6f42f9b97122027035aafa",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6069276332855225,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            403307,
+            403341
+          ],
+          "gold_story_id": "gutenberg-1661-story-09",
+          "kind": "direct",
+          "question_id": "q18",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 373452,
+              "char_start": 372066,
+              "chunk_id": "sh1661-1b545811284b5412087f41b0e0c29af5b05478df932649da0d4878cc71468a9b",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.7247341871261597,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 412010,
+              "char_start": 410602,
+              "chunk_id": "sh1661-f2caadc97818bec5626c45869520bb522f42f5b8185836e720e0682b20f48bb9",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5573568344116211,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 370155,
+              "char_start": 368750,
+              "chunk_id": "sh1661-e26778c6e47d27dd9bf65adecd432fe9d5cc5b83080ea18077109e4742f09831",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.543525218963623,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 386408,
+              "char_start": 385097,
+              "chunk_id": "sh1661-7473b2a72c3b80b8249e782075fec5da04ee016407e90199cde8a3a5da716acf",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.523116946220398,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 379934,
+              "char_start": 378610,
+              "chunk_id": "sh1661-529769b3283fd5365c0f54e424e2f66ffbcabad720eb510703b3a21cc16ff0f4",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5220645666122437,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            419103,
+            419162
+          ],
+          "gold_story_id": "gutenberg-1661-story-10",
+          "kind": "paraphrase",
+          "question_id": "q19",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 420450,
+              "char_start": 418995,
+              "chunk_id": "sh1661-f192c9b776ab986e7ac880c8acbcf85e89f2b9ed6077316d5844472ed6cd5bce",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.6178714036941528,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 430579,
+              "char_start": 429177,
+              "chunk_id": "sh1661-39edfbee57644b4188692e62c6abe27f5255ddb518e37c6e8842bf1ed478dd67",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5960366725921631,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 419292,
+              "char_start": 417877,
+              "chunk_id": "sh1661-092ad49b6f880e45d34f3f3cae93f55e08384f5d5d19477184a0629052a3c2ce",
+              "rank": 3,
+              "relevant": true,
+              "score": 0.5774674415588379,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 428353,
+              "char_start": 427009,
+              "chunk_id": "sh1661-8d876d64d1ed115c88656bc5df67390ce0cefcde7902da179a92c16a64c6563d",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5698260068893433,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 425080,
+              "char_start": 423649,
+              "chunk_id": "sh1661-e102afc6f873edc4e829a21d8d788e523eeedd64f9b54d237e7ee3738c378a78",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.4481160640716553,
+              "story_id": "gutenberg-1661-story-10"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            448729,
+            448806
+          ],
+          "gold_story_id": "gutenberg-1661-story-10",
+          "kind": "direct",
+          "question_id": "q20",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 430579,
+              "char_start": 429177,
+              "chunk_id": "sh1661-39edfbee57644b4188692e62c6abe27f5255ddb518e37c6e8842bf1ed478dd67",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.624726414680481,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 420450,
+              "char_start": 418995,
+              "chunk_id": "sh1661-f192c9b776ab986e7ac880c8acbcf85e89f2b9ed6077316d5844472ed6cd5bce",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5691587924957275,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 423925,
+              "char_start": 422486,
+              "chunk_id": "sh1661-8b8db0af27c19d7a64d1bb38f163249265008ce6afaac71a864becf4913c2021",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5579039454460144,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 428353,
+              "char_start": 427009,
+              "chunk_id": "sh1661-8d876d64d1ed115c88656bc5df67390ce0cefcde7902da179a92c16a64c6563d",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5436713099479675,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 419292,
+              "char_start": 417877,
+              "chunk_id": "sh1661-092ad49b6f880e45d34f3f3cae93f55e08384f5d5d19477184a0629052a3c2ce",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5392725467681885,
+              "story_id": "gutenberg-1661-story-10"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            464911,
+            464948
+          ],
+          "gold_story_id": "gutenberg-1661-story-11",
+          "kind": "paraphrase",
+          "question_id": "q21",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 465333,
+              "char_start": 463973,
+              "chunk_id": "sh1661-55e027e7fc0af474815c00ccca9f20a5a7c47059aaf8fa80cffc4aec6e7d9dac",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.6680744886398315,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 489523,
+              "char_start": 488221,
+              "chunk_id": "sh1661-e5cff66f58e26cdb79cbb40269909a41932ec679c426ea6f2ce9a28e758eddb8",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.590694785118103,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 475750,
+              "char_start": 474398,
+              "chunk_id": "sh1661-e1fd531fd322f7ad24e09bfb2bf2e635e3f7e85920a208327787e630cfe2b321",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5334250926971436,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 466367,
+              "char_start": 465070,
+              "chunk_id": "sh1661-ae23997d7391b8bc82420fa6ed6c6c234d5176733de28790a7d3f0653a539350",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5282310843467712,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 502115,
+              "char_start": 500737,
+              "chunk_id": "sh1661-0ad7ee3e71c952a9d7ef9559e73039764dc66032a43ee37eff30084c7e5d6472",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5091360807418823,
+              "story_id": "gutenberg-1661-story-11"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 4,
+          "gold_interval": [
+            497783,
+            497892
+          ],
+          "gold_story_id": "gutenberg-1661-story-11",
+          "kind": "direct",
+          "question_id": "q22",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 485310,
+              "char_start": 483990,
+              "chunk_id": "sh1661-eab7ff5a10d7c7ea15c61c9f9d27fb1742ee675ff94789d3eadfc33ba5f64f0f",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.5839940309524536,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 508512,
+              "char_start": 508080,
+              "chunk_id": "sh1661-72bd9b0e878c994f4f6d0836d251cbe950a54abbe55397c9cba582964684cd01",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5737648010253906,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 471581,
+              "char_start": 470273,
+              "chunk_id": "sh1661-9d4745884f0b53b6c6c5dcbde171f580937d86e271bda9b9041dff3a9bbe0652",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5711846351623535,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 498859,
+              "char_start": 497505,
+              "chunk_id": "sh1661-b9253cfd1f14cbf73f4717988a1e68849a292a51f5146345225263ae86ae0d01",
+              "rank": 4,
+              "relevant": true,
+              "score": 0.5296196341514587,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 472605,
+              "char_start": 471319,
+              "chunk_id": "sh1661-dc39fd765f6bef69d6786ac3320a7eea593a3b52ea1b179c5edd59f6b41d14b6",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5152762532234192,
+              "story_id": "gutenberg-1661-story-11"
+            }
+          ],
+          "top_5_context_words": 1086
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            551728,
+            551935
+          ],
+          "gold_story_id": "gutenberg-1661-story-12",
+          "kind": "paraphrase",
+          "question_id": "q23",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 514294,
+              "char_start": 512991,
+              "chunk_id": "sh1661-cfb28ada0a433cc98dad59a7cea6b4e60f476c94b3055bacd2eb32cb18838051",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.5742683410644531,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 71329,
+              "char_start": 69976,
+              "chunk_id": "sh1661-659ba4f9c29c56db7d282cd104543f89a26a06fcccb0ae11551c398d0b0f781c",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5251977443695068,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 561653,
+              "char_start": 560809,
+              "chunk_id": "sh1661-c002ba82be37657b787f9d3c4b6590ddd49e09ca3305af679af207b7c43edaf7",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5209400057792664,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 521877,
+              "char_start": 520531,
+              "chunk_id": "sh1661-982e385352f34215fd2ecd3f747faf8ee9cbbf23b067c768cc2883c987fb880e",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5061275959014893,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 513269,
+              "char_start": 511877,
+              "chunk_id": "sh1661-d968a9b7670fe4c986ec7e1de9a509b5378d660a3aaee9e9d4e79ddcbb798087",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5023623704910278,
+              "story_id": "gutenberg-1661-story-12"
+            }
+          ],
+          "top_5_context_words": 1151
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            517078,
+            517137
+          ],
+          "gold_story_id": "gutenberg-1661-story-12",
+          "kind": "direct",
+          "question_id": "q24",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 561653,
+              "char_start": 560809,
+              "chunk_id": "sh1661-c002ba82be37657b787f9d3c4b6590ddd49e09ca3305af679af207b7c43edaf7",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6529609560966492,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 524090,
+              "char_start": 522718,
+              "chunk_id": "sh1661-ab93bf21121b2405ed2d2bf1fbe53bed88d44c072314ac2593193ccc0e07d892",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6218894720077515,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 525146,
+              "char_start": 523835,
+              "chunk_id": "sh1661-ff7ff09894a15a96fe13781acb4dc0b2762aa9c01eb4f4be2f9ce5afea103619",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6019524335861206,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 535870,
+              "char_start": 534553,
+              "chunk_id": "sh1661-71338e63e2123821df13575f2278f342c9596cf8074b497edf7f81fb86249726",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5515543818473816,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 545220,
+              "char_start": 543937,
+              "chunk_id": "sh1661-90ce3c1513c7010e6b3c8446bc6c789eea77cc86de2dea24d4b9060f0e15fd7f",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5497869849205017,
+              "story_id": "gutenberg-1661-story-12"
+            }
+          ],
+          "top_5_context_words": 1151
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q25",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 233075,
+              "char_start": 231766,
+              "chunk_id": "sh1661-345d464391f9b3b2b757fe062826f37872770478de8f82054916868f377d4ec0",
+              "rank": 1,
+              "score": 0.5649945139884949,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 123160,
+              "char_start": 121803,
+              "chunk_id": "sh1661-2af1a39b817d4e28fd43a7e8aa9f85fd0fe049dd86573654f169bd88b0fdc81a",
+              "rank": 2,
+              "score": 0.5340837836265564,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 275055,
+              "char_start": 273677,
+              "chunk_id": "sh1661-67624d97730a575545a49b6971a4b8e3de489412e42a4f391940be86cfd0d990",
+              "rank": 3,
+              "score": 0.5261032581329346,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 318218,
+              "char_start": 316907,
+              "chunk_id": "sh1661-ba623d4fa79063d5f1d08f52d148333e775113c94856cbb409510aea574e1f7d",
+              "rank": 4,
+              "score": 0.5210123062133789,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 406490,
+              "char_start": 405069,
+              "chunk_id": "sh1661-bea03026b321fe5ac9c369b9a7bf1bf3cf4123ee203f5ed2106cddf3d14b206a",
+              "rank": 5,
+              "score": 0.516910195350647,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q26",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 413119,
+              "char_start": 411712,
+              "chunk_id": "sh1661-4e65261dbcc7a339b1d0f0111b0b30c7a105ba4a9214513d51df8c8549ac6f9f",
+              "rank": 1,
+              "score": 0.3414749801158905,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 123160,
+              "char_start": 121803,
+              "chunk_id": "sh1661-2af1a39b817d4e28fd43a7e8aa9f85fd0fe049dd86573654f169bd88b0fdc81a",
+              "rank": 2,
+              "score": 0.3293924927711487,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 10137,
+              "char_start": 8782,
+              "chunk_id": "sh1661-39ea6c1d34dc9bfb2cb40a34c64d81646f01bb622130325a13966bd153bf7f23",
+              "rank": 3,
+              "score": 0.3226340413093567,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 527332,
+              "char_start": 525934,
+              "chunk_id": "sh1661-160d8e792e678e97b902e8b984344e32722a544a7eb9bc3976c067af9b5bd8bb",
+              "rank": 4,
+              "score": 0.3174149692058563,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 37387,
+              "char_start": 36074,
+              "chunk_id": "sh1661-c8737cccb3d034203fb53320b856504c5b9ec7eb2353898b47db4baf48bde048",
+              "rank": 5,
+              "score": 0.31485819816589355,
+              "story_id": "gutenberg-1661-story-01"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q27",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 218748,
+              "char_start": 217410,
+              "chunk_id": "sh1661-40118023bd18ad261513257f4237b9657d5af674db685570374bdd3a7bc82414",
+              "rank": 1,
+              "score": 0.41787439584732056,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 153539,
+              "char_start": 152161,
+              "chunk_id": "sh1661-e5ff1fe768724db8161d302a3060b27b77a67d574e1940708c145a6ab98ed4dd",
+              "rank": 2,
+              "score": 0.41154295206069946,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 188617,
+              "char_start": 187292,
+              "chunk_id": "sh1661-63e1786c1542f3fde4089483816c6ef9f47703f82b6d381dadd9cd42cc653696",
+              "rank": 3,
+              "score": 0.39350515604019165,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 373452,
+              "char_start": 372066,
+              "chunk_id": "sh1661-1b545811284b5412087f41b0e0c29af5b05478df932649da0d4878cc71468a9b",
+              "rank": 4,
+              "score": 0.3808998465538025,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 320402,
+              "char_start": 319050,
+              "chunk_id": "sh1661-08df457faaee1e42b1dcec99eca4f8f9ced77a70641c4dfdb49ff891a333fcd1",
+              "rank": 5,
+              "score": 0.37095126509666443,
+              "story_id": "gutenberg-1661-story-08"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q28",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 415905,
+              "char_start": 414471,
+              "chunk_id": "sh1661-95712b66ed3130ec8d9dc51efde2cc1d108994b7db021313daf62637b78938a4",
+              "rank": 1,
+              "score": 0.6713764667510986,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 235232,
+              "char_start": 233921,
+              "chunk_id": "sh1661-6818682484580e7de02de98bcacc8244df252c6729a208cb830ffec478e97ed8",
+              "rank": 2,
+              "score": 0.6524040699005127,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 231010,
+              "char_start": 229703,
+              "chunk_id": "sh1661-3e3c8962f29021c6bb6779e30b8d0f872976625f6e8e70a93cc9d78333106995",
+              "rank": 3,
+              "score": 0.6381136775016785,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 252528,
+              "char_start": 251208,
+              "chunk_id": "sh1661-01593c5b709bdbbe9a8a10144e24f97d5e812c3f303166696aee2e2e6f18a1b2",
+              "rank": 4,
+              "score": 0.6050809621810913,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 4651,
+              "char_start": 3361,
+              "chunk_id": "sh1661-2c3f78edf13ba9ed27e315ac3edb8e1536f463c6a21f27fbe48a440bcf297190",
+              "rank": 5,
+              "score": 0.5841965675354004,
+              "story_id": "gutenberg-1661-story-01"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q29",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 37387,
+              "char_start": 36074,
+              "chunk_id": "sh1661-c8737cccb3d034203fb53320b856504c5b9ec7eb2353898b47db4baf48bde048",
+              "rank": 1,
+              "score": 0.3345699906349182,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 252528,
+              "char_start": 251208,
+              "chunk_id": "sh1661-01593c5b709bdbbe9a8a10144e24f97d5e812c3f303166696aee2e2e6f18a1b2",
+              "rank": 2,
+              "score": 0.33037033677101135,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 413119,
+              "char_start": 411712,
+              "chunk_id": "sh1661-4e65261dbcc7a339b1d0f0111b0b30c7a105ba4a9214513d51df8c8549ac6f9f",
+              "rank": 3,
+              "score": 0.30806031823158264,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 153539,
+              "char_start": 152161,
+              "chunk_id": "sh1661-e5ff1fe768724db8161d302a3060b27b77a67d574e1940708c145a6ab98ed4dd",
+              "rank": 4,
+              "score": 0.307142972946167,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 408676,
+              "char_start": 407346,
+              "chunk_id": "sh1661-a6fa4b43e1d96e83f3f34bf1da59a4552125c8c8cce70cb3ef05da3b2878af3e",
+              "rank": 5,
+              "score": 0.3031177818775177,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 1250
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q30",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 86715,
+              "char_start": 85340,
+              "chunk_id": "sh1661-ba74ea35c29298600f329caff2039587f66e78c6ae848bd6f9da2f81612888e2",
+              "rank": 1,
+              "score": 0.43441349267959595,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 85634,
+              "char_start": 84239,
+              "chunk_id": "sh1661-12d34b78d7644709e5e4395996ab50949851d14f264f386cbc320bb95b37d098",
+              "rank": 2,
+              "score": 0.42841845750808716,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 465333,
+              "char_start": 463973,
+              "chunk_id": "sh1661-55e027e7fc0af474815c00ccca9f20a5a7c47059aaf8fa80cffc4aec6e7d9dac",
+              "rank": 3,
+              "score": 0.41533511877059937,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 517539,
+              "char_start": 516182,
+              "chunk_id": "sh1661-23c21f164b7ea463ea2f4cdb70df5cecc1b1c4f0a44a4ebfb2c29f7da1a78989",
+              "rank": 4,
+              "score": 0.39559075236320496,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 508299,
+              "char_start": 507052,
+              "chunk_id": "sh1661-a4dc973c7a90c04db4929facdcfa28efd9dd707b06d1451175755a39318cfd5c",
+              "rank": 5,
+              "score": 0.39248937368392944,
+              "story_id": "gutenberg-1661-story-11"
+            }
+          ],
+          "top_5_context_words": 1250
+        }
+      ],
+      "vectors_sha256": "9b41ccdcdbd791dc24efb7ec70795c00bdcdf70b3e92566e8403964d12ebfd1a"
+    },
+    "w500_o100": {
+      "build_seconds": 41.74150904200178,
+      "chunk_count": 265,
+      "chunks_sha256": "e8e886a889f8e1d7916eb236a800d694abb1f5c496ea4114c9e16a5a26eee87e",
+      "max_document_tokens": 725,
+      "metrics": {
+        "dev": {
+          "all": {
+            "count": 12,
+            "hit_at_1": 0.3333333333333333,
+            "hit_at_3": 0.5833333333333334,
+            "hit_at_5": 0.5833333333333334,
+            "mrr_at_5": 0.4444444444444444
+          },
+          "average_top_5_context_words": 2412.75,
+          "direct": {
+            "count": 6,
+            "hit_at_1": 0.16666666666666666,
+            "hit_at_3": 0.3333333333333333,
+            "hit_at_5": 0.3333333333333333,
+            "mrr_at_5": 0.25
+          },
+          "paraphrase": {
+            "count": 6,
+            "hit_at_1": 0.5,
+            "hit_at_3": 0.8333333333333334,
+            "hit_at_5": 0.8333333333333334,
+            "mrr_at_5": 0.638888888888889
+          }
+        },
+        "test": {
+          "all": {
+            "count": 12,
+            "hit_at_1": 0.25,
+            "hit_at_3": 0.5,
+            "hit_at_5": 0.5833333333333334,
+            "mrr_at_5": 0.37777777777777777
+          },
+          "average_top_5_context_words": 2405.1666666666665,
+          "direct": {
+            "count": 6,
+            "hit_at_1": 0.0,
+            "hit_at_3": 0.16666666666666666,
+            "hit_at_5": 0.3333333333333333,
+            "mrr_at_5": 0.11666666666666665
+          },
+          "paraphrase": {
+            "count": 6,
+            "hit_at_1": 0.5,
+            "hit_at_3": 0.8333333333333334,
+            "hit_at_5": 0.8333333333333334,
+            "mrr_at_5": 0.6388888888888888
+          }
+        }
+      },
+      "queries": [
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            38918,
+            39002
+          ],
+          "gold_story_id": "gutenberg-1661-story-01",
+          "kind": "direct",
+          "question_id": "q01",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 24911,
+              "char_start": 22240,
+              "chunk_id": "sh1661-5583fc1d37e70bd2e127d3eadd441c902a93ae07b8d9a1d3171dc6c0391b069f",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.7038637399673462,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 44250,
+              "char_start": 41417,
+              "chunk_id": "sh1661-5bcaabd3e1cd9db1ca82c02dc74d223ef242b1669b164c5443d7edad28a0a2e5",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6532074213027954,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 22780,
+              "char_start": 20045,
+              "chunk_id": "sh1661-b63844146182bba34f433b2015925bd3a589374709246ad5a57dafde93fbc25c",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6406338214874268,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 46381,
+              "char_start": 43665,
+              "chunk_id": "sh1661-61b0ea2bea64f3edfe8fc02a7084bf40ca44972d0df6b5c462254df87faef456",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6302942037582397,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 18342,
+              "char_start": 15478,
+              "chunk_id": "sh1661-cc7fc0e3697486e6ea8d3e92bc991213c7ba7f612336c785da91fe469a50be66",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6087299585342407,
+              "story_id": "gutenberg-1661-story-01"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 3,
+          "gold_interval": [
+            26927,
+            27001
+          ],
+          "gold_story_id": "gutenberg-1661-story-01",
+          "kind": "paraphrase",
+          "question_id": "q02",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 24911,
+              "char_start": 22240,
+              "chunk_id": "sh1661-5583fc1d37e70bd2e127d3eadd441c902a93ae07b8d9a1d3171dc6c0391b069f",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.7203027606010437,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 22780,
+              "char_start": 20045,
+              "chunk_id": "sh1661-b63844146182bba34f433b2015925bd3a589374709246ad5a57dafde93fbc25c",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6685054302215576,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 27008,
+              "char_start": 24384,
+              "chunk_id": "sh1661-a818a549e68c308fdf421bf643f92731375bd03576778e690b6cd7452173186f",
+              "rank": 3,
+              "relevant": true,
+              "score": 0.6065059304237366,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 29095,
+              "char_start": 26448,
+              "chunk_id": "sh1661-2e86e21509e4625805624fce0155004e9d29ad14b94bdd03521ba8b6f4971f1e",
+              "rank": 4,
+              "relevant": true,
+              "score": 0.6051315665245056,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 41958,
+              "char_start": 39203,
+              "chunk_id": "sh1661-cf0cdf67cfb9e9dfcbee4a81251e023173f9abddd0b1fe1898270dd40fe36a72",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5956740379333496,
+              "story_id": "gutenberg-1661-story-01"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            64281,
+            64326
+          ],
+          "gold_story_id": "gutenberg-1661-story-02",
+          "kind": "direct",
+          "question_id": "q03",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 70502,
+              "char_start": 67902,
+              "chunk_id": "sh1661-1e31233a7696a5b2c21100068b240fd6b7061a7ea47169e6ff63feee0558a617",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6463176012039185,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 53755,
+              "char_start": 50981,
+              "chunk_id": "sh1661-aff7f1f93f9d77f10cbf86b9de0a285dce5d666595a79de392bd3665e864f596",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6410394906997681,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 57931,
+              "char_start": 55341,
+              "chunk_id": "sh1661-7e29b0290ae889fb852ffd0d52edc1a9d7801e3c3ebb1f934095d49fa889a3f9",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6235848665237427,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 62084,
+              "char_start": 59420,
+              "chunk_id": "sh1661-1f037abc7b185fef16d7156b9fff4942ec64674585294917861aa4d3bd8aca30",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6163134574890137,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 49286,
+              "char_start": 46523,
+              "chunk_id": "sh1661-0ce981cf6ed60e55bd9966e3c2aef1477ebee95f3ede3e3c6f0ac7c0a909bd00",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6030400395393372,
+              "story_id": "gutenberg-1661-story-02"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            92127,
+            92256
+          ],
+          "gold_story_id": "gutenberg-1661-story-02",
+          "kind": "paraphrase",
+          "question_id": "q04",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 94590,
+              "char_start": 91896,
+              "chunk_id": "sh1661-d9f5645d47f8e207a7133f78c42b3d5bc762a8a0dbcd0e3c00aa6f2de6b86900",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.6068258881568909,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 55831,
+              "char_start": 53191,
+              "chunk_id": "sh1661-84aa437162835da541f7ce955a942c5972708ed758047d675e5b82050b403db1",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5221536159515381,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 92442,
+              "char_start": 89706,
+              "chunk_id": "sh1661-61708a106e695cf8f6ac39cccbf23a698519c2319925dc5fc446a55e49d66e55",
+              "rank": 3,
+              "relevant": true,
+              "score": 0.5061963796615601,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 62084,
+              "char_start": 59420,
+              "chunk_id": "sh1661-1f037abc7b185fef16d7156b9fff4942ec64674585294917861aa4d3bd8aca30",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.4947962760925293,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 59988,
+              "char_start": 57380,
+              "chunk_id": "sh1661-fe9566747057b0717ffae973a4c6b0edb319b398816957e4ca233632727f7ab2",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.48180896043777466,
+              "story_id": "gutenberg-1661-story-02"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            124753,
+            124857
+          ],
+          "gold_story_id": "gutenberg-1661-story-03",
+          "kind": "direct",
+          "question_id": "q05",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 126701,
+              "char_start": 123950,
+              "chunk_id": "sh1661-aa131ccbd11bb136eb305d0e375d6e892fc39f2c7244efec12ef94245e34f1e8",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.7684547901153564,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 124512,
+              "char_start": 121803,
+              "chunk_id": "sh1661-4122476f6dcaa72e864b15e815c64bcebe3a6fd241093b90ce04f245c1c878fa",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6685856580734253,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 133700,
+              "char_start": 132676,
+              "chunk_id": "sh1661-87d906f378d0122f090e82945f1573f969f4c62a75aab4b9e32a87af09521bac",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6441081762313843,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 128878,
+              "char_start": 126155,
+              "chunk_id": "sh1661-45426347fd1c59ea15ebec1f2394ad34cbe2128b6c0627b5b98def501d2e0dd0",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6396316885948181,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 133254,
+              "char_start": 130494,
+              "chunk_id": "sh1661-a382d84966854d8a185a31338ee54ec04ab682c7c0c2dfeb350b265e17872280",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6113584637641907,
+              "story_id": "gutenberg-1661-story-03"
+            }
+          ],
+          "top_5_context_words": 2180
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            133231,
+            133384
+          ],
+          "gold_story_id": "gutenberg-1661-story-03",
+          "kind": "paraphrase",
+          "question_id": "q06",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 133700,
+              "char_start": 132676,
+              "chunk_id": "sh1661-87d906f378d0122f090e82945f1573f969f4c62a75aab4b9e32a87af09521bac",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.5923195481300354,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 126701,
+              "char_start": 123950,
+              "chunk_id": "sh1661-aa131ccbd11bb136eb305d0e375d6e892fc39f2c7244efec12ef94245e34f1e8",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5290745496749878,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 124512,
+              "char_start": 121803,
+              "chunk_id": "sh1661-4122476f6dcaa72e864b15e815c64bcebe3a6fd241093b90ce04f245c1c878fa",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.521661639213562,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 131020,
+              "char_start": 128316,
+              "chunk_id": "sh1661-bbc9e3b52bf17267254c444565bb5b200752fe2f06121f284d3dfe3e26d355b1",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5046789050102234,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 128878,
+              "char_start": 126155,
+              "chunk_id": "sh1661-45426347fd1c59ea15ebec1f2394ad34cbe2128b6c0627b5b98def501d2e0dd0",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.49885955452919006,
+              "story_id": "gutenberg-1661-story-03"
+            }
+          ],
+          "top_5_context_words": 2180
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            173664,
+            173675
+          ],
+          "gold_story_id": "gutenberg-1661-story-04",
+          "kind": "direct",
+          "question_id": "q07",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 179495,
+              "char_start": 176983,
+              "chunk_id": "sh1661-83ad37cc432429eec23567217a1819da5188ec3ff995dc15adc13e87bce5d74b",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6284725069999695,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 185058,
+              "char_start": 182896,
+              "chunk_id": "sh1661-96978837e6846a8cb4a61b82a3b81a4b0c37e5c6c2fa4d86ed15efddeedbfc43",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5815787315368652,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 151608,
+              "char_start": 148874,
+              "chunk_id": "sh1661-4d7bdb895785063edeb907dd0d2637c5716f0bf1bb2a74f817c821bf860fc77d",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5748584866523743,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 164400,
+              "char_start": 161689,
+              "chunk_id": "sh1661-84d660a3a83b184a89281cc4a9f651881a8fc0d0e278622f6929fbee1e94e55e",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5614761710166931,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 140718,
+              "char_start": 138058,
+              "chunk_id": "sh1661-333834b18431641ba453941d8679ac3b607140547c60fa48130430652dc8b0e5",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5530438423156738,
+              "story_id": "gutenberg-1661-story-04"
+            }
+          ],
+          "top_5_context_words": 2420
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 2,
+          "gold_interval": [
+            175108,
+            175242
+          ],
+          "gold_story_id": "gutenberg-1661-story-04",
+          "kind": "paraphrase",
+          "question_id": "q08",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 173136,
+              "char_start": 170319,
+              "chunk_id": "sh1661-e0fbf273fe713687c5819461cf751834d340252d0966a2138e619a219da50303",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6239672303199768,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 177518,
+              "char_start": 174794,
+              "chunk_id": "sh1661-fdb4048c8f0164cb76b7b2dbeeb756a9d6e404d1f290569369bbdc9967b05b3c",
+              "rank": 2,
+              "relevant": true,
+              "score": 0.6188853979110718,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 170880,
+              "char_start": 168225,
+              "chunk_id": "sh1661-a0c8f3c18d79d9743f0b33ab791d177d15e8834e0293dec23d345c17c260169a",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6148536205291748,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 133254,
+              "char_start": 130494,
+              "chunk_id": "sh1661-a382d84966854d8a185a31338ee54ec04ab682c7c0c2dfeb350b265e17872280",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6111294031143188,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 375839,
+              "char_start": 373173,
+              "chunk_id": "sh1661-8b44ce7134de782b13be821340c22eba7a69927da7c3c70f9a7904f70cfd1441",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6058235168457031,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 2,
+          "gold_interval": [
+            214650,
+            214693
+          ],
+          "gold_story_id": "gutenberg-1661-story-05",
+          "kind": "direct",
+          "question_id": "q09",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 196189,
+              "char_start": 193610,
+              "chunk_id": "sh1661-61635bf1dc8df95aebe4e56bc3b81994f356ed84a12815cdc1003d58fe8e0c7a",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.4860635995864868,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 215782,
+              "char_start": 212966,
+              "chunk_id": "sh1661-21d282254b17f77cbbaa1aec5a6d7e2273e53b3cff8641172d6f776f63702367",
+              "rank": 2,
+              "relevant": true,
+              "score": 0.4784759283065796,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 200405,
+              "char_start": 197697,
+              "chunk_id": "sh1661-6d2e1e55e9710584d103f56112fe333ac1e480ade95e2aba87e6290e36c59d1d",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.47526276111602783,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 59988,
+              "char_start": 57380,
+              "chunk_id": "sh1661-fe9566747057b0717ffae973a4c6b0edb319b398816957e4ca233632727f7ab2",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.4539306163787842,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 217952,
+              "char_start": 215197,
+              "chunk_id": "sh1661-e07b3eba51b34642a05a38a403ac41f317b378e3d728ef8a25bb5cfad79442fa",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.4462083876132965,
+              "story_id": "gutenberg-1661-story-05"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            221916,
+            221976
+          ],
+          "gold_story_id": "gutenberg-1661-story-05",
+          "kind": "paraphrase",
+          "question_id": "q10",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 224418,
+              "char_start": 221711,
+              "chunk_id": "sh1661-aa78263bba44327e72f85557957d0cef276e82a5259b2b3cba61ac2dfa746fe7",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.6033598780632019,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 222254,
+              "char_start": 219589,
+              "chunk_id": "sh1661-ec8774f27071428baf31e11000959f264735f50871d87f63dba4407438eb1470",
+              "rank": 2,
+              "relevant": true,
+              "score": 0.5229778289794922,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 224507,
+              "char_start": 223885,
+              "chunk_id": "sh1661-c420e4f419cb75da681bd9ccb07a567ca6a3626d5f361951324f956fbdaea4b0",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5102069973945618,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 92442,
+              "char_start": 89706,
+              "chunk_id": "sh1661-61708a106e695cf8f6ac39cccbf23a698519c2319925dc5fc446a55e49d66e55",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.4804743528366089,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 410050,
+              "char_start": 407346,
+              "chunk_id": "sh1661-d755f9497af44a682b99badbcf496b8233390fd186b2a09e9ff0f26163b1cdca",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.4750988781452179,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 2119
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            265163,
+            265386
+          ],
+          "gold_story_id": "gutenberg-1661-story-06",
+          "kind": "direct",
+          "question_id": "q11",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 37659,
+              "char_start": 35030,
+              "chunk_id": "sh1661-f257d02239a09e3eb9a5bf972ab5e6af4cb3fae3b2d6079cb554ee53fbeaf502",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6477250456809998,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 460244,
+              "char_start": 457511,
+              "chunk_id": "sh1661-2f85d8ee0e453fd1867f31267e83c26bb2601ea982ee31a344b31334f1319a60",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6318584680557251,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 4919,
+              "char_start": 2287,
+              "chunk_id": "sh1661-7c192b91870a88a129ba80a4cb7809345b2becbf4dffec63e35865d2d02dfa57",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6249834895133972,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 261465,
+              "char_start": 258796,
+              "chunk_id": "sh1661-3f9ce99c1aa28f0a2413b2cc50ffff0640c526e9c0e8610b52f83e017ba39602",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6243516802787781,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 11544,
+              "char_start": 8782,
+              "chunk_id": "sh1661-39cc5282bb9391c4355c726c583ffef991077d1ce9b2e27e606fdba5ededce62",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6215829849243164,
+              "story_id": "gutenberg-1661-story-01"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            271786,
+            271852
+          ],
+          "gold_story_id": "gutenberg-1661-story-06",
+          "kind": "paraphrase",
+          "question_id": "q12",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 239823,
+              "char_start": 237162,
+              "chunk_id": "sh1661-467d093db62e490790ee8cf7b2785e6b4db25aaa5b42dba2149fa2b8f906e233",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.7051082253456116,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 244137,
+              "char_start": 241469,
+              "chunk_id": "sh1661-a8fd4198da1e31f2e07fa9d3ee8987d71b3a9fd3db31334a07db8e16feb1e63c",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6571086645126343,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 237663,
+              "char_start": 234977,
+              "chunk_id": "sh1661-e04514706b85e48762c209ee4683da8f76ad29a8d0711aba80e2aa0db3073b06",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6484591364860535,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 257114,
+              "char_start": 254404,
+              "chunk_id": "sh1661-621f373419dc9af5098dfe89aec9753c0d1bdcbb5d1b9b7480c3dda2cc066875",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6430925726890564,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 250658,
+              "char_start": 247981,
+              "chunk_id": "sh1661-699eb071b6daec33b9af08cb37ffcf39335b358af0046ca3d2f337bb92032ba8",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.6072630882263184,
+              "story_id": "gutenberg-1661-story-06"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            285643,
+            285689
+          ],
+          "gold_story_id": "gutenberg-1661-story-07",
+          "kind": "paraphrase",
+          "question_id": "q13",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 287472,
+              "char_start": 284643,
+              "chunk_id": "sh1661-95ddf16bc14fe351ea14dcf9e8961e5d6adaebd78b8da65e83dcf72ea793c4ef",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.5873706936836243,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 313095,
+              "char_start": 310615,
+              "chunk_id": "sh1661-dbed96b3d4f55539c72168c60f2ce4c52deeb09dd0b830ceecd202f09c7e52c4",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5809551477432251,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 289742,
+              "char_start": 286912,
+              "chunk_id": "sh1661-fa5c9a406ac97986ca3c0dfd864484fb04dc523375964e2f205130d48a1da53b",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5752964019775391,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 506538,
+              "char_start": 503899,
+              "chunk_id": "sh1661-bf88a44988a9640ff58bc6edace8151111e523a26116fdf20740b36bda7f945f",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5698421597480774,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 278669,
+              "char_start": 275901,
+              "chunk_id": "sh1661-a165837de34eae08644ea6eacfd54ec6dc654800b88e08eeffd982fb4720de65",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5669610500335693,
+              "story_id": "gutenberg-1661-story-07"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            305664,
+            305716
+          ],
+          "gold_story_id": "gutenberg-1661-story-07",
+          "kind": "direct",
+          "question_id": "q14",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 442951,
+              "char_start": 440160,
+              "chunk_id": "sh1661-e499024a9128a19cb4efdbe2eaccde2c41bd16cc6f9faa8cea53cc76dd8c0137",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.5156301259994507,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 515638,
+              "char_start": 512991,
+              "chunk_id": "sh1661-c0c162e6154e528a109320302a0c03b1f5620e0501c08e82a6f0851daa484bf2",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5126984119415283,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 457453,
+              "char_start": 454744,
+              "chunk_id": "sh1661-c9b57419306cff108ef91de8210e887388037dac18739ed224cdf9c932eae851",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5008599758148193,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 231258,
+              "char_start": 228594,
+              "chunk_id": "sh1661-e1505bb589f1dffcabb6e883188828ffa56e9d8e3f03f48e921990f7aa0b9240",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.48610326647758484,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 335801,
+              "char_start": 333088,
+              "chunk_id": "sh1661-45bbd019494c81a2b8a6237301bf7337d45b1379e19946dc0d4007374fa78e13",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.48223161697387695,
+              "story_id": "gutenberg-1661-story-08"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            364278,
+            364345
+          ],
+          "gold_story_id": "gutenberg-1661-story-08",
+          "kind": "paraphrase",
+          "question_id": "q15",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 366050,
+              "char_start": 363326,
+              "chunk_id": "sh1661-deb8fe29ee6afbe4112aff9f571b917c9a2dedcd14d55ebb2b43c04bce3297c4",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.6402812004089355,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 368745,
+              "char_start": 367633,
+              "chunk_id": "sh1661-e46ae4c907c40ffdb148e7a556b62c5d65522c1def1f2aa560ac4dc6f14fe17c",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.6079788208007812,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 327117,
+              "char_start": 324415,
+              "chunk_id": "sh1661-4de6ce7543666c49be3fa45a419804be7c73e1bd0cd078ec3cebe2716bca0ad1",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5989423990249634,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 318516,
+              "char_start": 315796,
+              "chunk_id": "sh1661-2953d44a36300bfc7e03798aee8c4998e8a80811e26d7c89547cc127d5024858",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5471832752227783,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 363877,
+              "char_start": 361174,
+              "chunk_id": "sh1661-effcfa1aa346917d9e0b48dbd16c7ac92d8d23f21aeb5d1326388b42f80cc0be",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5418896079063416,
+              "story_id": "gutenberg-1661-story-08"
+            }
+          ],
+          "top_5_context_words": 2212
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            367317,
+            367356
+          ],
+          "gold_story_id": "gutenberg-1661-story-08",
+          "kind": "direct",
+          "question_id": "q16",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 366050,
+              "char_start": 363326,
+              "chunk_id": "sh1661-deb8fe29ee6afbe4112aff9f571b917c9a2dedcd14d55ebb2b43c04bce3297c4",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.5944503545761108,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 353239,
+              "char_start": 350513,
+              "chunk_id": "sh1661-bb7d70b3ad0cfb6e7e2d9f6d55e2275689d0ff5dee76eef5de8cdbe968fcb725",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5645526647567749,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 368745,
+              "char_start": 367633,
+              "chunk_id": "sh1661-e46ae4c907c40ffdb148e7a556b62c5d65522c1def1f2aa560ac4dc6f14fe17c",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5609647631645203,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 318516,
+              "char_start": 315796,
+              "chunk_id": "sh1661-2953d44a36300bfc7e03798aee8c4998e8a80811e26d7c89547cc127d5024858",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5235525369644165,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 357499,
+              "char_start": 354855,
+              "chunk_id": "sh1661-5b7438c7609217eb9826821c98b046a32765cb1b7448aa3ef90decc3d6768199",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5231696367263794,
+              "story_id": "gutenberg-1661-story-08"
+            }
+          ],
+          "top_5_context_words": 2212
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 2,
+          "gold_interval": [
+            385602,
+            385824
+          ],
+          "gold_story_id": "gutenberg-1661-story-09",
+          "kind": "paraphrase",
+          "question_id": "q17",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 397370,
+              "char_start": 394681,
+              "chunk_id": "sh1661-35986bd9184cb1a61870405d366c505670ea18eda1d4e57e25901cb7b2abeb9e",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6533622741699219,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 386649,
+              "char_start": 384002,
+              "chunk_id": "sh1661-fe0434433e959e2b80a37a5196034225538a280b6dc9bd904b4bdbfdd36f6fbe",
+              "rank": 2,
+              "relevant": true,
+              "score": 0.6467885375022888,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 413352,
+              "char_start": 411712,
+              "chunk_id": "sh1661-407d890e059fbd97a04370dc3f10e990f1ea5b339332ebb7c0aae4f1fd23ffbf",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.6357578039169312,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 382384,
+              "char_start": 379691,
+              "chunk_id": "sh1661-5dee1f6d73004d5502c240516c48a7b968fe31aa02c83231982a00c3a60274a7",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.6058194637298584,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 399442,
+              "char_start": 396850,
+              "chunk_id": "sh1661-8b5c613c26dded947097701c5d9c6dc773a42e2c9f8b93fd0c6e4c5dfdac6d13",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5901688933372498,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 2290
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 5,
+          "gold_interval": [
+            403307,
+            403341
+          ],
+          "gold_story_id": "gutenberg-1661-story-09",
+          "kind": "direct",
+          "question_id": "q18",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 373716,
+              "char_start": 370996,
+              "chunk_id": "sh1661-b4fb1c67723db2135171bfa6f331e83ec8d7b3a11d72fc760fefbbecb25974aa",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6581591963768005,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 380208,
+              "char_start": 377480,
+              "chunk_id": "sh1661-2fe9a5b0c8ef0f5b0adeaa2b1b06cc9bc79d1fa9bc66ebd70d272d142f41ee9f",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5476242899894714,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 371534,
+              "char_start": 368750,
+              "chunk_id": "sh1661-3567ff2872141e5d5afb2cdb9a2e317c5906476f0889b77c210c7d456ab46509",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5414943695068359,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 378045,
+              "char_start": 375323,
+              "chunk_id": "sh1661-17aeb1a3a1b1053a0ef951de23cef1247d99325daaedc5a0b592c2b3537a8f46",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5371860265731812,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 405628,
+              "char_start": 403026,
+              "chunk_id": "sh1661-9fad06e68b2687e697cee117aed29baad1a81d13b842740bcc2b1f4e75c0938d",
+              "rank": 5,
+              "relevant": true,
+              "score": 0.5193814039230347,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 3,
+          "gold_interval": [
+            419103,
+            419162
+          ],
+          "gold_story_id": "gutenberg-1661-story-10",
+          "kind": "paraphrase",
+          "question_id": "q19",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 429717,
+              "char_start": 427009,
+              "chunk_id": "sh1661-599cb5370e95a910e21dc865a25b6f18a15c7729b7da223937d391df5056a9d1",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6274987459182739,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 431896,
+              "char_start": 429177,
+              "chunk_id": "sh1661-4307ee8764e64943e1bd74c9d448c2fb705d1a07fad65360fa1b875025928427",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5999590158462524,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 420732,
+              "char_start": 417877,
+              "chunk_id": "sh1661-9529d41e4f8daeef277de8bdcfb3f23e5897883735d020bd48b22ca97cb125ea",
+              "rank": 3,
+              "relevant": true,
+              "score": 0.5922844409942627,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 425336,
+              "char_start": 422486,
+              "chunk_id": "sh1661-170713aae1995ca9539c4040723e933e5f832b5acd72d72002c133060dec2015",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.4825022220611572,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 380208,
+              "char_start": 377480,
+              "chunk_id": "sh1661-2fe9a5b0c8ef0f5b0adeaa2b1b06cc9bc79d1fa9bc66ebd70d272d142f41ee9f",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.4419572651386261,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            448729,
+            448806
+          ],
+          "gold_story_id": "gutenberg-1661-story-10",
+          "kind": "direct",
+          "question_id": "q20",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 431896,
+              "char_start": 429177,
+              "chunk_id": "sh1661-4307ee8764e64943e1bd74c9d448c2fb705d1a07fad65360fa1b875025928427",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.6410612463951111,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 429717,
+              "char_start": 427009,
+              "chunk_id": "sh1661-599cb5370e95a910e21dc865a25b6f18a15c7729b7da223937d391df5056a9d1",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5737025141716003,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 425336,
+              "char_start": 422486,
+              "chunk_id": "sh1661-170713aae1995ca9539c4040723e933e5f832b5acd72d72002c133060dec2015",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5663671493530273,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 420732,
+              "char_start": 417877,
+              "chunk_id": "sh1661-9529d41e4f8daeef277de8bdcfb3f23e5897883735d020bd48b22ca97cb125ea",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.564686119556427,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 29095,
+              "char_start": 26448,
+              "chunk_id": "sh1661-2e86e21509e4625805624fce0155004e9d29ad14b94bdd03521ba8b6f4971f1e",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.47881630063056946,
+              "story_id": "gutenberg-1661-story-01"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 1,
+          "gold_interval": [
+            464911,
+            464948
+          ],
+          "gold_story_id": "gutenberg-1661-story-11",
+          "kind": "paraphrase",
+          "question_id": "q21",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 466629,
+              "char_start": 463973,
+              "chunk_id": "sh1661-ac6752cd79ffd2874945f802a02c275697bba0b32cfd9021db528f71f46e6b4b",
+              "rank": 1,
+              "relevant": true,
+              "score": 0.6483310461044312,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 489779,
+              "char_start": 487151,
+              "chunk_id": "sh1661-da910462c1982adb8e9f66cb2e31d88c25d181070398a49f2439e0212b3b9349",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.534918487071991,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 502403,
+              "char_start": 499652,
+              "chunk_id": "sh1661-14b77fbab18448a0318a8c5a9ebc24f722773b0bf914b1c84fa9578e61abaa4e",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5103679299354553,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 460244,
+              "char_start": 457511,
+              "chunk_id": "sh1661-2f85d8ee0e453fd1867f31267e83c26bb2601ea982ee31a344b31334f1319a60",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.49478039145469666,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 477051,
+              "char_start": 474398,
+              "chunk_id": "sh1661-6589ae7644be344563b5b42e77b4f6de1ac95acbf8dd9909bd8bd5f6c8e154b0",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.4890073835849762,
+              "story_id": "gutenberg-1661-story-11"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": 2,
+          "gold_interval": [
+            497783,
+            497892
+          ],
+          "gold_story_id": "gutenberg-1661-story-11",
+          "kind": "direct",
+          "question_id": "q22",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 472852,
+              "char_start": 470273,
+              "chunk_id": "sh1661-7e5d985ca0a0495f0e1894b7c8e753063add57a70001f8a13b9c131f6fcc698d",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.5824140310287476,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 500227,
+              "char_start": 497505,
+              "chunk_id": "sh1661-dded2bf0c44e439fab6173a218ee2fc0d879f5993bf10b99a4da736679df5369",
+              "rank": 2,
+              "relevant": true,
+              "score": 0.5685405731201172,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 496017,
+              "char_start": 493409,
+              "chunk_id": "sh1661-42340ce4ab65a57e7388455c873e0dd0c068233baa96465a7b9bd8dee5d7500b",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.525115966796875,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 485560,
+              "char_start": 482914,
+              "chunk_id": "sh1661-b2e83ef39591334c08b99d5eefb96833f4b93aeb1e6cb6708371e476a1fa43fe",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.49575290083885193,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 425336,
+              "char_start": 422486,
+              "chunk_id": "sh1661-170713aae1995ca9539c4040723e933e5f832b5acd72d72002c133060dec2015",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.4707421660423279,
+              "story_id": "gutenberg-1661-story-10"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            551728,
+            551935
+          ],
+          "gold_story_id": "gutenberg-1661-story-12",
+          "kind": "paraphrase",
+          "question_id": "q23",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 515638,
+              "char_start": 512991,
+              "chunk_id": "sh1661-c0c162e6154e528a109320302a0c03b1f5620e0501c08e82a6f0851daa484bf2",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.5927064418792725,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 561653,
+              "char_start": 559686,
+              "chunk_id": "sh1661-f9b0eec28157e8275d900fac5e2640d4ded3c8e04f7456761565fdc69adf321a",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.5404251217842102,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 524350,
+              "char_start": 521601,
+              "chunk_id": "sh1661-999916bd193e0df9f4b8146aaa2b5b3be66aaa7f32605b916c97200cc08e5546",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.5304650664329529,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 513536,
+              "char_start": 510758,
+              "chunk_id": "sh1661-17b799b64b9809825865da1d895a5b6a2f5de7f4b18727b5c74a673bd8366da9",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5172471404075623,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 72641,
+              "char_start": 69976,
+              "chunk_id": "sh1661-75322126b46b894f8a4d34160902f6c91d47d89de390950ba5047626596651bd",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5142411589622498,
+              "story_id": "gutenberg-1661-story-02"
+            }
+          ],
+          "top_5_context_words": 2351
+        },
+        {
+          "candidate_count_top_5": 5,
+          "first_relevant_rank": null,
+          "gold_interval": [
+            517078,
+            517137
+          ],
+          "gold_story_id": "gutenberg-1661-story-12",
+          "kind": "direct",
+          "question_id": "q24",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 526504,
+              "char_start": 523835,
+              "chunk_id": "sh1661-b324e17d3ea4b6607838b2c9b4b9754cb022058ebb925925058cb7e0b5a9a81c",
+              "rank": 1,
+              "relevant": false,
+              "score": 0.639179527759552,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 524350,
+              "char_start": 521601,
+              "chunk_id": "sh1661-999916bd193e0df9f4b8146aaa2b5b3be66aaa7f32605b916c97200cc08e5546",
+              "rank": 2,
+              "relevant": false,
+              "score": 0.620234489440918,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 561653,
+              "char_start": 559686,
+              "chunk_id": "sh1661-f9b0eec28157e8275d900fac5e2640d4ded3c8e04f7456761565fdc69adf321a",
+              "rank": 3,
+              "relevant": false,
+              "score": 0.595464825630188,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 541410,
+              "char_start": 538775,
+              "chunk_id": "sh1661-5406c3023e36be844675471a633b693479bd62aa3678da2ef8431a6374f04a34",
+              "rank": 4,
+              "relevant": false,
+              "score": 0.5835860967636108,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 532902,
+              "char_start": 530277,
+              "chunk_id": "sh1661-31b032d72b05225fc1274f051f8b24351e975d1cb44d8c520f8aa70917288116",
+              "rank": 5,
+              "relevant": false,
+              "score": 0.5794553756713867,
+              "story_id": "gutenberg-1661-story-12"
+            }
+          ],
+          "top_5_context_words": 2351
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q25",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 233365,
+              "char_start": 230753,
+              "chunk_id": "sh1661-d5ce7c926d0419a0766f66f6611d394a0a71ed2767649d700c05c8b7a29f51ed",
+              "rank": 1,
+              "score": 0.5322246551513672,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 136419,
+              "char_start": 133705,
+              "chunk_id": "sh1661-0dc1be4a09fa8631681088f53fbdf4b2b40e195ed859048f58f32e92639cc93a",
+              "rank": 2,
+              "score": 0.5291504859924316,
+              "story_id": "gutenberg-1661-story-04"
+            },
+            {
+              "char_end": 276454,
+              "char_start": 273677,
+              "chunk_id": "sh1661-2a0f72010f3af1e9111723a2bcfedf6e0925ee64922310122cad0b67eb47875a",
+              "rank": 3,
+              "score": 0.5275896191596985,
+              "story_id": "gutenberg-1661-story-07"
+            },
+            {
+              "char_end": 187840,
+              "char_start": 185063,
+              "chunk_id": "sh1661-8559f3bad9a0a501d64f9904c070c4acf7bc21d3df9cb346eb75d20889f273ef",
+              "rank": 4,
+              "score": 0.5224826335906982,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 81536,
+              "char_start": 78815,
+              "chunk_id": "sh1661-2e7fcbe60347e345e2af092f090a938d0bb4258af74cdd4f1565bf1951f372bb",
+              "rank": 5,
+              "score": 0.5224051475524902,
+              "story_id": "gutenberg-1661-story-02"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q26",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 413352,
+              "char_start": 411712,
+              "chunk_id": "sh1661-407d890e059fbd97a04370dc3f10e990f1ea5b339332ebb7c0aae4f1fd23ffbf",
+              "rank": 1,
+              "score": 0.3680565357208252,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 124512,
+              "char_start": 121803,
+              "chunk_id": "sh1661-4122476f6dcaa72e864b15e815c64bcebe3a6fd241093b90ce04f245c1c878fa",
+              "rank": 2,
+              "score": 0.330640971660614,
+              "story_id": "gutenberg-1661-story-03"
+            },
+            {
+              "char_end": 498044,
+              "char_start": 495464,
+              "chunk_id": "sh1661-0d9cbf807ba7780b2634d4ce875299d9034c36e49b80cf189fe366a7051d063a",
+              "rank": 3,
+              "score": 0.3213183879852295,
+              "story_id": "gutenberg-1661-story-11"
+            },
+            {
+              "char_end": 9344,
+              "char_start": 6592,
+              "chunk_id": "sh1661-d30d023869bb2f3d47e4aaa7ff108d2c3bf14705fabf00beb748b5b15fa9899c",
+              "rank": 4,
+              "score": 0.3200032114982605,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 363877,
+              "char_start": 361174,
+              "chunk_id": "sh1661-effcfa1aa346917d9e0b48dbd16c7ac92d8d23f21aeb5d1326388b42f80cc0be",
+              "rank": 5,
+              "score": 0.31733179092407227,
+              "story_id": "gutenberg-1661-story-08"
+            }
+          ],
+          "top_5_context_words": 2290
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q27",
+          "split": "dev",
+          "top_5": [
+            {
+              "char_end": 189966,
+              "char_start": 187292,
+              "chunk_id": "sh1661-54e01bde7f862199e4e64bcc04cf33f37ff5b94af300914e95a6f3815f9c6bc4",
+              "rank": 1,
+              "score": 0.4069974422454834,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 220117,
+              "char_start": 217410,
+              "chunk_id": "sh1661-99c5f0d8cf65dc687bdede87e830954990aadb40032ef0eefc1d3dfe33753379",
+              "rank": 2,
+              "score": 0.3818504810333252,
+              "story_id": "gutenberg-1661-story-05"
+            },
+            {
+              "char_end": 231258,
+              "char_start": 228594,
+              "chunk_id": "sh1661-e1505bb589f1dffcabb6e883188828ffa56e9d8e3f03f48e921990f7aa0b9240",
+              "rank": 3,
+              "score": 0.3657284080982208,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 530808,
+              "char_start": 528139,
+              "chunk_id": "sh1661-a6e7cef8edbd1e05e373278b10390f68b386713500210b286ac5066ca2424d24",
+              "rank": 4,
+              "score": 0.35979607701301575,
+              "story_id": "gutenberg-1661-story-12"
+            },
+            {
+              "char_end": 373716,
+              "char_start": 370996,
+              "chunk_id": "sh1661-b4fb1c67723db2135171bfa6f331e83ec8d7b3a11d72fc760fefbbecb25974aa",
+              "rank": 5,
+              "score": 0.3594468832015991,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q28",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 320675,
+              "char_start": 317965,
+              "chunk_id": "sh1661-341caee3daf18756960f0c177a02190d7af96dd39932cf6b9a84b3a85d541b42",
+              "rank": 1,
+              "score": 0.5995464324951172,
+              "story_id": "gutenberg-1661-story-08"
+            },
+            {
+              "char_end": 231258,
+              "char_start": 228594,
+              "chunk_id": "sh1661-e1505bb589f1dffcabb6e883188828ffa56e9d8e3f03f48e921990f7aa0b9240",
+              "rank": 2,
+              "score": 0.5957672595977783,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 4919,
+              "char_start": 2287,
+              "chunk_id": "sh1661-7c192b91870a88a129ba80a4cb7809345b2becbf4dffec63e35865d2d02dfa57",
+              "rank": 3,
+              "score": 0.5948594808578491,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 233365,
+              "char_start": 230753,
+              "chunk_id": "sh1661-d5ce7c926d0419a0766f66f6611d394a0a71ed2767649d700c05c8b7a29f51ed",
+              "rank": 4,
+              "score": 0.5946509838104248,
+              "story_id": "gutenberg-1661-story-06"
+            },
+            {
+              "char_end": 493889,
+              "char_start": 491372,
+              "chunk_id": "sh1661-5b4559a618c9409c50078afdf37c9f7039e721579dd3f866d02ee8e6ac79173a",
+              "rank": 5,
+              "score": 0.590618908405304,
+              "story_id": "gutenberg-1661-story-11"
+            }
+          ],
+          "top_5_context_words": 2500
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q29",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 395222,
+              "char_start": 392549,
+              "chunk_id": "sh1661-4c3b22e20ffba46d98a24e3b9a05c8c7b5a9df05755f253546412de19a0c9de8",
+              "rank": 1,
+              "score": 0.3273797631263733,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 399442,
+              "char_start": 396850,
+              "chunk_id": "sh1661-8b5c613c26dded947097701c5d9c6dc773a42e2c9f8b93fd0c6e4c5dfdac6d13",
+              "rank": 2,
+              "score": 0.3246167302131653,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 403540,
+              "char_start": 400992,
+              "chunk_id": "sh1661-96f0f8d5ae9d186d655b06c25f4968b752b5b812e310cce76c09543ca3cba611",
+              "rank": 3,
+              "score": 0.3193134069442749,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 393066,
+              "char_start": 390387,
+              "chunk_id": "sh1661-6dcd752fc15c12c53b7876c35ce877137464f8133755fc1402d94f4dcb6f4751",
+              "rank": 4,
+              "score": 0.3156890571117401,
+              "story_id": "gutenberg-1661-story-09"
+            },
+            {
+              "char_end": 413352,
+              "char_start": 411712,
+              "chunk_id": "sh1661-407d890e059fbd97a04370dc3f10e990f1ea5b339332ebb7c0aae4f1fd23ffbf",
+              "rank": 5,
+              "score": 0.3148500919342041,
+              "story_id": "gutenberg-1661-story-09"
+            }
+          ],
+          "top_5_context_words": 2290
+        },
+        {
+          "candidate_count_top_5": 5,
+          "kind": "unsupported",
+          "question_id": "q30",
+          "split": "test",
+          "top_5": [
+            {
+              "char_end": 420732,
+              "char_start": 417877,
+              "chunk_id": "sh1661-9529d41e4f8daeef277de8bdcfb3f23e5897883735d020bd48b22ca97cb125ea",
+              "rank": 1,
+              "score": 0.4238138198852539,
+              "story_id": "gutenberg-1661-story-10"
+            },
+            {
+              "char_end": 88069,
+              "char_start": 85340,
+              "chunk_id": "sh1661-0d01e4dcb125365b2fef00d4351486bb10d70ea1039e86bd787d47f35dfd04a5",
+              "rank": 2,
+              "score": 0.42369166016578674,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 9344,
+              "char_start": 6592,
+              "chunk_id": "sh1661-d30d023869bb2f3d47e4aaa7ff108d2c3bf14705fabf00beb748b5b15fa9899c",
+              "rank": 3,
+              "score": 0.418504536151886,
+              "story_id": "gutenberg-1661-story-01"
+            },
+            {
+              "char_end": 85907,
+              "char_start": 83117,
+              "chunk_id": "sh1661-3a19e253a57031be3c9c20b4d8060630a46e5245dbb18328b3b9ec19064d3690",
+              "rank": 4,
+              "score": 0.41076698899269104,
+              "story_id": "gutenberg-1661-story-02"
+            },
+            {
+              "char_end": 66321,
+              "char_start": 63673,
+              "chunk_id": "sh1661-2e18634ace648006a6f84a0c17910b5cb8c9628839894d56007521f0657b7a0b",
+              "rank": 5,
+              "score": 0.40026557445526123,
+              "story_id": "gutenberg-1661-story-02"
+            }
+          ],
+          "top_5_context_words": 2500
+        }
+      ],
+      "vectors_sha256": "1e318f71f1fc1519a9dc98ef3cc80263ec1bc71b168194324a7d67497caae4e7"
+    }
+  },
+  "evaluation_device": "mps",
+  "evaluation_device_note": null,
+  "input_sha256": {
+    "chunk_manifest_json": "e984f240cc3aa0d9fb4ae38c1682a495d0ff85600cd343f86fcd162c03cd3dea",
+    "processed_book": "d46abd0f05ef0a55f321bf3bdb7fac0302e1843afcf0e4840b46a806518ffb6a",
+    "questions_jsonl": "fb2dfa8a302055b9993f06933d4fa15190041ca411b582ad5263336f3192de0b",
+    "source_manifest_json": "9968d6e285e6af29d135fa74400092123a2af75c1bc18a6ea743688b1777cc54"
+  },
+  "max_query_tokens": 35,
+  "method": "qwen3-embedding-0.6b-cosine-v1",
+  "model_id": "Qwen/Qwen3-Embedding-0.6B",
+  "model_revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "parameters": {
+    "dimension": 1024,
+    "max_seq_length": 4096,
+    "query_prefix": "Instruct: Given a question about a book, retrieve passages containing evidence to answer it.\nQuery:",
+    "score": "exact cosine dot product",
+    "top_k": 5
+  },
+  "zero_truncated_queries": true
+}

@@ -6,7 +6,8 @@
 - **Phase 1:** Minimal setuptools `src/` package and dedicated Python 3.11 environment. PR #1 merged as `da4eb37c38673a4a46c7e408dcb1ccc2ba432105`.
 - **Phase 2:** Verified Gutenberg #1661 acquisition, exact narrative extraction, manifest, audit, and offline tests. PR #2 merged as `49f8dd6adee7c0244d7988ca61170898225ca7c9`.
 - **Phase 3:** Deterministic, story-bounded sliding-word chunks with exact text slices and word, character, processed-line, and source-line provenance. Both requested configurations and their manifest were generated from the verified local book. PR #3 merged as `7f2e5be6b8959bf27dd543caca7f8adc5372af0d`.
-- **Phase 4 (ready for review):** Verified loading of either selected JSONL, Unicode lexical tokenization, in-memory BM25, JSON search CLI, fixed 30-question source-grounded benchmark, and machine-readable evaluation for both chunk configurations. See [retrieval baseline](retrieval-baseline.md).
+- **Phase 4:** Verified loading of either selected JSONL, Unicode lexical tokenization, in-memory BM25, JSON search CLI, fixed 30-question source-grounded benchmark, and machine-readable evaluation for both chunk configurations. PR #4 merged as `6465decce4f2b40f2d547072fea5fbdf46d1bb77`. See [retrieval baseline](retrieval-baseline.md).
+- **Phase 5a (ready for review):** Pinned local Qwen embedding model, checked MPS encoding, verified float32 indexes for both configurations, exact cosine search, and comparison with the unchanged BM25 reference set. See [semantic baseline](semantic-baseline.md).
 
 ## Phase 3 verification
 
@@ -29,9 +30,17 @@
 - Unsupported queries returned five lexical candidates each in both configurations. They are excluded from answerable metrics; this phase makes no answerability decision.
 - Full offline pytest suite: 53 passed. Ruff check and format check passed; pip check found no broken requirements; git diff --check passed.
 
+## Phase 5a verification
+
+- Model revision `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3`; sentence-transformers 5.7.0, NumPy 2.4.6, PyTorch 2.14.1, transformers 4.57.6. MPS smoke encode passed. All embeddings are full 1024-dimensional, L2-normalized float32.
+- With the fixed query prefix and special tokens, maxima were 384 (A documents), 725 (B documents), and 35 (all 30 queries), below the 4096 limit. Zero truncations. A: 525 vectors in 39.41 s; B: 265 vectors in 41.74 s. Local indexes are ignored by Git.
+- Semantic A dev/test Hit@5 0.583/0.583 and MRR@5 0.500/0.375; semantic B dev/test Hit@5 0.583/0.583 and MRR@5 0.444/0.378. The baseline report shows all metrics, context amounts, improvements, and regressions.
+- Repeating evaluation from the saved indexes produced identical rankings, scores, and JSON bytes on this MPS run. Source, chunk JSONL, questions, and BM25 results retain their original SHA-256 values.
+- Full offline pytest suite: 64 passed, 0 skipped. Ruff check/format, pip check, and git diff --check passed.
+
 ## Planned
 
-Phase 5 compares semantic and hybrid retrieval. Grounded answers, answer evaluation, question generation, and the interface remain planned. No model tokenizer has been selected.
+Phase 5b compares hybrid retrieval. Grounded answers, answer evaluation, question generation, and the interface remain planned.
 
 ## Blocked
 
