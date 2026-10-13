@@ -2,26 +2,26 @@
 
 ## Implemented
 
-- **Phase 0:** Created the private `elenakalajdzic0512/sherlock-rag` repository, initialized `main`, and added the initial README and ignore rules. Initial commit: `8250000d31dfa5a828d3e5102645bf745c80c49e`.
-- **Phase 1:** Added a minimal setuptools package using the `src/` layout, a Python 3.11 conda environment at `/Users/ladylazarus/miniforge3/envs/sherlock-rag`, an editable installation, development tools, and phase documentation on `chore/project-foundation`.
+- **Phase 0:** Private `elenakalajdzic0512/sherlock-rag` repository and initial `main` commit `8250000d31dfa5a828d3e5102645bf745c80c49e`.
+- **Phase 1:** Minimal setuptools `src/` package, dedicated Python 3.11 conda environment, editable installation, development tools, and documentation. PR #1 was merged into `main` as `da4eb37c38673a4a46c7e408dcb1ccc2ba432105`.
+- **Phase 2:** Standard-library ingestion command, strict Gutenberg #1661 validation, preservation of original bytes, exact narrative extraction, tracked manifest and audit, and offline behavior tests.
 
-## Verification
+## Phase 2 source and verification
 
-- Python: 3.11.17 at `/Users/ladylazarus/miniforge3/envs/sherlock-rag/bin/python` on macOS arm64.
-- Editable install: successful with `conda run -n sherlock-rag python -m pip install --no-index --no-build-isolation --no-deps -e '.[dev]'` after installing pytest 9.1.1 and Ruff 0.17.0 through conda.
-- Import from `/private/tmp` without `PYTHONPATH`: resolved to `src/sherlock_rag/__init__.py`.
-- `conda run -n sherlock-rag python -m pip check`: no broken requirements.
+- Acquired by download from `https://www.gutenberg.org/cache/epub/1661/pg1661.txt` on `2026-10-13T18:30:26+00:00`.
+- Raw original: 607606 bytes, 12310 lines, 107558 whitespace-delimited tokens; SHA-256 `922e2a12ccb43a4c9544c260b2166c6ad2097aeb5957faeee113f173bb857cd0`.
+- Processed narrative: 575243 bytes, 11899 lines, 104423 whitespace-delimited tokens; SHA-256 `d46abd0f05ef0a55f321bf3bdb7fac0302e1843afcf0e4840b46a806518ffb6a`.
+- Exact inclusive original interval: lines 55–11953. Independent byte comparison after CRLF/CR-to-LF normalization passed. Twelve story headings were found in order, each with nonempty content; see [corpus audit](corpus-audit.md).
+- A repeated run left raw, processed, and manifest SHA-256 values unchanged, including the recorded acquisition date.
+- `conda run -n sherlock-rag python -m pytest -q`: 17 passed, offline.
 - `conda run -n sherlock-rag ruff check .`: passed.
-- `conda run -n sherlock-rag ruff format --check .`: seven files already formatted.
-- `git diff --check`: passed.
-- Ignore rules cover the local virtual environments, caches, local secrets, downloaded data, and generated indexes. `.env.example` remains trackable.
-- No test suite was added or run in Phase 1; the package has no behavior to test yet.
-
-The initial online `pip install -e '.[dev]'` failed because `files.pythonhosted.org` could not be resolved. The conda plus offline editable installation above completed the setup; this is no longer a blocker.
+- `conda run -n sherlock-rag ruff format --check .`: passed.
+- `conda run -n sherlock-rag python -m pip check`: no broken requirements.
+- `git diff --check`: passed. The raw and processed files are ignored by Git.
 
 ## Planned
 
-Phases 2–7 cover source preparation, chunking, retrieval, grounded answers and evaluation, question generation, and an interface. See [roadmap.md](roadmap.md).
+Phases 3–7 cover chunking, retrieval, grounded answers and evaluation, question generation, and an interface. See [roadmap.md](roadmap.md).
 
 ## Blocked
 

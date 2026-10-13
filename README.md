@@ -2,7 +2,7 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 1 Python project foundation is ready for review. Book ingestion and RAG are not implemented yet.
+**Status:** Phase 2 source ingestion is ready for review. Chunking, retrieval, answers, evaluation, question generation, and the interface are not implemented yet.
 
 ## Planned features
 
@@ -13,7 +13,7 @@ A book-grounded retrieval-augmented generation (RAG) project based on Arthur Con
 - Evaluate retrieval and answer quality.
 - Provide a simple user interface.
 
-See [the roadmap](docs/roadmap.md) for phase criteria and [progress](docs/progress.md) for verified results.
+See [the roadmap](docs/roadmap.md), [progress](docs/progress.md), and [corpus audit](docs/corpus-audit.md).
 
 ## Development setup
 
@@ -31,13 +31,29 @@ conda install -n sherlock-rag pytest ruff
 conda run -n sherlock-rag python -m pip install --no-index --no-build-isolation --no-deps -e '.[dev]'
 ```
 
-Run checks with the project environment:
+## Acquire and prepare the book
+
+Run from any directory with the project environment:
 
 ```sh
-conda run -n sherlock-rag python --version
-conda run -n sherlock-rag python -m pip check
+conda run -n sherlock-rag python -m sherlock_rag.ingest
+```
+
+The command downloads and validates the Gutenberg TXT, preserves its original bytes in `data/raw/sherlock_holmes.txt`, and extracts the narrative into `data/processed/book.txt`. Both text files are ignored by Git. It writes a tracked [source manifest](data/source_manifest.json) and [corpus audit](docs/corpus-audit.md). A different candidate source never silently replaces an existing original. If a network connection fails, it uses the validated existing original or checks only `~/Downloads/pg1661.txt` and `~/Downloads/sherlock_holmes.txt`.
+
+To use a manually downloaded TXT instead:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.ingest --input-file /absolute/path/to/pg1661.txt
+```
+
+## Checks
+
+```sh
+conda run -n sherlock-rag python -m pytest
 conda run -n sherlock-rag ruff check .
 conda run -n sherlock-rag ruff format --check .
+conda run -n sherlock-rag python -m pip check
 git diff --check
 ```
 
