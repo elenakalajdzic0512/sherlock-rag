@@ -1,0 +1,724 @@
+{
+  "device": "mps",
+  "dtype": "torch.bfloat16",
+  "model_load_seconds": 4.3350685839996,
+  "question_ids": [
+    "q01",
+    "q09",
+    "q13",
+    "q15",
+    "q25",
+    "q26",
+    "q27",
+    "q28"
+  ],
+  "question_set_sha256": "fb2dfa8a302055b9993f06933d4fa15190041ca411b582ad5263336f3192de0b",
+  "results": [
+    {
+      "query": "Where was Irene Adler’s photograph hidden?",
+      "question_id": "q01",
+      "result": {
+        "answer": "",
+        "attempts": 2,
+        "citations_resolved": false,
+        "claims": [],
+        "configuration": "w250_o50",
+        "dropped_chunk_ids": [],
+        "generation_seconds": 11.687745041999733,
+        "input_tokens": 2290,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+        "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+        "output_tokens": 198,
+        "prompt_sha256": "5c7d37c1fe34b4e816c4ec5e332efac37049316a5f56e9d7ca140db0fc356267",
+        "prompt_version": "local-answer-v1",
+        "raw_model_outputs": [
+          "{\"status\":\"answered\",\"claims\":[{\"text\":\"Irene Adler’s photograph was hidden with Mr. Godfrey Norton, the lawyer who visited her regularly\",\"citations\":[{\"source_id\":\"C2\",\"quote\":\"If the former, she had probably transferred the photograph to his keeping.\"}]}],\"reason\":\"The passage in C2 suggests that Irene Adler may have transferred the photograph to Mr. Godfrey Norton, her only male visitor, as a possible safeguard, given that he was a lawyer and visited her frequently.\"}",
+          "{\"status\":\"answered\",\"claims\":[{\"text\":\"Irene Adler’s photograph was hidden with Mr. Godfrey Norton, the lawyer who was her male visitor\",\"citations\":[{\"source_id\":\"C2\",\"quote\":\"If the former, she had probably transferred the photograph to his keeping.\"}]}],\"reason\":\"The passage in C2 suggests that Irene Adler may have transferred the photograph to Mr. Godfrey Norton, her only male visitor, as a possible safeguard.\"}"
+        ],
+        "reason": "answered requires claims and an empty reason",
+        "reason_code": "invalid_model_output",
+        "retrieval_method": "semantic",
+        "semantic_support_verified": null,
+        "status": "error",
+        "submitted_chunks": [
+          {
+            "char_end": 43935,
+            "char_start": 42557,
+            "chunk_id": "sh1661-3619bc00d97d13fda30c38d0afddb5bca89fea2501b4bc9cd9491d24d912d642",
+            "source_id": "C1",
+            "source_line_end": 1068,
+            "source_line_start": 1046,
+            "story_title": "A SCANDAL IN BOHEMIA",
+            "text": "hurriedly ransacked them before her flight. Holmes rushed at the bell-pull, tore back a small sliding shutter, and, plunging in his hand, pulled out a photograph and a letter. The photograph was of Irene Adler herself in evening dress, the letter was superscribed to “Sherlock Holmes, Esq. To be left till called for.” My friend tore it open, and we all three read it together. It was dated at midnight of the preceding night and ran in this way: “MY DEAR MR. SHERLOCK HOLMES,—You really did it very well. You took me in completely. Until after the alarm of fire, I had not a suspicion. But then, when I found how I had betrayed myself, I began to think. I had been warned against you months ago. I had been told that, if the King employed an agent, it would certainly be you. And your address had been given me. Yet, with all this, you made me reveal what you wanted to know. Even after I became suspicious, I found it hard to think evil of such a dear, kind old clergyman. But, you know, I have been trained as an actress myself. Male costume is nothing new to me. I often take advantage of the freedom which it gives. I sent John, the coachman, to watch you, ran upstairs, got into my walking clothes, as I call them, and came down just as you departed. “Well, I followed you to your door, and so made sure that I was"
+          },
+          {
+            "char_end": 23583,
+            "char_start": 22240,
+            "chunk_id": "sh1661-7e527a60f03b588a05e830b64e2d0bfaa7a591513d5ab8edbca55d15e55d9cd5",
+            "source_id": "C2",
+            "source_line_end": 602,
+            "source_line_start": 578,
+            "story_title": "A SCANDAL IN BOHEMIA",
+            "text": "information as I could desire about Miss Adler, to say nothing of half a dozen other people in the neighbourhood in whom I was not in the least interested, but whose biographies I was compelled to listen to.” “And what of Irene Adler?” I asked. “Oh, she has turned all the men’s heads down in that part. She is the daintiest thing under a bonnet on this planet. So say the Serpentine-mews, to a man. She lives quietly, sings at concerts, drives out at five every day, and returns at seven sharp for dinner. Seldom goes out at other times, except when she sings. Has only one male visitor, but a good deal of him. He is dark, handsome, and dashing, never calls less than once a day, and often twice. He is a Mr. Godfrey Norton, of the Inner Temple. See the advantages of a cabman as a confidant. They had driven him home a dozen times from Serpentine-mews, and knew all about him. When I had listened to all they had to tell, I began to walk up and down near Briony Lodge once more, and to think over my plan of campaign. “This Godfrey Norton was evidently an important factor in the matter. He was a lawyer. That sounded ominous. What was the relation between them, and what the object of his repeated visits? Was she his client, his friend, or his mistress? If the former, she had probably transferred the photograph to his keeping. If the"
+          },
+          {
+            "char_end": 15804,
+            "char_start": 14330,
+            "chunk_id": "sh1661-24295453c899210956bc18c4d7b8658ada5968d343bdceba7d4ccaed3329afef",
+            "source_id": "C3",
+            "source_line_end": 388,
+            "source_line_start": 351,
+            "story_title": "A SCANDAL IN BOHEMIA",
+            "text": "forehead, “you can understand that I am not accustomed to doing such business in my own person. Yet the matter was so delicate that I could not confide it to an agent without putting myself in his power. I have come _incognito_ from Prague for the purpose of consulting you.” “Then, pray consult,” said Holmes, shutting his eyes once more. “The facts are briefly these: Some five years ago, during a lengthy visit to Warsaw, I made the acquaintance of the well-known adventuress, Irene Adler. The name is no doubt familiar to you.” “Kindly look her up in my index, Doctor,” murmured Holmes without opening his eyes. For many years he had adopted a system of docketing all paragraphs concerning men and things, so that it was difficult to name a subject or a person on which he could not at once furnish information. In this case I found her biography sandwiched in between that of a Hebrew rabbi and that of a staff-commander who had written a monograph upon the deep-sea fishes. “Let me see!” said Holmes. “Hum! Born in New Jersey in the year 1858. Contralto—hum! La Scala, hum! Prima donna Imperial Opera of Warsaw—yes! Retired from operatic stage—ha! Living in London—quite so! Your Majesty, as I understand, became entangled with this young person, wrote her some compromising letters, and is now desirous of getting those letters back.” “Precisely so. But how—” “Was there a secret marriage?” “None.” “No legal papers or certificates?” “None.” “Then I fail to"
+          },
+          {
+            "char_end": 2565,
+            "char_start": 1105,
+            "chunk_id": "sh1661-dd8164addd4e61de6cd6e7d8532595f91c709a5e6f38917bb7ffd710733b0dab",
+            "source_id": "C4",
+            "source_line_end": 99,
+            "source_line_start": 75,
+            "story_title": "A SCANDAL IN BOHEMIA",
+            "text": "that woman was the late Irene Adler, of dubious and questionable memory. I had seen little of Holmes lately. My marriage had drifted us away from each other. My own complete happiness, and the home-centred interests which rise up around the man who first finds himself master of his own establishment, were sufficient to absorb all my attention, while Holmes, who loathed every form of society with his whole Bohemian soul, remained in our lodgings in Baker Street, buried among his old books, and alternating from week to week between cocaine and ambition, the drowsiness of the drug, and the fierce energy of his own keen nature. He was still, as ever, deeply attracted by the study of crime, and occupied his immense faculties and extraordinary powers of observation in following out those clues, and clearing up those mysteries which had been abandoned as hopeless by the official police. From time to time I heard some vague account of his doings: of his summons to Odessa in the case of the Trepoff murder, of his clearing up of the singular tragedy of the Atkinson brothers at Trincomalee, and finally of the mission which he had accomplished so delicately and successfully for the reigning family of Holland. Beyond these signs of his activity, however, which I merely shared with all the readers of the daily press, I knew little of my former friend and companion. One night—it was on the twentieth of March, 1888—I was returning from a journey to a"
+          },
+          {
+            "char_end": 45060,
+            "char_start": 43665,
+            "chunk_id": "sh1661-a64b3770dec43636d3479bedfc6fe5ed7aecdd58b83e1591a729439bd6cd730d",
+            "source_id": "C5",
+            "source_line_end": 1094,
+            "source_line_start": 1063,
+            "story_title": "A SCANDAL IN BOHEMIA",
+            "text": "I often take advantage of the freedom which it gives. I sent John, the coachman, to watch you, ran upstairs, got into my walking clothes, as I call them, and came down just as you departed. “Well, I followed you to your door, and so made sure that I was really an object of interest to the celebrated Mr. Sherlock Holmes. Then I, rather imprudently, wished you good-night, and started for the Temple to see my husband. “We both thought the best resource was flight, when pursued by so formidable an antagonist; so you will find the nest empty when you call to-morrow. As to the photograph, your client may rest in peace. I love and am loved by a better man than he. The King may do what he will without hindrance from one whom he has cruelly wronged. I keep it only to safeguard myself, and to preserve a weapon which will always secure me from any steps which he might take in the future. I leave a photograph which he might care to possess; and I remain, dear Mr. Sherlock Holmes, “Very truly yours, “IRENE NORTON, _née_ ADLER.” “What a woman—oh, what a woman!” cried the King of Bohemia, when we had all three read this epistle. “Did I not tell you how quick and resolute she was? Would she not have made an admirable queen? Is it not a pity that she was not on my level?” “From what I have seen of the lady, she"
+          }
+        ]
+      }
+    },
+    {
+      "query": "What society did the initials K. K. K. signify?",
+      "question_id": "q09",
+      "result": {
+        "answer": "The initials K. K. K. signified the Ku Klux Klan, a secret society formed by ex-Confederate soldiers after the Civil War. [C1]",
+        "attempts": 2,
+        "citations_resolved": true,
+        "claims": [
+          {
+            "citations": [
+              {
+                "char_end": 215495,
+                "char_start": 214573,
+                "chunk_id": "sh1661-8a7033c6b00872d6058ef4fe0e631ee1de58b90c0d6928be3e28ebea0e66c86c",
+                "quote": "Have you never—” said Sherlock Holmes, bending forward and sinking his voice—“have you never heard of the Ku Klux Klan?” “I never have.” Holmes turned over the leaves of the book upon his knee. “Here it is,” said he presently: “‘Ku Klux Klan. A name derived from the fanciful resemblance to the sound produced by cocking a rifle. This terrible secret society was formed by some ex-Confederate soldiers in the Southern states after the Civil War, and it rapidly formed local branches in different parts of the country, notably in Tennessee, Louisiana, the Carolinas, Georgia, and Florida. Its power was used for political purposes, principally for the terrorising of the negro voters and the murdering and driving from the country of those who were opposed to its views. Its outrages were usually preceded by a warning sent to the marked man in some fantastic but generally recognised shape—a sprig of oak-leaves in some",
+                "quote_raw": "Have you never—” said Sherlock Holmes, bending forward and sinking his\nvoice—“have you never heard of the Ku Klux Klan?”\n\n“I never have.”\n\nHolmes turned over the leaves of the book upon his knee. “Here it is,”\nsaid he presently:\n\n“‘Ku Klux Klan. A name derived from the fanciful resemblance to the\nsound produced by cocking a rifle. This terrible secret society was\nformed by some ex-Confederate soldiers in the Southern states after the\nCivil War, and it rapidly formed local branches in different parts of\nthe country, notably in Tennessee, Louisiana, the Carolinas, Georgia,\nand Florida. Its power was used for political purposes, principally for\nthe terrorising of the negro voters and the murdering and driving from\nthe country of those who were opposed to its views. Its outrages were\nusually preceded by a warning sent to the marked man in some fantastic\nbut generally recognised shape—a sprig of oak-leaves in some",
+                "source_id": "C1",
+                "source_line_end": 4606,
+                "source_line_start": 4589,
+                "story_id": "gutenberg-1661-story-05",
+                "story_title": "THE FIVE ORANGE PIPS"
+              }
+            ],
+            "text": "The initials K. K. K. signified the Ku Klux Klan, a secret society formed by ex-Confederate soldiers after the Civil War."
+          }
+        ],
+        "configuration": "w250_o50",
+        "dropped_chunk_ids": [],
+        "generation_seconds": 28.885022542001025,
+        "input_tokens": 2341,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+        "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+        "output_tokens": 554,
+        "prompt_sha256": "5c7d37c1fe34b4e816c4ec5e332efac37049316a5f56e9d7ca140db0fc356267",
+        "prompt_version": "local-answer-v1",
+        "raw_model_outputs": [
+          "{\"status\":\"answered\",\"claims\":[{\"text\":\"The initials K. K. K. signified the Ku Klux Klan, a secret society formed by ex-Confederate soldiers after the Civil War.\",\"citations\":[{\"source_id\":\"C1\",\"quote\":\"Have you never—” said Sherlock Holmes, bending forward and sinking his voice—“have you never heard of the Ku Klux Klan?” “I never have.” Holmes turned over the leaves of the book upon his knee. “Here it is,” said he presently: “‘Ku Klux Klan. A name derived from the fanciful resemblance to the sound produced by cocking a rifle. This terrible secret society was formed by some ex-Confederate soldiers in the Southern states after the Civil War, and it rapidly formed local branches in different parts of the country, notably in Tennessee, Louisiana, the Carolinas, Georgia, and Florida. Its power was used for political purposes, principally for the terrorising of the negro voters and the murdering and driving from the country of those who were opposed to its views. Its outrages were usually preceded by a warning sent to the marked man in some fantastic but generally recognised shape—a sprig of oak-leaves in some\"}]}],\"reason\":\"The passage explicitly states that K. K. K. refers to the Ku Klux Klan, describing it as a secret society formed by ex-Confederate soldiers after the Civil War, with activities involving terrorizing and murder.\"}",
+          "{\"status\":\"answered\",\"claims\":[{\"text\":\"The initials K. K. K. signified the Ku Klux Klan, a secret society formed by ex-Confederate soldiers after the Civil War.\",\"citations\":[{\"source_id\":\"C1\",\"quote\":\"Have you never—” said Sherlock Holmes, bending forward and sinking his voice—“have you never heard of the Ku Klux Klan?” “I never have.” Holmes turned over the leaves of the book upon his knee. “Here it is,” said he presently: “‘Ku Klux Klan. A name derived from the fanciful resemblance to the sound produced by cocking a rifle. This terrible secret society was formed by some ex-Confederate soldiers in the Southern states after the Civil War, and it rapidly formed local branches in different parts of the country, notably in Tennessee, Louisiana, the Carolinas, Georgia, and Florida. Its power was used for political purposes, principally for the terrorising of the negro voters and the murdering and driving from the country of those who were opposed to its views. Its outrages were usually preceded by a warning sent to the marked man in some fantastic but generally recognised shape—a sprig of oak-leaves in some\"}]}],\"reason\":\"\"}"
+        ],
+        "reason": "",
+        "reason_code": "answered",
+        "retrieval_method": "semantic",
+        "semantic_support_verified": null,
+        "status": "answered",
+        "submitted_chunks": [
+          {
+            "char_end": 215495,
+            "char_start": 214086,
+            "chunk_id": "sh1661-8a7033c6b00872d6058ef4fe0e631ee1de58b90c0d6928be3e28ebea0e66c86c",
+            "source_id": "C1",
+            "source_line_end": 4606,
+            "source_line_start": 4579,
+            "story_title": "THE FIVE ORANGE PIPS",
+            "text": "in the sailing-ship. I think that it is quite clear that there must be more than one of them. A single man could not have carried out two deaths in such a way as to deceive a coroner’s jury. There must have been several in it, and they must have been men of resource and determination. Their papers they mean to have, be the holder of them who it may. In this way you see K. K. K. ceases to be the initials of an individual and becomes the badge of a society.” “But of what society?” “Have you never—” said Sherlock Holmes, bending forward and sinking his voice—“have you never heard of the Ku Klux Klan?” “I never have.” Holmes turned over the leaves of the book upon his knee. “Here it is,” said he presently: “‘Ku Klux Klan. A name derived from the fanciful resemblance to the sound produced by cocking a rifle. This terrible secret society was formed by some ex-Confederate soldiers in the Southern states after the Civil War, and it rapidly formed local branches in different parts of the country, notably in Tennessee, Louisiana, the Carolinas, Georgia, and Florida. Its power was used for political purposes, principally for the terrorising of the negro voters and the murdering and driving from the country of those who were opposed to its views. Its outrages were usually preceded by a warning sent to the marked man in some fantastic but generally recognised shape—a sprig of oak-leaves in some"
+          },
+          {
+            "char_end": 194921,
+            "char_start": 193610,
+            "chunk_id": "sh1661-db0be9c113693392483f7e1b99c930bf95eb9a8eabb31bd524fb4f956a0672ce",
+            "source_id": "C2",
+            "source_line_end": 4178,
+            "source_line_start": 4156,
+            "story_title": "THE FIVE ORANGE PIPS",
+            "text": "enter. With a boy’s curiosity I have peeped through the keyhole, but I was never able to see more than such a collection of old trunks and bundles as would be expected in such a room. “One day—it was in March, 1883—a letter with a foreign stamp lay upon the table in front of the colonel’s plate. It was not a common thing for him to receive letters, for his bills were all paid in ready money, and he had no friends of any sort. ‘From India!’ said he as he took it up, ‘Pondicherry postmark! What can this be?’ Opening it hurriedly, out there jumped five little dried orange pips, which pattered down upon his plate. I began to laugh at this, but the laugh was struck from my lips at the sight of his face. His lip had fallen, his eyes were protruding, his skin the colour of putty, and he glared at the envelope which he still held in his trembling hand, ‘K. K. K.!’ he shrieked, and then, ‘My God, my God, my sins have overtaken me!’ “‘What is it, uncle?’ I cried. “‘Death,’ said he, and rising from the table he retired to his room, leaving me palpitating with horror. I took up the envelope and saw scrawled in red ink upon the inner flap, just above the gum, the letter K three times repeated. There was nothing else save the five dried pips. What could be the reason of his overpowering terror? I left"
+          },
+          {
+            "char_end": 201231,
+            "char_start": 199858,
+            "chunk_id": "sh1661-833cc759d0aefdd797c91930504246c41cd155538c3ca2b93dbfa72d4ccf4e8d",
+            "source_id": "C3",
+            "source_line_end": 4300,
+            "source_line_start": 4262,
+            "story_title": "THE FIVE ORANGE PIPS",
+            "text": "five dried orange pips in the outstretched palm of the other one. He had always laughed at what he called my cock-and-bull story about the colonel, but he looked very scared and puzzled now that the same thing had come upon himself. “‘Why, what on earth does this mean, John?’ he stammered. “My heart had turned to lead. ‘It is K. K. K.,’ said I. “He looked inside the envelope. ‘So it is,’ he cried. ‘Here are the very letters. But what is this written above them?’ “‘Put the papers on the sundial,’ I read, peeping over his shoulder. “‘What papers? What sundial?’ he asked. “‘The sundial in the garden. There is no other,’ said I; ‘but the papers must be those that are destroyed.’ “‘Pooh!’ said he, gripping hard at his courage. ‘We are in a civilised land here, and we can’t have tomfoolery of this kind. Where does the thing come from?’ “‘From Dundee,’ I answered, glancing at the postmark. “‘Some preposterous practical joke,’ said he. ‘What have I to do with sundials and papers? I shall take no notice of such nonsense.’ “‘I should certainly speak to the police,’ I said. “‘And be laughed at for my pains. Nothing of the sort.’ “‘Then let me do so?’ “‘No, I forbid you. I won’t have a fuss made about such nonsense.’ “It was in vain to argue with him, for he was a very obstinate man. I went about, however, with a heart which was full of forebodings."
+          },
+          {
+            "char_end": 58690,
+            "char_start": 57380,
+            "chunk_id": "sh1661-6ddeefd2f21023c00f1c9d9c4badb0105b1ec30780ab57a7bf28452dea2b422e",
+            "source_id": "C4",
+            "source_line_end": 1394,
+            "source_line_start": 1369,
+            "story_title": "THE RED-HEADED LEAGUE",
+            "text": "it,’ said I. “‘Well,’ said he, showing me the advertisement, ‘you can see for yourself that the League has a vacancy, and there is the address where you should apply for particulars. As far as I can make out, the League was founded by an American millionaire, Ezekiah Hopkins, who was very peculiar in his ways. He was himself red-headed, and he had a great sympathy for all red-headed men; so, when he died, it was found that he had left his enormous fortune in the hands of trustees, with instructions to apply the interest to the providing of easy berths to men whose hair is of that colour. From all I hear it is splendid pay and very little to do.’ “‘But,’ said I, ‘there would be millions of red-headed men who would apply.’ “‘Not so many as you might think,’ he answered. ‘You see it is really confined to Londoners, and to grown men. This American had started from London when he was young, and he wanted to do the old town a good turn. Then, again, I have heard it is no use your applying if your hair is light red, or dark red, or anything but real bright, blazing, fiery red. Now, if you cared to apply, Mr. Wilson, you would just walk in; but perhaps it would hardly be worth your while to put yourself out of the way for the sake of a few hundred pounds.’ “Now, it is a fact, gentlemen, as you"
+          },
+          {
+            "char_end": 195935,
+            "char_start": 194650,
+            "chunk_id": "sh1661-bf6e460c0d129246306ca66a3b3b66354e9db0b2af10be6b89af64d5322c313f",
+            "source_id": "C5",
+            "source_line_end": 4197,
+            "source_line_start": 4175,
+            "story_title": "THE FIVE ORANGE PIPS",
+            "text": "leaving me palpitating with horror. I took up the envelope and saw scrawled in red ink upon the inner flap, just above the gum, the letter K three times repeated. There was nothing else save the five dried pips. What could be the reason of his overpowering terror? I left the breakfast-table, and as I ascended the stair I met him coming down with an old rusty key, which must have belonged to the attic, in one hand, and a small brass box, like a cashbox, in the other. “‘They may do what they like, but I’ll checkmate them still,’ said he with an oath. ‘Tell Mary that I shall want a fire in my room to-day, and send down to Fordham, the Horsham lawyer.’ “I did as he ordered, and when the lawyer arrived I was asked to step up to the room. The fire was burning brightly, and in the grate there was a mass of black, fluffy ashes, as of burned paper, while the brass box stood open and empty beside it. As I glanced at the box I noticed, with a start, that upon the lid was printed the treble K which I had read in the morning upon the envelope. “‘I wish you, John,’ said my uncle, ‘to witness my will. I leave my estate, with all its advantages and all its disadvantages, to my brother, your father, whence it will, no doubt, descend to you. If you can enjoy it in peace, well and"
+          }
+        ]
+      }
+    },
+    {
+      "query": "To which noblewoman did the jewel found in the goose belong?",
+      "question_id": "q13",
+      "result": {
+        "answer": "The jewel found in the goose belonged to the Countess of Morcar. [C2]",
+        "attempts": 2,
+        "citations_resolved": true,
+        "claims": [
+          {
+            "citations": [
+              {
+                "char_end": 285688,
+                "char_start": 285644,
+                "chunk_id": "sh1661-ce0b405e9b8e05782fccc919314a6a8065d37d0e607acf94e3b8e7ff10419950",
+                "quote": "Not the Countess of Morcar’s blue carbuncle!",
+                "quote_raw": "Not the Countess of Morcar’s blue carbuncle!",
+                "source_id": "C2",
+                "source_line_end": 6107,
+                "source_line_start": 6107,
+                "story_id": "gutenberg-1661-story-07",
+                "story_title": "THE ADVENTURE OF THE BLUE CARBUNCLE"
+              }
+            ],
+            "text": "The jewel found in the goose belonged to the Countess of Morcar."
+          }
+        ],
+        "configuration": "w250_o50",
+        "dropped_chunk_ids": [],
+        "generation_seconds": 8.488357791000453,
+        "input_tokens": 2326,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+        "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+        "output_tokens": 137,
+        "prompt_sha256": "5c7d37c1fe34b4e816c4ec5e332efac37049316a5f56e9d7ca140db0fc356267",
+        "prompt_version": "local-answer-v1",
+        "raw_model_outputs": [
+          "{\"status\":\"answered\",\"claims\":[{\"text\":\"The jewel found in the goose belonged to the Countess of Morcar.\",\"citations\":[{\"source_id\":\"C2\",\"quote\":\"Not the Countess of Morcar’s blue carbuncle!\"}]}],\"reason\":\"The passage explicitly states that the blue stone found in the goose is identified as the Countess of Morcar’s blue carbuncle.\"}",
+          "{\"status\":\"answered\",\"claims\":[{\"text\":\"The jewel found in the goose belonged to the Countess of Morcar.\",\"citations\":[{\"source_id\":\"C2\",\"quote\":\"Not the Countess of Morcar’s blue carbuncle!\"}]}],\"reason\":\"\"}"
+        ],
+        "reason": "",
+        "reason_code": "answered",
+        "retrieval_method": "semantic",
+        "semantic_support_verified": null,
+        "status": "answered",
+        "submitted_chunks": [
+          {
+            "char_end": 289497,
+            "char_start": 288067,
+            "chunk_id": "sh1661-c06b3271656a296ef6b38843dec3664e61f625a456cd955a4cba2963baf00190",
+            "source_id": "C1",
+            "source_line_end": 6177,
+            "source_line_start": 6151,
+            "story_title": "THE ADVENTURE OF THE BLUE CARBUNCLE",
+            "text": "of Horner, who struggled frantically, and protested his innocence in the strongest terms. Evidence of a previous conviction for robbery having been given against the prisoner, the magistrate refused to deal summarily with the offence, but referred it to the Assizes. Horner, who had shown signs of intense emotion during the proceedings, fainted away at the conclusion and was carried out of court.” “Hum! So much for the police-court,” said Holmes thoughtfully, tossing aside the paper. “The question for us now to solve is the sequence of events leading from a rifled jewel-case at one end to the crop of a goose in Tottenham Court Road at the other. You see, Watson, our little deductions have suddenly assumed a much more important and less innocent aspect. Here is the stone; the stone came from the goose, and the goose came from Mr. Henry Baker, the gentleman with the bad hat and all the other characteristics with which I have bored you. So now we must set ourselves very seriously to finding this gentleman and ascertaining what part he has played in this little mystery. To do this, we must try the simplest means first, and these lie undoubtedly in an advertisement in all the evening papers. If this fail, I shall have recourse to other methods.” “What will you say?” “Give me a pencil and that slip of paper. Now, then: ‘Found at the corner of Goodge Street, a goose and a black felt hat. Mr. Henry Baker can have"
+          },
+          {
+            "char_end": 286034,
+            "char_start": 284643,
+            "chunk_id": "sh1661-ce0b405e9b8e05782fccc919314a6a8065d37d0e607acf94e3b8e7ff10419950",
+            "source_id": "C2",
+            "source_line_end": 6115,
+            "source_line_start": 6083,
+            "story_title": "THE ADVENTURE OF THE BLUE CARBUNCLE",
+            "text": "his mouth to reply, when the door flew open, and Peterson, the commissionaire, rushed into the apartment with flushed cheeks and the face of a man who is dazed with astonishment. “The goose, Mr. Holmes! The goose, sir!” he gasped. “Eh? What of it, then? Has it returned to life and flapped off through the kitchen window?” Holmes twisted himself round upon the sofa to get a fairer view of the man’s excited face. “See here, sir! See what my wife found in its crop!” He held out his hand and displayed upon the centre of the palm a brilliantly scintillating blue stone, rather smaller than a bean in size, but of such purity and radiance that it twinkled like an electric point in the dark hollow of his hand. Sherlock Holmes sat up with a whistle. “By Jove, Peterson!” said he, “this is treasure trove indeed. I suppose you know what you have got?” “A diamond, sir? A precious stone. It cuts into glass as though it were putty.” “It’s more than a precious stone. It is _the_ precious stone.” “Not the Countess of Morcar’s blue carbuncle!” I ejaculated. “Precisely so. I ought to know its size and shape, seeing that I have read the advertisement about it in _The Times_ every day lately. It is absolutely unique, and its value can only be conjectured, but the reward offered of £ 1000 is certainly not within a twentieth part of the market price.” “A thousand pounds! Great Lord of"
+          },
+          {
+            "char_end": 284922,
+            "char_start": 283571,
+            "chunk_id": "sh1661-d34b4ac9798aad838fbeaaa721a91ba058b4b2c0bded6a0a777f40f98d1f0619",
+            "source_id": "C3",
+            "source_line_end": 6089,
+            "source_line_start": 6059,
+            "story_title": "THE ADVENTURE OF THE BLUE CARBUNCLE",
+            "text": "my dear Watson, with a week’s accumulation of dust upon your hat, and when your wife allows you to go out in such a state, I shall fear that you also have been unfortunate enough to lose your wife’s affection.” “But he might be a bachelor.” “Nay, he was bringing home the goose as a peace-offering to his wife. Remember the card upon the bird’s leg.” “You have an answer to everything. But how on earth do you deduce that the gas is not laid on in his house?” “One tallow stain, or even two, might come by chance; but when I see no less than five, I think that there can be little doubt that the individual must be brought into frequent contact with burning tallow—walks upstairs at night probably with his hat in one hand and a guttering candle in the other. Anyhow, he never got tallow-stains from a gas-jet. Are you satisfied?” “Well, it is very ingenious,” said I, laughing; “but since, as you said just now, there has been no crime committed, and no harm done save the loss of a goose, all this seems to be rather a waste of energy.” Sherlock Holmes had opened his mouth to reply, when the door flew open, and Peterson, the commissionaire, rushed into the apartment with flushed cheeks and the face of a man who is dazed with astonishment. “The goose, Mr. Holmes! The goose, sir!” he gasped. “Eh? What of it, then? Has it returned to life"
+          },
+          {
+            "char_end": 312830,
+            "char_start": 311570,
+            "chunk_id": "sh1661-836a71a5fd79d0bdffa71e89cb9824e5e96d8df0ff7ef06c005fa41a3c074346",
+            "source_id": "C4",
+            "source_line_end": 6706,
+            "source_line_start": 6681,
+            "story_title": "THE ADVENTURE OF THE BLUE CARBUNCLE",
+            "text": "came into my head which showed me how I could beat the best detective that ever lived. “My sister had told me some weeks before that I might have the pick of her geese for a Christmas present, and I knew that she was always as good as her word. I would take my goose now, and in it I would carry my stone to Kilburn. There was a little shed in the yard, and behind this I drove one of the birds—a fine big one, white, with a barred tail. I caught it, and prying its bill open, I thrust the stone down its throat as far as my finger could reach. The bird gave a gulp, and I felt the stone pass along its gullet and down into its crop. But the creature flapped and struggled, and out came my sister to know what was the matter. As I turned to speak to her the brute broke loose and fluttered off among the others. “‘Whatever were you doing with that bird, Jem?’ says she. “‘Well,’ said I, ‘you said you’d give me one for Christmas, and I was feeling which was the fattest.’ “‘Oh,’ says she, ‘we’ve set yours aside for you—Jem’s bird, we call it. It’s the big white one over yonder. There’s twenty-six of them, which makes one for you, and one for us, and two dozen for the market.’ “‘Thank you, Maggie,’ says I; ‘but if it is all the same to you, I’d rather"
+          },
+          {
+            "char_end": 277309,
+            "char_start": 275901,
+            "chunk_id": "sh1661-65fe334730e0a01a3ac9161303d3b70d441547e36553dfffaa2d76018a2788da",
+            "source_id": "C5",
+            "source_line_end": 5924,
+            "source_line_start": 5897,
+            "story_title": "THE ADVENTURE OF THE BLUE CARBUNCLE",
+            "text": "this small matter will fall into the same innocent category. You know Peterson, the commissionaire?” “Yes.” “It is to him that this trophy belongs.” “It is his hat.” “No, no, he found it. Its owner is unknown. I beg that you will look upon it not as a battered billycock but as an intellectual problem. And, first, as to how it came here. It arrived upon Christmas morning, in company with a good fat goose, which is, I have no doubt, roasting at this moment in front of Peterson’s fire. The facts are these: about four o’clock on Christmas morning, Peterson, who, as you know, is a very honest fellow, was returning from some small jollification and was making his way homeward down Tottenham Court Road. In front of him he saw, in the gaslight, a tallish man, walking with a slight stagger, and carrying a white goose slung over his shoulder. As he reached the corner of Goodge Street, a row broke out between this stranger and a little knot of roughs. One of the latter knocked off the man’s hat, on which he raised his stick to defend himself and, swinging it over his head, smashed the shop window behind him. Peterson had rushed forward to protect the stranger from his assailants; but the man, shocked at having broken the window, and seeing an official-looking person in uniform rushing towards him, dropped his goose, took to his heels, and vanished amid the labyrinth of small streets which lie"
+          }
+        ]
+      }
+    },
+    {
+      "query": "What kind of creature caused Roylott’s death?",
+      "question_id": "q15",
+      "result": {
+        "answer": "A swamp adder caused Roylott’s death [C1]",
+        "attempts": 2,
+        "citations_resolved": true,
+        "claims": [
+          {
+            "citations": [
+              {
+                "char_end": 364393,
+                "char_start": 364279,
+                "chunk_id": "sh1661-7e39aa6a7f95d93887aecca70cafb826419dc7e80752ec45e0265467160a99ba",
+                "quote": "It is a swamp adder!” cried Holmes; “the deadliest snake in India. He has died within ten seconds of being bitten.",
+                "quote_raw": "It is a swamp adder!” cried Holmes; “the deadliest snake in India. He\nhas died within ten seconds of being bitten.",
+                "source_id": "C1",
+                "source_line_end": 7845,
+                "source_line_start": 7844,
+                "story_id": "gutenberg-1661-story-08",
+                "story_title": "THE ADVENTURE OF THE SPECKLED BAND"
+              }
+            ],
+            "text": "A swamp adder caused Roylott’s death"
+          }
+        ],
+        "configuration": "w250_o50",
+        "dropped_chunk_ids": [],
+        "generation_seconds": 9.366930541000329,
+        "input_tokens": 2205,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+        "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+        "output_tokens": 158,
+        "prompt_sha256": "5c7d37c1fe34b4e816c4ec5e332efac37049316a5f56e9d7ca140db0fc356267",
+        "prompt_version": "local-answer-v1",
+        "raw_model_outputs": [
+          "{\"status\":\"answered\",\"claims\":[{\"text\":\"A swamp adder caused Roylott’s death\",\"citations\":[{\"source_id\":\"C1\",\"quote\":\"It is a swamp adder!” cried Holmes; “the deadliest snake in India. He has died within ten seconds of being bitten.\"}]}],\"reason\":\"The passage explicitly states that Holmes identifies the creature as a swamp adder, which bites Roylott and causes his death within ten seconds.\"}",
+          "{\"status\":\"answered\",\"claims\":[{\"text\":\"A swamp adder caused Roylott’s death\",\"citations\":[{\"source_id\":\"C1\",\"quote\":\"It is a swamp adder!” cried Holmes; “the deadliest snake in India. He has died within ten seconds of being bitten.\"}]}],\"reason\":\"\"}"
+        ],
+        "reason": "",
+        "reason_code": "answered",
+        "retrieval_method": "semantic",
+        "semantic_support_verified": null,
+        "status": "answered",
+        "submitted_chunks": [
+          {
+            "char_end": 364714,
+            "char_start": 363326,
+            "chunk_id": "sh1661-7e39aa6a7f95d93887aecca70cafb826419dc7e80752ec45e0265467160a99ba",
+            "source_id": "C1",
+            "source_line_end": 7851,
+            "source_line_start": 7826,
+            "story_title": "THE ADVENTURE OF THE SPECKLED BAND",
+            "text": "our eyes. On the table stood a dark-lantern with the shutter half open, throwing a brilliant beam of light upon the iron safe, the door of which was ajar. Beside this table, on the wooden chair, sat Dr. Grimesby Roylott clad in a long grey dressing-gown, his bare ankles protruding beneath, and his feet thrust into red heelless Turkish slippers. Across his lap lay the short stock with the long lash which we had noticed during the day. His chin was cocked upward and his eyes were fixed in a dreadful, rigid stare at the corner of the ceiling. Round his brow he had a peculiar yellow band, with brownish speckles, which seemed to be bound tightly round his head. As we entered he made neither sound nor motion. “The band! the speckled band!” whispered Holmes. I took a step forward. In an instant his strange headgear began to move, and there reared itself from among his hair the squat diamond-shaped head and puffed neck of a loathsome serpent. “It is a swamp adder!” cried Holmes; “the deadliest snake in India. He has died within ten seconds of being bitten. Violence does, in truth, recoil upon the violent, and the schemer falls into the pit which he digs for another. Let us thrust this creature back into its den, and we can then remove Miss Stoner to some place of shelter and let the county police know what has happened.” As he spoke he drew the dog-whip swiftly from the"
+          },
+          {
+            "char_end": 368745,
+            "char_start": 367633,
+            "chunk_id": "sh1661-7a8aa2074e45e58c78e8fe0ec23a143c1522664fbf11fcc18822eab436ed2868",
+            "source_id": "C2",
+            "source_line_end": 7917,
+            "source_line_start": 7898,
+            "story_title": "THE ADVENTURE OF THE SPECKLED BAND",
+            "text": "before ever I had entered his room. An inspection of his chair showed me that he had been in the habit of standing on it, which of course would be necessary in order that he should reach the ventilator. The sight of the safe, the saucer of milk, and the loop of whipcord were enough to finally dispel any doubts which may have remained. The metallic clang heard by Miss Stoner was obviously caused by her stepfather hastily closing the door of his safe upon its terrible occupant. Having once made up my mind, you know the steps which I took in order to put the matter to the proof. I heard the creature hiss as I have no doubt that you did also, and I instantly lit the light and attacked it.” “With the result of driving it through the ventilator.” “And also with the result of causing it to turn upon its master at the other side. Some of the blows of my cane came home and roused its snakish temper, so that it flew upon the first person it saw. In this way I am no doubt indirectly responsible for Dr. Grimesby Roylott’s death, and I cannot say that it is likely to weigh very heavily upon my conscience.”"
+          },
+          {
+            "char_end": 365774,
+            "char_start": 364452,
+            "chunk_id": "sh1661-703ff9895b40b10c03ea52e7ee0b45c446fdc9e758d708dcb159ce7d559c22be",
+            "source_id": "C3",
+            "source_line_end": 7870,
+            "source_line_start": 7846,
+            "story_title": "THE ADVENTURE OF THE SPECKLED BAND",
+            "text": "schemer falls into the pit which he digs for another. Let us thrust this creature back into its den, and we can then remove Miss Stoner to some place of shelter and let the county police know what has happened.” As he spoke he drew the dog-whip swiftly from the dead man’s lap, and throwing the noose round the reptile’s neck he drew it from its horrid perch and, carrying it at arm’s length, threw it into the iron safe, which he closed upon it. Such are the true facts of the death of Dr. Grimesby Roylott, of Stoke Moran. It is not necessary that I should prolong a narrative which has already run to too great a length by telling how we broke the sad news to the terrified girl, how we conveyed her by the morning train to the care of her good aunt at Harrow, of how the slow process of official inquiry came to the conclusion that the doctor met his fate while indiscreetly playing with a dangerous pet. The little which I had yet to learn of the case was told me by Sherlock Holmes as we travelled back next day. “I had,” said he, “come to an entirely erroneous conclusion which shows, my dear Watson, how dangerous it always is to reason from insufficient data. The presence of the gipsies, and the use of the word ‘band,’ which was used by the poor girl, no doubt, to explain the appearance which she had caught"
+          },
+          {
+            "char_end": 363607,
+            "char_start": 362287,
+            "chunk_id": "sh1661-dfe9be4202451a7224caa5d05d402de6aa1251460387ceac833d99bca5e2b179",
+            "source_id": "C4",
+            "source_line_end": 7830,
+            "source_line_start": 7804,
+            "story_title": "THE ADVENTURE OF THE SPECKLED BAND",
+            "text": "and filled with horror and loathing. He had ceased to strike and was gazing up at the ventilator when suddenly there broke from the silence of the night the most horrible cry to which I have ever listened. It swelled up louder and louder, a hoarse yell of pain and fear and anger all mingled in the one dreadful shriek. They say that away down in the village, and even in the distant parsonage, that cry raised the sleepers from their beds. It struck cold to our hearts, and I stood gazing at Holmes, and he at me, until the last echoes of it had died away into the silence from which it rose. “What can it mean?” I gasped. “It means that it is all over,” Holmes answered. “And perhaps, after all, it is for the best. Take your pistol, and we will enter Dr. Roylott’s room.” With a grave face he lit the lamp and led the way down the corridor. Twice he struck at the chamber door without any reply from within. Then he turned the handle and entered, I at his heels, with the cocked pistol in my hand. It was a singular sight which met our eyes. On the table stood a dark-lantern with the shutter half open, throwing a brilliant beam of light upon the iron safe, the door of which was ajar. Beside this table, on the wooden chair, sat Dr. Grimesby Roylott clad in a long grey dressing-gown, his bare ankles protruding"
+          },
+          {
+            "char_end": 325793,
+            "char_start": 324415,
+            "chunk_id": "sh1661-662d4668be03c202747c3e12dac435dcb51d5447e794a9988b351be75dd224a2",
+            "source_id": "C5",
+            "source_line_end": 6969,
+            "source_line_start": 6947,
+            "story_title": "THE ADVENTURE OF THE SPECKLED BAND",
+            "text": "after our return to England my mother died—she was killed eight years ago in a railway accident near Crewe. Dr. Roylott then abandoned his attempts to establish himself in practice in London and took us to live with him in the old ancestral house at Stoke Moran. The money which my mother had left was enough for all our wants, and there seemed to be no obstacle to our happiness. “But a terrible change came over our stepfather about this time. Instead of making friends and exchanging visits with our neighbours, who had at first been overjoyed to see a Roylott of Stoke Moran back in the old family seat, he shut himself up in his house and seldom came out save to indulge in ferocious quarrels with whoever might cross his path. Violence of temper approaching to mania has been hereditary in the men of the family, and in my stepfather’s case it had, I believe, been intensified by his long residence in the tropics. A series of disgraceful brawls took place, two of which ended in the police-court, until at last he became the terror of the village, and the folks would fly at his approach, for he is a man of immense strength, and absolutely uncontrollable in his anger. “Last week he hurled the local blacksmith over a parapet into a stream, and it was only by paying over all the money which I could gather together that I was able to avert another public exposure. He"
+          }
+        ]
+      }
+    },
+    {
+      "query": "What year did Sherlock Holmes first use a smartphone?",
+      "question_id": "q25",
+      "result": {
+        "answer": "",
+        "attempts": 1,
+        "citations_resolved": true,
+        "claims": [],
+        "configuration": "w250_o50",
+        "dropped_chunk_ids": [],
+        "generation_seconds": 3.253673000001072,
+        "input_tokens": 2276,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+        "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+        "output_tokens": 46,
+        "prompt_sha256": "5c7d37c1fe34b4e816c4ec5e332efac37049316a5f56e9d7ca140db0fc356267",
+        "prompt_version": "local-answer-v1",
+        "raw_model_outputs": [
+          "{\"status\":\"abstained\",\"claims\":[],\"reason\":\"The source passages do not mention smartphones or any technology from the modern era, and therefore there is no evidence to determine the year Sherlock Holmes first used a smartphone.\"}"
+        ],
+        "reason": "The source passages do not mention smartphones or any technology from the modern era, and therefore there is no evidence to determine the year Sherlock Holmes first used a smartphone.",
+        "reason_code": "insufficient_evidence",
+        "retrieval_method": "semantic",
+        "semantic_support_verified": null,
+        "status": "abstained",
+        "submitted_chunks": [
+          {
+            "char_end": 233075,
+            "char_start": 231766,
+            "chunk_id": "sh1661-345d464391f9b3b2b757fe062826f37872770478de8f82054916868f377d4ec0",
+            "source_id": "C1",
+            "source_line_end": 4984,
+            "source_line_start": 4958,
+            "story_title": "THE MAN WITH THE TWISTED LIP",
+            "text": "very wrinkled, bent with age, an opium pipe dangling down from between his knees, as though it had dropped in sheer lassitude from his fingers. I took two steps forward and looked back. It took all my self-control to prevent me from breaking out into a cry of astonishment. He had turned his back so that none could see him but I. His form had filled out, his wrinkles were gone, the dull eyes had regained their fire, and there, sitting by the fire and grinning at my surprise, was none other than Sherlock Holmes. He made a slight motion to me to approach him, and instantly, as he turned his face half round to the company once more, subsided into a doddering, loose-lipped senility. “Holmes!” I whispered, “what on earth are you doing in this den?” “As low as you can,” he answered; “I have excellent ears. If you would have the great kindness to get rid of that sottish friend of yours I should be exceedingly glad to have a little talk with you.” “I have a cab outside.” “Then pray send him home in it. You may safely trust him, for he appears to be too limp to get into any mischief. I should recommend you also to send a note by the cabman to your wife to say that you have thrown in your lot with me. If you will wait outside, I shall be with you in five minutes.” It was difficult to refuse any"
+          },
+          {
+            "char_end": 123160,
+            "char_start": 121803,
+            "chunk_id": "sh1661-2af1a39b817d4e28fd43a7e8aa9f85fd0fe049dd86573654f169bd88b0fdc81a",
+            "source_id": "C2",
+            "source_line_end": 2725,
+            "source_line_start": 2694,
+            "story_title": "A CASE OF IDENTITY",
+            "text": "and was able to spring into a hansom and drive to Baker Street, half afraid that I might be too late to assist at the _dénouement_ of the little mystery. I found Sherlock Holmes alone, however, half asleep, with his long, thin form curled up in the recesses of his armchair. A formidable array of bottles and test-tubes, with the pungent cleanly smell of hydrochloric acid, told me that he had spent his day in the chemical work which was so dear to him. “Well, have you solved it?” I asked as I entered. “Yes. It was the bisulphate of baryta.” “No, no, the mystery!” I cried. “Oh, that! I thought of the salt that I have been working upon. There was never any mystery in the matter, though, as I said yesterday, some of the details are of interest. The only drawback is that there is no law, I fear, that can touch the scoundrel.” “Who was he, then, and what was his object in deserting Miss Sutherland?” The question was hardly out of my mouth, and Holmes had not yet opened his lips to reply, when we heard a heavy footfall in the passage and a tap at the door. “This is the girl’s stepfather, Mr. James Windibank,” said Holmes. “He has written to me to say that he would be here at six. Come in!” The man who entered was a sturdy, middle-sized fellow, some thirty years of age, clean-shaven, and sallow-skinned, with a bland, insinuating manner,"
+          },
+          {
+            "char_end": 275055,
+            "char_start": 273677,
+            "chunk_id": "sh1661-67624d97730a575545a49b6971a4b8e3de489412e42a4f391940be86cfd0d990",
+            "source_id": "C3",
+            "source_line_end": 5881,
+            "source_line_start": 5855,
+            "story_title": "THE ADVENTURE OF THE BLUE CARBUNCLE",
+            "text": "VII. THE ADVENTURE OF THE BLUE CARBUNCLE I had called upon my friend Sherlock Holmes upon the second morning after Christmas, with the intention of wishing him the compliments of the season. He was lounging upon the sofa in a purple dressing-gown, a pipe-rack within his reach upon the right, and a pile of crumpled morning papers, evidently newly studied, near at hand. Beside the couch was a wooden chair, and on the angle of the back hung a very seedy and disreputable hard-felt hat, much the worse for wear, and cracked in several places. A lens and a forceps lying upon the seat of the chair suggested that the hat had been suspended in this manner for the purpose of examination. “You are engaged,” said I; “perhaps I interrupt you.” “Not at all. I am glad to have a friend with whom I can discuss my results. The matter is a perfectly trivial one”—he jerked his thumb in the direction of the old hat—“but there are points in connection with it which are not entirely devoid of interest and even of instruction.” I seated myself in his armchair and warmed my hands before his crackling fire, for a sharp frost had set in, and the windows were thick with the ice crystals. “I suppose,” I remarked, “that, homely as it looks, this thing has some deadly story linked on to it—that it is the clue which will guide you in the solution of some mystery and the punishment of"
+          },
+          {
+            "char_end": 318218,
+            "char_start": 316907,
+            "chunk_id": "sh1661-ba623d4fa79063d5f1d08f52d148333e775113c94856cbb409510aea574e1f7d",
+            "source_id": "C4",
+            "source_line_end": 6829,
+            "source_line_start": 6801,
+            "story_title": "THE ADVENTURE OF THE SPECKLED BAND",
+            "text": "I have reasons to know that there are widespread rumours as to the death of Dr. Grimesby Roylott which tend to make the matter even more terrible than the truth. It was early in April in the year ’83 that I woke one morning to find Sherlock Holmes standing, fully dressed, by the side of my bed. He was a late riser, as a rule, and as the clock on the mantelpiece showed me that it was only a quarter-past seven, I blinked up at him in some surprise, and perhaps just a little resentment, for I was myself regular in my habits. “Very sorry to knock you up, Watson,” said he, “but it’s the common lot this morning. Mrs. Hudson has been knocked up, she retorted upon me, and I on you.” “What is it, then—a fire?” “No; a client. It seems that a young lady has arrived in a considerable state of excitement, who insists upon seeing me. She is waiting now in the sitting-room. Now, when young ladies wander about the metropolis at this hour of the morning, and knock sleepy people up out of their beds, I presume that it is something very pressing which they have to communicate. Should it prove to be an interesting case, you would, I am sure, wish to follow it from the outset. I thought, at any rate, that I should call you and give you the chance.” “My dear fellow, I would not miss it for anything.” I had"
+          },
+          {
+            "char_end": 406490,
+            "char_start": 405069,
+            "chunk_id": "sh1661-bea03026b321fe5ac9c369b9a7bf1bf3cf4123ee203f5ed2106cddf3d14b206a",
+            "source_id": "C5",
+            "source_line_end": 8672,
+            "source_line_start": 8643,
+            "story_title": "THE ADVENTURE OF THE ENGINEER’S THUMB",
+            "text": "went first to have my wound dressed, and then the doctor was kind enough to bring me along here. I put the case into your hands and shall do exactly what you advise.” We both sat in silence for some little time after listening to this extraordinary narrative. Then Sherlock Holmes pulled down from the shelf one of the ponderous commonplace books in which he placed his cuttings. “Here is an advertisement which will interest you,” said he. “It appeared in all the papers about a year ago. Listen to this: ‘Lost, on the 9th inst., Mr. Jeremiah Hayling, aged twenty-six, a hydraulic engineer. Left his lodgings at ten o’clock at night, and has not been heard of since. Was dressed in,’ etc., etc. Ha! That represents the last time that the colonel needed to have his machine overhauled, I fancy.” “Good heavens!” cried my patient. “Then that explains what the girl said.” “Undoubtedly. It is quite clear that the colonel was a cool and desperate man, who was absolutely determined that nothing should stand in the way of his little game, like those out-and-out pirates who will leave no survivor from a captured ship. Well, every moment now is precious, so if you feel equal to it we shall go down to Scotland Yard at once as a preliminary to starting for Eyford.” Some three hours or so afterwards we were all in the train together, bound from Reading to the little Berkshire village. There were Sherlock Holmes, the"
+          }
+        ]
+      }
+    },
+    {
+      "query": "Who won the 2025 Nobel Prize in Physics?",
+      "question_id": "q26",
+      "result": {
+        "answer": "",
+        "attempts": 1,
+        "citations_resolved": true,
+        "claims": [],
+        "configuration": "w250_o50",
+        "dropped_chunk_ids": [],
+        "generation_seconds": 2.9456600840003375,
+        "input_tokens": 2269,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+        "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+        "output_tokens": 42,
+        "prompt_sha256": "5c7d37c1fe34b4e816c4ec5e332efac37049316a5f56e9d7ca140db0fc356267",
+        "prompt_version": "local-answer-v1",
+        "raw_model_outputs": [
+          "{\"status\":\"abstained\",\"claims\":[],\"reason\":\"The provided source passages discuss fictional stories involving Sherlock Holmes and do not contain any information about the 2025 Nobel Prize in Physics.\"}"
+        ],
+        "reason": "The provided source passages discuss fictional stories involving Sherlock Holmes and do not contain any information about the 2025 Nobel Prize in Physics.",
+        "reason_code": "insufficient_evidence",
+        "retrieval_method": "semantic",
+        "semantic_support_verified": null,
+        "status": "abstained",
+        "submitted_chunks": [
+          {
+            "char_end": 413119,
+            "char_start": 411712,
+            "chunk_id": "sh1661-4e65261dbcc7a339b1d0f0111b0b30c7a105ba4a9214513d51df8c8549ac6f9f",
+            "source_id": "C1",
+            "source_line_end": 8822,
+            "source_line_start": 8799,
+            "story_title": "THE ADVENTURE OF THE ENGINEER’S THUMB",
+            "text": "much perturbed at the strange arrangements which they had found within, and still more so by discovering a newly severed human thumb upon a window-sill of the second floor. About sunset, however, their efforts were at last successful, and they subdued the flames, but not before the roof had fallen in, and the whole place been reduced to such absolute ruin that, save some twisted cylinders and iron piping, not a trace remained of the machinery which had cost our unfortunate acquaintance so dearly. Large masses of nickel and of tin were discovered stored in an out-house, but no coins were to be found, which may have explained the presence of those bulky boxes which have been already referred to. How our hydraulic engineer had been conveyed from the garden to the spot where he recovered his senses might have remained forever a mystery were it not for the soft mould, which told us a very plain tale. He had evidently been carried down by two persons, one of whom had remarkably small feet and the other unusually large ones. On the whole, it was most probable that the silent Englishman, being less bold or less murderous than his companion, had assisted the woman to bear the unconscious man out of the way of danger. “Well,” said our engineer ruefully as we took our seats to return once more to London, “it has been a pretty business for me! I have lost my thumb and I have lost a fifty-guinea"
+          },
+          {
+            "char_end": 123160,
+            "char_start": 121803,
+            "chunk_id": "sh1661-2af1a39b817d4e28fd43a7e8aa9f85fd0fe049dd86573654f169bd88b0fdc81a",
+            "source_id": "C2",
+            "source_line_end": 2725,
+            "source_line_start": 2694,
+            "story_title": "A CASE OF IDENTITY",
+            "text": "and was able to spring into a hansom and drive to Baker Street, half afraid that I might be too late to assist at the _dénouement_ of the little mystery. I found Sherlock Holmes alone, however, half asleep, with his long, thin form curled up in the recesses of his armchair. A formidable array of bottles and test-tubes, with the pungent cleanly smell of hydrochloric acid, told me that he had spent his day in the chemical work which was so dear to him. “Well, have you solved it?” I asked as I entered. “Yes. It was the bisulphate of baryta.” “No, no, the mystery!” I cried. “Oh, that! I thought of the salt that I have been working upon. There was never any mystery in the matter, though, as I said yesterday, some of the details are of interest. The only drawback is that there is no law, I fear, that can touch the scoundrel.” “Who was he, then, and what was his object in deserting Miss Sutherland?” The question was hardly out of my mouth, and Holmes had not yet opened his lips to reply, when we heard a heavy footfall in the passage and a tap at the door. “This is the girl’s stepfather, Mr. James Windibank,” said Holmes. “He has written to me to say that he would be here at six. Come in!” The man who entered was a sturdy, middle-sized fellow, some thirty years of age, clean-shaven, and sallow-skinned, with a bland, insinuating manner,"
+          },
+          {
+            "char_end": 10137,
+            "char_start": 8782,
+            "chunk_id": "sh1661-39ea6c1d34dc9bfb2cb40a34c64d81646f01bb622130325a13966bd153bf7f23",
+            "source_id": "C3",
+            "source_line_end": 262,
+            "source_line_start": 230,
+            "story_title": "A SCANDAL IN BOHEMIA",
+            "text": "glass-factories and paper-mills.’ Ha, ha, my boy, what do you make of that?” His eyes sparkled, and he sent up a great blue triumphant cloud from his cigarette. “The paper was made in Bohemia,” I said. “Precisely. And the man who wrote the note is a German. Do you note the peculiar construction of the sentence—‘This account of you we have from all quarters received.’ A Frenchman or Russian could not have written that. It is the German who is so uncourteous to his verbs. It only remains, therefore, to discover what is wanted by this German who writes upon Bohemian paper and prefers wearing a mask to showing his face. And here he comes, if I am not mistaken, to resolve all our doubts.” As he spoke there was the sharp sound of horses’ hoofs and grating wheels against the curb, followed by a sharp pull at the bell. Holmes whistled. “A pair, by the sound,” said he. “Yes,” he continued, glancing out of the window. “A nice little brougham and a pair of beauties. A hundred and fifty guineas apiece. There’s money in this case, Watson, if there is nothing else.” “I think that I had better go, Holmes.” “Not a bit, Doctor. Stay where you are. I am lost without my Boswell. And this promises to be interesting. It would be a pity to miss it.” “But your client—” “Never mind him. I may want your help, and so may he. Here he comes. Sit down in"
+          },
+          {
+            "char_end": 527332,
+            "char_start": 525934,
+            "chunk_id": "sh1661-160d8e792e678e97b902e8b984344e32722a544a7eb9bc3976c067af9b5bd8bb",
+            "source_id": "C4",
+            "source_line_end": 11277,
+            "source_line_start": 11250,
+            "story_title": "THE ADVENTURE OF THE COPPER BEECHES",
+            "text": "A fortnight went by, during which I frequently found my thoughts turning in her direction and wondering what strange side-alley of human experience this lonely woman had strayed into. The unusual salary, the curious conditions, the light duties, all pointed to something abnormal, though whether a fad or a plot, or whether the man were a philanthropist or a villain, it was quite beyond my powers to determine. As to Holmes, I observed that he sat frequently for half an hour on end, with knitted brows and an abstracted air, but he swept the matter away with a wave of his hand when I mentioned it. “Data! data! data!” he cried impatiently. “I can’t make bricks without clay.” And yet he would always wind up by muttering that no sister of his should ever have accepted such a situation. The telegram which we eventually received came late one night just as I was thinking of turning in and Holmes was settling down to one of those all-night chemical researches which he frequently indulged in, when I would leave him stooping over a retort and a test-tube at night and find him in the same position when I came down to breakfast in the morning. He opened the yellow envelope, and then, glancing at the message, threw it across to me. “Just look up the trains in Bradshaw,” said he, and turned back to his chemical studies. The summons was a brief and urgent one. “Please be at the Black Swan"
+          },
+          {
+            "char_end": 37387,
+            "char_start": 36074,
+            "chunk_id": "sh1661-c8737cccb3d034203fb53320b856504c5b9ec7eb2353898b47db4baf48bde048",
+            "source_id": "C5",
+            "source_line_end": 904,
+            "source_line_start": 876,
+            "story_title": "A SCANDAL IN BOHEMIA",
+            "text": "smoke-rocket from under my ulster. After all, I thought, we are not injuring her. We are but preventing her from injuring another. Holmes had sat up upon the couch, and I saw him motion like a man who is in need of air. A maid rushed across and threw open the window. At the same instant I saw him raise his hand and at the signal I tossed my rocket into the room with a cry of “Fire!” The word was no sooner out of my mouth than the whole crowd of spectators, well dressed and ill—gentlemen, ostlers, and servant maids—joined in a general shriek of “Fire!” Thick clouds of smoke curled through the room and out at the open window. I caught a glimpse of rushing figures, and a moment later the voice of Holmes from within assuring them that it was a false alarm. Slipping through the shouting crowd I made my way to the corner of the street, and in ten minutes was rejoiced to find my friend’s arm in mine, and to get away from the scene of uproar. He walked swiftly and in silence for some few minutes until we had turned down one of the quiet streets which lead towards the Edgeware Road. “You did it very nicely, Doctor,” he remarked. “Nothing could have been better. It is all right.” “You have the photograph?” “I know where it is.” “And how did you find out?” “She showed me, as I told you she would.”"
+          }
+        ]
+      }
+    },
+    {
+      "query": "What is the current weather in Tokyo?",
+      "question_id": "q27",
+      "result": {
+        "answer": "",
+        "attempts": 1,
+        "citations_resolved": true,
+        "claims": [],
+        "configuration": "w250_o50",
+        "dropped_chunk_ids": [],
+        "generation_seconds": 2.3188542499992764,
+        "input_tokens": 2294,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+        "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+        "output_tokens": 29,
+        "prompt_sha256": "5c7d37c1fe34b4e816c4ec5e332efac37049316a5f56e9d7ca140db0fc356267",
+        "prompt_version": "local-answer-v1",
+        "raw_model_outputs": [
+          "{\"status\":\"abstained\",\"claims\":[],\"reason\":\"The source passages do not contain any information about the current weather in Tokyo.\"}"
+        ],
+        "reason": "The source passages do not contain any information about the current weather in Tokyo.",
+        "reason_code": "insufficient_evidence",
+        "retrieval_method": "semantic",
+        "semantic_support_verified": null,
+        "status": "abstained",
+        "submitted_chunks": [
+          {
+            "char_end": 218748,
+            "char_start": 217410,
+            "chunk_id": "sh1661-40118023bd18ad261513257f4237b9657d5af674db685570374bdd3a7bc82414",
+            "source_id": "C1",
+            "source_line_end": 4674,
+            "source_line_start": 4639,
+            "story_title": "THE FIVE ORANGE PIPS",
+            "text": "for half an hour the miserable weather and the still more miserable ways of our fellow men.” It had cleared in the morning, and the sun was shining with a subdued brightness through the dim veil which hangs over the great city. Sherlock Holmes was already at breakfast when I came down. “You will excuse me for not waiting for you,” said he; “I have, I foresee, a very busy day before me in looking into this case of young Openshaw’s.” “What steps will you take?” I asked. “It will very much depend upon the results of my first inquiries. I may have to go down to Horsham, after all.” “You will not go there first?” “No, I shall commence with the City. Just ring the bell and the maid will bring up your coffee.” As I waited, I lifted the unopened newspaper from the table and glanced my eye over it. It rested upon a heading which sent a chill to my heart. “Holmes,” I cried, “you are too late.” “Ah!” said he, laying down his cup, “I feared as much. How was it done?” He spoke calmly, but I could see that he was deeply moved. “My eye caught the name of Openshaw, and the heading ‘Tragedy Near Waterloo Bridge.’ Here is the account: “‘Between nine and ten last night Police-Constable Cook, of the H Division, on duty near Waterloo Bridge, heard a cry for help and a splash in the water. The night, however, was extremely dark"
+          },
+          {
+            "char_end": 153539,
+            "char_start": 152161,
+            "chunk_id": "sh1661-e5ff1fe768724db8161d302a3060b27b77a67d574e1940708c145a6ab98ed4dd",
+            "source_id": "C2",
+            "source_line_end": 3316,
+            "source_line_start": 3291,
+            "story_title": "THE BOSCOMBE VALLEY MYSTERY",
+            "text": "answered. “It is entirely a question of barometric pressure.” Lestrade looked startled. “I do not quite follow,” he said. “How is the glass? Twenty-nine, I see. No wind, and not a cloud in the sky. I have a caseful of cigarettes here which need smoking, and the sofa is very much superior to the usual country hotel abomination. I do not think that it is probable that I shall use the carriage to-night.” Lestrade laughed indulgently. “You have, no doubt, already formed your conclusions from the newspapers,” he said. “The case is as plain as a pikestaff, and the more one goes into it the plainer it becomes. Still, of course, one can’t refuse a lady, and such a very positive one, too. She has heard of you, and would have your opinion, though I repeatedly told her that there was nothing which you could do which I had not already done. Why, bless my soul! here is her carriage at the door.” He had hardly spoken before there rushed into the room one of the most lovely young women that I have ever seen in my life. Her violet eyes shining, her lips parted, a pink flush upon her cheeks, all thought of her natural reserve lost in her overpowering excitement and concern. “Oh, Mr. Sherlock Holmes!” she cried, glancing from one to the other of us, and finally, with a woman’s quick intuition, fastening upon my companion, “I am so glad that you have come. I have driven"
+          },
+          {
+            "char_end": 188617,
+            "char_start": 187292,
+            "chunk_id": "sh1661-63e1786c1542f3fde4089483816c6ef9f47703f82b6d381dadd9cd42cc653696",
+            "source_id": "C3",
+            "source_line_end": 4040,
+            "source_line_start": 4014,
+            "story_title": "THE FIVE ORANGE PIPS",
+            "text": "against the windows, so that even here in the heart of great, hand-made London we were forced to raise our minds for the instant from the routine of life and to recognise the presence of those great elemental forces which shriek at mankind through the bars of his civilisation, like untamed beasts in a cage. As evening drew in, the storm grew higher and louder, and the wind cried and sobbed like a child in the chimney. Sherlock Holmes sat moodily at one side of the fireplace cross-indexing his records of crime, while I at the other was deep in one of Clark Russell’s fine sea-stories until the howl of the gale from without seemed to blend with the text, and the splash of the rain to lengthen out into the long swash of the sea waves. My wife was on a visit to her mother’s, and for a few days I was a dweller once more in my old quarters at Baker Street. “Why,” said I, glancing up at my companion, “that was surely the bell. Who could come to-night? Some friend of yours, perhaps?” “Except yourself I have none,” he answered. “I do not encourage visitors.” “A client, then?” “If so, it is a serious case. Nothing less would bring a man out on such a day and at such an hour. But I take it that it is more likely to be some crony of the landlady’s.” Sherlock Holmes was wrong in his conjecture, however, for there"
+          },
+          {
+            "char_end": 373452,
+            "char_start": 372066,
+            "chunk_id": "sh1661-1b545811284b5412087f41b0e0c29af5b05478df932649da0d4878cc71468a9b",
+            "source_id": "C4",
+            "source_line_end": 8013,
+            "source_line_start": 7982,
+            "story_title": "THE ADVENTURE OF THE ENGINEER’S THUMB",
+            "text": "early, Doctor,” said he, “but I have had a very serious accident during the night. I came in by train this morning, and on inquiring at Paddington as to where I might find a doctor, a worthy fellow very kindly escorted me here. I gave the maid a card, but I see that she has left it upon the side-table.” I took it up and glanced at it. “Mr. Victor Hatherley, hydraulic engineer, 16A, Victoria Street (3rd floor).” That was the name, style, and abode of my morning visitor. “I regret that I have kept you waiting,” said I, sitting down in my library-chair. “You are fresh from a night journey, I understand, which is in itself a monotonous occupation.” “Oh, my night could not be called monotonous,” said he, and laughed. He laughed very heartily, with a high, ringing note, leaning back in his chair and shaking his sides. All my medical instincts rose up against that laugh. “Stop it!” I cried; “pull yourself together!” and I poured out some water from a caraffe. It was useless, however. He was off in one of those hysterical outbursts which come upon a strong nature when some great crisis is over and gone. Presently he came to himself once more, very weary and pale-looking. “I have been making a fool of myself,” he gasped. “Not at all. Drink this.” I dashed some brandy into the water, and the colour began to come back to his bloodless cheeks. “That’s better!” said he."
+          },
+          {
+            "char_end": 320402,
+            "char_start": 319050,
+            "chunk_id": "sh1661-08df457faaee1e42b1dcec99eca4f8f9ced77a70641c4dfdb49ff891a333fcd1",
+            "source_id": "C5",
+            "source_line_end": 6875,
+            "source_line_start": 6844,
+            "story_title": "THE ADVENTURE OF THE SPECKLED BAND",
+            "text": "is not cold which makes me shiver,” said the woman in a low voice, changing her seat as requested. “What, then?” “It is fear, Mr. Holmes. It is terror.” She raised her veil as she spoke, and we could see that she was indeed in a pitiable state of agitation, her face all drawn and grey, with restless frightened eyes, like those of some hunted animal. Her features and figure were those of a woman of thirty, but her hair was shot with premature grey, and her expression was weary and haggard. Sherlock Holmes ran her over with one of his quick, all-comprehensive glances. “You must not fear,” said he soothingly, bending forward and patting her forearm. “We shall soon set matters right, I have no doubt. You have come in by train this morning, I see.” “You know me, then?” “No, but I observe the second half of a return ticket in the palm of your left glove. You must have started early, and yet you had a good drive in a dog-cart, along heavy roads, before you reached the station.” The lady gave a violent start and stared in bewilderment at my companion. “There is no mystery, my dear madam,” said he, smiling. “The left arm of your jacket is spattered with mud in no less than seven places. The marks are perfectly fresh. There is no vehicle save a dog-cart which throws up mud in that way, and then only when you sit on the left-hand side"
+          }
+        ]
+      }
+    },
+    {
+      "query": "What is the password to Watson’s email account?",
+      "question_id": "q28",
+      "result": {
+        "answer": "",
+        "attempts": 1,
+        "citations_resolved": true,
+        "claims": [],
+        "configuration": "w250_o50",
+        "dropped_chunk_ids": [],
+        "generation_seconds": 2.5274422080001386,
+        "input_tokens": 2307,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+        "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+        "output_tokens": 32,
+        "prompt_sha256": "5c7d37c1fe34b4e816c4ec5e332efac37049316a5f56e9d7ca140db0fc356267",
+        "prompt_version": "local-answer-v1",
+        "raw_model_outputs": [
+          "{\"status\":\"abstained\",\"claims\":[],\"reason\":\"The source passages do not mention any password or email account details related to Watson's email.\"}"
+        ],
+        "reason": "The source passages do not mention any password or email account details related to Watson's email.",
+        "reason_code": "insufficient_evidence",
+        "retrieval_method": "semantic",
+        "semantic_support_verified": null,
+        "status": "abstained",
+        "submitted_chunks": [
+          {
+            "char_end": 415905,
+            "char_start": 414471,
+            "chunk_id": "sh1661-95712b66ed3130ec8d9dc51efde2cc1d108994b7db021313daf62637b78938a4",
+            "source_id": "C1",
+            "source_line_end": 8889,
+            "source_line_start": 8851,
+            "story_title": "THE ADVENTURE OF THE NOBLE BACHELOR",
+            "text": "legs upon another, I had surrounded myself with a cloud of newspapers until at last, saturated with the news of the day, I tossed them all aside and lay listless, watching the huge crest and monogram upon the envelope upon the table and wondering lazily who my friend’s noble correspondent could be. “Here is a very fashionable epistle,” I remarked as he entered. “Your morning letters, if I remember right, were from a fish-monger and a tide-waiter.” “Yes, my correspondence has certainly the charm of variety,” he answered, smiling, “and the humbler are usually the more interesting. This looks like one of those unwelcome social summonses which call upon a man either to be bored or to lie.” He broke the seal and glanced over the contents. “Oh, come, it may prove to be something of interest, after all.” “Not social, then?” “No, distinctly professional.” “And from a noble client?” “One of the highest in England.” “My dear fellow, I congratulate you.” “I assure you, Watson, without affectation, that the status of my client is a matter of less moment to me than the interest of his case. It is just possible, however, that that also may not be wanting in this new investigation. You have been reading the papers diligently of late, have you not?” “It looks like it,” said I ruefully, pointing to a huge bundle in the corner. “I have had nothing else to do.” “It is fortunate, for you will perhaps be able to post me"
+          },
+          {
+            "char_end": 235232,
+            "char_start": 233921,
+            "chunk_id": "sh1661-6818682484580e7de02de98bcacc8244df252c6729a208cb830ffec478e97ed8",
+            "source_id": "C2",
+            "source_line_end": 5028,
+            "source_line_start": 4998,
+            "story_title": "THE MAN WITH THE TWISTED LIP",
+            "text": "Watson,” said he, “that you imagine that I have added opium-smoking to cocaine injections, and all the other little weaknesses on which you have favoured me with your medical views.” “I was certainly surprised to find you there.” “But not more so than I to find you.” “I came to find a friend.” “And I to find an enemy.” “An enemy?” “Yes; one of my natural enemies, or, shall I say, my natural prey. Briefly, Watson, I am in the midst of a very remarkable inquiry, and I have hoped to find a clue in the incoherent ramblings of these sots, as I have done before now. Had I been recognised in that den my life would not have been worth an hour’s purchase; for I have used it before now for my own purposes, and the rascally Lascar who runs it has sworn to have vengeance upon me. There is a trap-door at the back of that building, near the corner of Paul’s Wharf, which could tell some strange tales of what has passed through it upon the moonless nights.” “What! You do not mean bodies?” “Ay, bodies, Watson. We should be rich men if we had £ 1000 for every poor devil who has been done to death in that den. It is the vilest murder-trap on the whole riverside, and I fear that Neville St. Clair has entered it never to leave it more. But our trap should be here.” He put his two forefingers between his"
+          },
+          {
+            "char_end": 231010,
+            "char_start": 229703,
+            "chunk_id": "sh1661-3e3c8962f29021c6bb6779e30b8d0f872976625f6e8e70a93cc9d78333106995",
+            "source_id": "C3",
+            "source_line_end": 4942,
+            "source_line_start": 4909,
+            "story_title": "THE MAN WITH THE TWISTED LIP",
+            "text": "paying little heed to the words of his neighbour. At the farther end was a small brazier of burning charcoal, beside which on a three-legged wooden stool there sat a tall, thin old man, with his jaw resting upon his two fists, and his elbows upon his knees, staring into the fire. As I entered, a sallow Malay attendant had hurried up with a pipe for me and a supply of the drug, beckoning me to an empty berth. “Thank you. I have not come to stay,” said I. “There is a friend of mine here, Mr. Isa Whitney, and I wish to speak with him.” There was a movement and an exclamation from my right, and peering through the gloom, I saw Whitney, pale, haggard, and unkempt, staring out at me. “My God! It’s Watson,” said he. He was in a pitiable state of reaction, with every nerve in a twitter. “I say, Watson, what o’clock is it?” “Nearly eleven.” “Of what day?” “Of Friday, June 19th.” “Good heavens! I thought it was Wednesday. It is Wednesday. What d’you want to frighten a chap for?” He sank his face onto his arms and began to sob in a high treble key. “I tell you that it is Friday, man. Your wife has been waiting this two days for you. You should be ashamed of yourself!” “So I am. But you’ve got mixed, Watson, for I have only been here a few hours, three pipes, four pipes—I forget how many."
+          },
+          {
+            "char_end": 252528,
+            "char_start": 251208,
+            "chunk_id": "sh1661-01593c5b709bdbbe9a8a10144e24f97d5e812c3f303166696aee2e2e6f18a1b2",
+            "source_id": "C4",
+            "source_line_end": 5346,
+            "source_line_start": 5312,
+            "story_title": "THE MAN WITH THE TWISTED LIP",
+            "text": "but a welcome for my friend and colleague. I hate to meet her, Watson, when I have no news of her husband. Here we are. Whoa, there, whoa!” We had pulled up in front of a large villa which stood within its own grounds. A stable-boy had run out to the horse’s head, and springing down, I followed Holmes up the small, winding gravel-drive which led to the house. As we approached, the door flew open, and a little blonde woman stood in the opening, clad in some sort of light mousseline de soie, with a touch of fluffy pink chiffon at her neck and wrists. She stood with her figure outlined against the flood of light, one hand upon the door, one half-raised in her eagerness, her body slightly bent, her head and face protruded, with eager eyes and parted lips, a standing question. “Well?” she cried, “well?” And then, seeing that there were two of us, she gave a cry of hope which sank into a groan as she saw that my companion shook his head and shrugged his shoulders. “No good news?” “None.” “No bad?” “No.” “Thank God for that. But come in. You must be weary, for you have had a long day.” “This is my friend, Dr. Watson. He has been of most vital use to me in several of my cases, and a lucky chance has made it possible for me to bring him out and associate him with this investigation.” “I am delighted"
+          },
+          {
+            "char_end": 4651,
+            "char_start": 3361,
+            "chunk_id": "sh1661-2c3f78edf13ba9ed27e315ac3edb8e1536f463c6a21f27fbe48a440bcf297190",
+            "source_id": "C5",
+            "source_line_end": 139,
+            "source_line_start": 110,
+            "story_title": "A SCANDAL IN BOHEMIA",
+            "text": "problem. I rang the bell and was shown up to the chamber which had formerly been in part my own. His manner was not effusive. It seldom was; but he was glad, I think, to see me. With hardly a word spoken, but with a kindly eye, he waved me to an armchair, threw across his case of cigars, and indicated a spirit case and a gasogene in the corner. Then he stood before the fire and looked me over in his singular introspective fashion. “Wedlock suits you,” he remarked. “I think, Watson, that you have put on seven and a half pounds since I saw you.” “Seven!” I answered. “Indeed, I should have thought a little more. Just a trifle more, I fancy, Watson. And in practice again, I observe. You did not tell me that you intended to go into harness.” “Then, how do you know?” “I see it, I deduce it. How do I know that you have been getting yourself very wet lately, and that you have a most clumsy and careless servant girl?” “My dear Holmes,” said I, “this is too much. You would certainly have been burned, had you lived a few centuries ago. It is true that I had a country walk on Thursday and came home in a dreadful mess, but as I have changed my clothes I can’t imagine how you deduce it. As to Mary Jane, she is incorrigible, and my wife has given her notice, but there, again, I"
+          }
+        ]
+      }
+    }
+  ]
+}

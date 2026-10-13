@@ -8,7 +8,8 @@
 - **Phase 3:** Deterministic, story-bounded sliding-word chunks with exact text slices and word, character, processed-line, and source-line provenance. Both requested configurations and their manifest were generated from the verified local book. PR #3 merged as `7f2e5be6b8959bf27dd543caca7f8adc5372af0d`.
 - **Phase 4:** Verified loading of either selected JSONL, Unicode lexical tokenization, in-memory BM25, JSON search CLI, fixed 30-question source-grounded benchmark, and machine-readable evaluation for both chunk configurations. PR #4 merged as `6465decce4f2b40f2d547072fea5fbdf46d1bb77`. See [retrieval baseline](retrieval-baseline.md).
 - **Phase 5a:** Pinned local Qwen embedding model, checked MPS encoding, verified float32 indexes for both configurations, exact cosine search, and comparison with the unchanged BM25 reference set. PR #5 merged as `7965d0c100bad64610313a579aaca00ab5153fde`. See [semantic baseline](semantic-baseline.md).
-- **Phase 5b (ready for review):** Verified equal-weight RRF across existing BM25 and semantic rankings, candidate-union diagnostics, unchanged reference-set evaluation, and a dev-only choice for Phase 6. See [hybrid baseline](hybrid-baseline.md).
+- **Phase 5b:** Verified equal-weight RRF across existing BM25 and semantic rankings, candidate-union diagnostics, unchanged reference-set evaluation, and a dev-only choice for Phase 6. PR #6 merged as `f2f718797128c557627363bd2d7aa476a9e1e45b`. See [hybrid baseline](hybrid-baseline.md).
+- **Phase 6a (ready for review):** Local pinned answer model, selected semantic A retrieval, complete-prompt token budgeting, mechanically resolved book citations, basic abstention, one repair attempt, and fixed eight-question engineering smoke audit. See [local smoke report](local-rag-smoke.md).
 
 ## Phase 3 verification
 
@@ -47,9 +48,17 @@
 - Semantic A was selected for Phase 6 using only dev Hit@5, MRR@5, and context, following the rule recorded before measurement. Test results were excluded from the choice.
 - Full offline pytest suite: 77 passed. Ruff check and format check passed; pip check found no broken requirements; git diff --check passed.
 
+## Phase 6a verification
+
+- The local generation model revision is `cdbee75f17c01a7cc42f958dc650907174af0554`; it loaded once for the eight-question batch on MPS as bfloat16. Model load took 4.34 seconds; measured generation totaled 69.47 seconds. Complete chat input lengths in the batch were 2205–2341 tokens, below the 6144 input budget, and no chunk was dropped.
+- The fixed smoke set produced three answered cases with mechanically resolved citations (`q09`, `q13`, `q15`), four appropriate refusals (`q25`–`q28`), and one `invalid_model_output` error (`q01`). The gold passage for `q01` was absent from retrieved top five. One `q09` citation is overly long despite being mechanically valid. See [the audit](local-rag-smoke.md), which separates structural checks from implementation-agent content review.
+- The public `python -m sherlock_rag.rag --query "What kind of creature caused Roylott’s death?"` command independently returned an answered result with a resolved C1 citation on the same local model.
+- Full offline pytest suite: 91 passed. Ruff check, Ruff format check, pip check, and git diff --check passed.
+- **Phase 6a review fix:** When retrieval succeeds but no whole passage fits the input budget, the pipeline now returns `error` / `context_budget_exceeded`, retains every dropped chunk ID, and makes zero generation attempts. Empty retrieval and valid model refusal remain `abstained` / `insufficient_evidence`. Both generation token budgets are validated as positive integers before model loading. Offline budget reproductions and type/value tests cover the distinction; the eight recorded smoke outputs were not regenerated. Full offline suite: 107 passed; Ruff check/format, pip check, and git diff --check passed.
+
 ## Planned
 
-Phase 6 adds evidence-grounded answers, source citations, and refusal when evidence is insufficient. Answer evaluation, question generation, and the interface remain planned.
+Phase 6b performs full answer, citation-support, and abstention evaluation. Question generation and the interface remain planned.
 
 ## Blocked
 
