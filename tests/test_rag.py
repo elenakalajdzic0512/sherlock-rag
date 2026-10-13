@@ -9,6 +9,7 @@ import pytest
 
 from sherlock_rag.ingest import sha256
 from sherlock_rag.rag import (
+    RagError,
     RagPipeline,
     ResponseError,
     load_settings,
@@ -138,7 +139,9 @@ def test_valid_abstention_and_empty_retrieval_without_model_call() -> None:
         {"status": "abstained", "claims": [], "reason": "No relevant evidence."}
     )
     p, _, _ = pipeline([abstained])
-    assert p.answer("unknown")["status"] == "abstained"
+    model_refusal = p.answer("unknown")
+    assert model_refusal["status"] == "abstained"
+    assert model_refusal["reason_code"] == "insufficient_evidence"
     p, _, g = pipeline([], [])
     out = p.answer("unknown")
     assert (
@@ -163,12 +166,38 @@ def test_budget_counts_complete_prompt_and_drops_whole_last_chunk() -> None:
     second = chunk(33, len(BOOK), 2)
     p, _, g = pipeline([answered()], [first, second], limit=180)
     out = p.answer("question")
+    assert out["status"] == "answered" and out["reason_code"] == "answered"
     assert out["dropped_chunk_ids"] == ["id-2"]
     assert [c["chunk_id"] for c in out["submitted_chunks"]] == ["id-1"]
     assert len(g.calls) == 1
     p, _, g = pipeline([], [first], limit=20)
     out = p.answer("question")
     assert out["reason_code"] == "invalid_input" and out["status"] == "error"
+    assert not g.calls
+
+
+def test_one_retrieved_passage_exceeds_budget_without_abstaining() -> None:
+    first = chunk(0, 32, 1)
+    p, r, g = pipeline([], [first], limit=100)
+    out = p.answer("question")
+    assert r.queries == ["question"]
+    assert out["status"] == "error"
+    assert out["reason_code"] == "context_budget_exceeded"
+    assert out["reason"] == "No complete retrieved passage fits the token budget"
+    assert out["dropped_chunk_ids"] == ["id-1"]
+    assert out["attempts"] == 0 and not g.calls
+
+
+def test_all_retrieved_passages_exceed_budget_and_ids_remain_recorded() -> None:
+    first = chunk(0, 32, 1)
+    second = chunk(33, len(BOOK), 2)
+    p, r, g = pipeline([], [first, second], limit=100)
+    out = p.answer("question")
+    assert r.queries == ["question"]
+    assert out["status"] == "error"
+    assert out["reason_code"] == "context_budget_exceeded"
+    assert out["dropped_chunk_ids"] == ["id-2", "id-1"]
+    assert out["submitted_chunks"] == [] and out["attempts"] == 0
     assert not g.calls
 
 
@@ -213,3 +242,25 @@ def test_load_settings_reads_selected_retrieval_without_mutation(tmp_path) -> No
     retrieval, _, text = load_settings(tmp_path)
     assert retrieval == {"method": "semantic", "configuration": "w250_o50", "top_k": 5}
     assert text == "Only evidence."
+
+
+@pytest.mark.parametrize("field", ["max_input_tokens", "max_new_tokens"])
+@pytest.mark.parametrize("value", [True, False, "6144", 1.5, None, 0, -1])
+def test_load_settings_rejects_invalid_token_budgets(tmp_path, field, value) -> None:
+    (tmp_path / "config").mkdir()
+    (tmp_path / "prompts").mkdir()
+    prompt = b"Only evidence."
+    (tmp_path / "prompts/p.txt").write_bytes(prompt)
+    (tmp_path / "config/retrieval.json").write_text(
+        json.dumps({"method": "semantic", "configuration": "w250_o50", "top_k": 5})
+    )
+    generation = {
+        "prompt_file": "prompts/p.txt",
+        "prompt_sha256": sha256(prompt),
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+    }
+    generation[field] = value
+    (tmp_path / "config/generation.json").write_text(json.dumps(generation))
+    with pytest.raises(RagError, match=f"{field} must be a positive integer"):
+        load_settings(tmp_path)

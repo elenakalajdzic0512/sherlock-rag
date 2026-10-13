@@ -54,6 +54,7 @@
 - The fixed smoke set produced three answered cases with mechanically resolved citations (`q09`, `q13`, `q15`), four appropriate refusals (`q25`–`q28`), and one `invalid_model_output` error (`q01`). The gold passage for `q01` was absent from retrieved top five. One `q09` citation is overly long despite being mechanically valid. See [the audit](local-rag-smoke.md), which separates structural checks from implementation-agent content review.
 - The public `python -m sherlock_rag.rag --query "What kind of creature caused Roylott’s death?"` command independently returned an answered result with a resolved C1 citation on the same local model.
 - Full offline pytest suite: 91 passed. Ruff check, Ruff format check, pip check, and git diff --check passed.
+- **Phase 6a review fix:** When retrieval succeeds but no whole passage fits the input budget, the pipeline now returns `error` / `context_budget_exceeded`, retains every dropped chunk ID, and makes zero generation attempts. Empty retrieval and valid model refusal remain `abstained` / `insufficient_evidence`. Both generation token budgets are validated as positive integers before model loading. Offline budget reproductions and type/value tests cover the distinction; the eight recorded smoke outputs were not regenerated. Full offline suite: 107 passed; Ruff check/format, pip check, and git diff --check passed.
 
 ## Planned
 

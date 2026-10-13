@@ -122,6 +122,8 @@ The selected retrieval method and chunk configuration come from [`config/retriev
 
 Each result contains a status, reason code, the exact passages supplied to the model, raw model outputs, token counts and timing, and validated claims with resolved source citations. Whitespace-only display normalization is mapped back to original character offsets and source lines. Repeated quotes resolve to their first occurrence within the cited passage. A malformed JSON response or citation gets at most one repair attempt with the same passages, then returns `error`. A citation's existence is mechanically checked; whether the cited words support the claim still needs review. The model and cache are outside Git.
 
+Reason codes distinguish outcomes: empty retrieval or a valid model refusal returns `abstained` with `insufficient_evidence`; an oversized question and instructions returns `error` with `invalid_input`; retrieved passages that all exceed the context budget return `error` with `context_budget_exceeded` and their IDs in `dropped_chunk_ids`; invalid JSON or citations after the repair limit return `error` with `invalid_model_output`. A context-budget error does not call the generator and is not an evidence-based refusal.
+
 The fixed eight-question engineering audit is in [the local smoke report](docs/local-rag-smoke.md). Full answer and abstention evaluation belongs to Phase 6b.
 
 ## Checks

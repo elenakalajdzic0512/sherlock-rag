@@ -185,12 +185,14 @@ def load_settings(root: Path = PROJECT_ROOT) -> tuple[dict, dict, str]:
         or retrieval["top_k"] <= 0
     ):
         raise RagError("Invalid retrieval top_k")
+    for name in ("max_input_tokens", "max_new_tokens"):
+        value = generation.get(name)
+        if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+            raise RagError(f"{name} must be a positive integer")
     prompt_path = root / generation["prompt_file"]
     prompt_bytes = prompt_path.read_bytes()
     if sha256(prompt_bytes) != generation["prompt_sha256"]:
         raise RagError("Prompt hash differs from generation config")
-    if generation["max_input_tokens"] <= 0 or generation["max_new_tokens"] <= 0:
-        raise RagError("Invalid token budget")
     return retrieval, generation, prompt_bytes.decode("utf-8")
 
 
@@ -374,9 +376,8 @@ class RagPipeline:
         if not passages:
             return {
                 **base,
-                "status": "abstained",
-                "reason_code": "insufficient_evidence",
-                "reason": "No complete passage fits the token budget",
+                "reason_code": "context_budget_exceeded",
+                "reason": "No complete retrieved passage fits the token budget",
             }
         failure = "invalid response"
         for attempt in range(2):
