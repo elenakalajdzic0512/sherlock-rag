@@ -4,7 +4,9 @@
       "count": 42,
       "final_attempt_input_tokens": {
         "maximum": 2370,
-        "minimum": 2091
+        "minimum": 2091,
+        "missing": 0,
+        "recorded": 42
       },
       "final_invalid_model_output": 7,
       "first_pass_mechanical_success": {
@@ -15,6 +17,25 @@
       "generated_cases": 42,
       "generation_seconds_mean_per_case": 8.223598655738463,
       "generation_seconds_total": 345.3911435410155,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 42
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 42
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 42
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 42
+        }
+      },
+      "other_technical_errors": 0,
       "output_tokens_mean_per_case": 140.71428571428572,
       "output_tokens_total": 5910,
       "reason_code_counts": {
@@ -34,6 +55,7 @@
         "mean": 183.6,
         "minimum": 34
       },
+      "runner_error_cases": 0,
       "status_counts": {
         "abstained": 20,
         "answered": 15,
@@ -44,7 +66,9 @@
       "count": 4,
       "final_attempt_input_tokens": {
         "maximum": 2363,
-        "minimum": 2200
+        "minimum": 2200,
+        "missing": 0,
+        "recorded": 4
       },
       "final_invalid_model_output": 1,
       "first_pass_mechanical_success": {
@@ -55,6 +79,25 @@
       "generated_cases": 4,
       "generation_seconds_mean_per_case": 6.786692343250252,
       "generation_seconds_total": 27.146769373001007,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 4
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 4
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 4
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 4
+        }
+      },
+      "other_technical_errors": 0,
       "output_tokens_mean_per_case": 115.25,
       "output_tokens_total": 461,
       "reason_code_counts": {
@@ -73,6 +116,7 @@
         "mean": null,
         "minimum": null
       },
+      "runner_error_cases": 0,
       "status_counts": {
         "abstained": 3,
         "error": 1
@@ -82,7 +126,9 @@
       "count": 2,
       "final_attempt_input_tokens": {
         "maximum": 2286,
-        "minimum": 2245
+        "minimum": 2245,
+        "missing": 0,
+        "recorded": 2
       },
       "final_invalid_model_output": 0,
       "first_pass_mechanical_success": {
@@ -93,6 +139,25 @@
       "generated_cases": 2,
       "generation_seconds_mean_per_case": 3.8687730209985602,
       "generation_seconds_total": 7.7375460419971205,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 2
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 2
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 2
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 2
+        }
+      },
+      "other_technical_errors": 0,
       "output_tokens_mean_per_case": 61,
       "output_tokens_total": 122,
       "reason_code_counts": {
@@ -110,6 +175,7 @@
         "mean": null,
         "minimum": null
       },
+      "runner_error_cases": 0,
       "status_counts": {
         "abstained": 2
       }
@@ -118,7 +184,9 @@
       "count": 6,
       "final_attempt_input_tokens": {
         "maximum": 2363,
-        "minimum": 2248
+        "minimum": 2248,
+        "missing": 0,
+        "recorded": 6
       },
       "final_invalid_model_output": 0,
       "first_pass_mechanical_success": {
@@ -129,6 +197,25 @@
       "generated_cases": 6,
       "generation_seconds_mean_per_case": 2.5096365553332967,
       "generation_seconds_total": 15.05781933199978,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 6
+        }
+      },
+      "other_technical_errors": 0,
       "output_tokens_mean_per_case": 32.666666666666664,
       "output_tokens_total": 196,
       "reason_code_counts": {
@@ -146,6 +233,7 @@
         "mean": null,
         "minimum": null
       },
+      "runner_error_cases": 0,
       "status_counts": {
         "abstained": 6
       }
@@ -154,7 +242,9 @@
       "count": 24,
       "final_attempt_input_tokens": {
         "maximum": 2370,
-        "minimum": 2091
+        "minimum": 2091,
+        "missing": 0,
+        "recorded": 24
       },
       "final_invalid_model_output": 6,
       "first_pass_mechanical_success": {
@@ -165,6 +255,25 @@
       "generated_cases": 24,
       "generation_seconds_mean_per_case": 11.608234951459053,
       "generation_seconds_total": 278.5976388350173,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 24
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 24
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 24
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 24
+        }
+      },
+      "other_technical_errors": 0,
       "output_tokens_mean_per_case": 204.08333333333334,
       "output_tokens_total": 4898,
       "reason_code_counts": {
@@ -184,6 +293,7 @@
         "mean": 183.6,
         "minimum": 34
       },
+      "runner_error_cases": 0,
       "status_counts": {
         "abstained": 3,
         "answered": 15,
@@ -194,7 +304,9 @@
       "count": 6,
       "final_attempt_input_tokens": {
         "maximum": 2307,
-        "minimum": 2259
+        "minimum": 2259,
+        "missing": 0,
+        "recorded": 6
       },
       "final_invalid_model_output": 0,
       "first_pass_mechanical_success": {
@@ -205,6 +317,25 @@
       "generated_cases": 6,
       "generation_seconds_mean_per_case": 2.8085616598333822,
       "generation_seconds_total": 16.851369959000294,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 6
+        }
+      },
+      "other_technical_errors": 0,
       "output_tokens_mean_per_case": 38.833333333333336,
       "output_tokens_total": 233,
       "reason_code_counts": {
@@ -222,6 +353,7 @@
         "mean": null,
         "minimum": null
       },
+      "runner_error_cases": 0,
       "status_counts": {
         "abstained": 6
       }

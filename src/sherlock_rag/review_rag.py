@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import statistics
 import sys
 from collections import Counter
@@ -107,19 +108,45 @@ def _ratio(numerator: int, denominator: int) -> dict:
     }
 
 
+def _known_measurements(
+    cases: list[dict], field: str, *, integer: bool = False
+) -> list[int | float]:
+    values = []
+    for case in cases:
+        value = case["result"].get(field)
+        valid_type = type(value) is int if integer else type(value) in (int, float)
+        if valid_type and math.isfinite(value) and value >= 0:
+            values.append(value)
+    return values
+
+
 def automatic_metrics(cases: list[dict]) -> dict:
     statuses = Counter(case["result"]["status"] for case in cases)
     reasons = Counter(case["result"].get("reason_code") for case in cases)
-    generated = [case for case in cases if case["result"].get("attempts", 0) > 0]
+    generated = [
+        case
+        for case in cases
+        if type(case["result"].get("attempts")) is int
+        and case["result"]["attempts"] > 0
+    ]
     first_pass = sum(
-        case["result"]["attempts"] == 1
+        type(case["result"].get("attempts")) is int
+        and case["result"]["attempts"] == 1
         and case["result"]["status"] in ("answered", "abstained")
         and case["result"].get("citations_resolved") is True
         for case in cases
     )
-    repairs = sum(case["result"].get("attempts", 0) == 2 for case in cases)
-    times = [case["result"].get("generation_seconds", 0) for case in cases]
-    output_tokens = [case["result"].get("output_tokens", 0) for case in cases]
+    repairs = sum(
+        type(case["result"].get("attempts")) is int and case["result"]["attempts"] == 2
+        for case in cases
+    )
+    attempts = _known_measurements(cases, "attempts", integer=True)
+    input_tokens = _known_measurements(cases, "input_tokens", integer=True)
+    output_tokens = _known_measurements(cases, "output_tokens", integer=True)
+    times = _known_measurements(cases, "generation_seconds")
+    generated_input_tokens = _known_measurements(
+        generated, "input_tokens", integer=True
+    )
     quotes = [
         len(citation["quote_raw"])
         for case in cases
@@ -130,26 +157,37 @@ def automatic_metrics(cases: list[dict]) -> dict:
         "count": len(cases),
         "status_counts": dict(sorted(statuses.items())),
         "reason_code_counts": dict(sorted(reasons.items())),
+        "measurement_coverage": {
+            field: {"recorded": len(values), "missing": len(cases) - len(values)}
+            for field, values in {
+                "attempts": attempts,
+                "input_tokens": input_tokens,
+                "output_tokens": output_tokens,
+                "generation_seconds": times,
+            }.items()
+        },
         "first_pass_mechanical_success": _ratio(first_pass, len(generated)),
         "generated_cases": len(generated),
         "repair_cases": repairs,
         "repair_frequency": _ratio(repairs, len(generated)),
         "final_invalid_model_output": reasons["invalid_model_output"],
-        "generation_seconds_total": sum(times),
+        "other_technical_errors": sum(
+            case["result"]["status"] == "error"
+            and case["result"].get("reason_code") != "invalid_model_output"
+            for case in cases
+        ),
+        "runner_error_cases": reasons["runner_error"],
+        "generation_seconds_total": sum(times) if times else None,
         "generation_seconds_mean_per_case": statistics.mean(times) if times else None,
-        "output_tokens_total": sum(output_tokens),
+        "output_tokens_total": sum(output_tokens) if output_tokens else None,
         "output_tokens_mean_per_case": statistics.mean(output_tokens)
         if output_tokens
         else None,
         "final_attempt_input_tokens": {
-            "minimum": min(
-                (case["result"].get("input_tokens", 0) for case in generated),
-                default=None,
-            ),
-            "maximum": max(
-                (case["result"].get("input_tokens", 0) for case in generated),
-                default=None,
-            ),
+            "minimum": min(generated_input_tokens, default=None),
+            "maximum": max(generated_input_tokens, default=None),
+            "recorded": len(generated_input_tokens),
+            "missing": len(generated) - len(generated_input_tokens),
         },
         "resolved_quote_characters": {
             "count": len(quotes),

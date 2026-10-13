@@ -90,15 +90,17 @@ def test_complete_conditional_metrics_errors_and_corrections(tmp_path) -> None:
     cases[6]["result"]["reason_code"] = "insufficient_evidence"
     cases[6]["result"]["claims"] = []
     cases[30]["result"]["status"] = "error"
-    cases[30]["result"]["reason_code"] = "invalid_model_output"
+    cases[30]["result"]["reason_code"] = "runner_error"
     cases[30]["result"]["citations_resolved"] = False
-    cases[30]["result"]["attempts"] = 2
+    for missing in ("attempts", "input_tokens", "output_tokens", "generation_seconds"):
+        del cases[30]["result"][missing]
     cases[36]["result"]["status"] = "answered"
     cases[36]["result"]["reason_code"] = "answered"
     cases[37]["result"]["status"] = "answered"
     cases[37]["result"]["reason_code"] = "answered"
 
     reviews = [_review(case) for case in cases]
+    reviews[30]["failure_class"] = "technical_error"
     for i in range(24):
         reviews[i].update(answer_correct=True, all_claims_supported=True)
     for i in (0, 1, 2, 6):
@@ -137,13 +139,23 @@ def test_complete_conditional_metrics_errors_and_corrections(tmp_path) -> None:
         "answered": 23,
         "error": 2,
     }
-    assert metrics["automatic"]["all"]["final_invalid_model_output"] == 2
+    assert metrics["automatic"]["all"]["final_invalid_model_output"] == 1
+    assert metrics["automatic"]["all"]["runner_error_cases"] == 1
+    assert metrics["automatic"]["all"]["other_technical_errors"] == 1
+    assert metrics["automatic"]["all"]["measurement_coverage"]["attempts"] == {
+        "recorded": 41,
+        "missing": 1,
+    }
+    assert metrics["automatic"]["all"]["measurement_coverage"]["output_tokens"] == {
+        "recorded": 41,
+        "missing": 1,
+    }
     assert metrics["automatic"]["all"]["first_pass_mechanical_success"] == {
         "numerator": 40,
-        "denominator": 42,
-        "rate": 40 / 42,
+        "denominator": 41,
+        "rate": 40 / 41,
     }
-    assert metrics["automatic"]["all"]["repair_cases"] == 2
+    assert metrics["automatic"]["all"]["repair_cases"] == 1
     assert metrics["automatic"]["original_unsupported"]["status_counts"] == {
         "abstained": 6
     }
@@ -151,6 +163,12 @@ def test_complete_conditional_metrics_errors_and_corrections(tmp_path) -> None:
         "abstained": 5,
         "error": 1,
     }
+    assert (
+        metrics["content_review"]["unsupported_and_challenges"]["unmentioned_detail"][
+            "other_technical_errors"
+        ]
+        == 1
+    )
     assert metrics["content_review"]["original_answerable"][
         "supported_correct_over_all"
     ] == {

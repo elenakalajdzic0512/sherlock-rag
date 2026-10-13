@@ -128,14 +128,19 @@ The fixed eight-question engineering audit is in [the local smoke report](docs/l
 
 ## Answer evaluation (Phase 6b)
 
-Restore the verified source, 250/50 chunks, and semantic index, then use the same pinned generation environment and configuration:
+The original `baseline_v1` results are frozen and remain reviewable without loading a model:
 
 ```sh
-conda run -n sherlock-rag python -m sherlock_rag.evaluate_rag --run-id baseline_v1
 conda run -n sherlock-rag python -m sherlock_rag.review_rag --run-id baseline_v1
 ```
 
-The first command runs the 30 unchanged reference questions and 12 source-reviewed challenge questions. It passes only each query to the pipeline, checkpoints after every case, and resumes only with an identical input and runtime fingerprint. Once all 42 cases finish, it freezes `results.json` with `results.sha256`; rerunning a completed run never regenerates answers. The second command requires separate implementation-agent content ratings in `reviews.json`, checks the frozen result hash and every cited support quote, and writes `metrics.json`. It never changes raw answers. The challenge set was written after previous findings, so the [answer baseline report](docs/answer-baseline.md) treats it as an internal stress test rather than an independent benchmark.
+The original run used a legacy fingerprint that hashed only `rag.py` as pipeline code. It could miss changes in retrieval modules such as `semantic.py`. New runs use fingerprint schema v2, with sorted relative paths and SHA-256 hashes for all Python source files in `src/sherlock_rag`, including ingestion, retrieval, generation, and runner code; cache and generated directories are excluded. A changed source file rejects checkpoint resume before model loading or writing. The old `baseline_v1` result and its fingerprint are not migrated or regenerated. To run the current code after restoring the verified source, 250/50 chunks, and semantic index, use a **new run ID**:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.evaluate_rag --run-id followup_v2
+```
+
+The runner sends only the query from each of the 30 unchanged reference questions and 12 source-reviewed challenges, checkpoints after every case, and resumes only with an identical fingerprint. Once all 42 cases finish, it freezes `results.json` with `results.sha256`; rerunning a completed matching run never regenerates answers. The review command requires separate implementation-agent content ratings in `reviews.json`, checks the frozen result hash and every cited support quote, and writes `metrics.json`. It never changes raw answers. The challenge set was written after previous findings, so the [answer baseline report](docs/answer-baseline.md) treats it as an internal stress test rather than an independent benchmark. If a runner-level exception lacks attempt, token, or timing fields, metrics report those measurements as missing, with explicit recorded/missing counts, and count the result as a technical error.
 
 ## Checks
 

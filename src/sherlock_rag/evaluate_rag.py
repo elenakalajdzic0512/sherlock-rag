@@ -18,6 +18,22 @@ from sherlock_rag.semantic import load_index
 
 QUESTIONS_SHA256 = "fb2dfa8a302055b9993f06933d4fa15190041ca411b582ad5263336f3192de0b"
 CHALLENGES_SHA256 = "cdf59802eeeddde1b3d0430651d999abcc51f5f1186a36b44a8a8bd0fdafe006"
+FINGERPRINT_SCHEMA_VERSION = 2
+REQUIRED_RUNTIME_MODULES = frozenset(
+    {
+        "__init__.py",
+        "chunking.py",
+        "evaluate_rag.py",
+        "hybrid.py",
+        "ingest.py",
+        "rag.py",
+        "retrieval.py",
+        "semantic.py",
+    }
+)
+EXCLUDED_CODE_DIRECTORIES = frozenset(
+    {"__pycache__", ".cache", "build", "dist", "generated", ".generated"}
+)
 
 
 class RunError(ValueError):
@@ -71,6 +87,25 @@ def load_cases(root: Path = PROJECT_ROOT) -> tuple[list[dict], dict[str, str]]:
     return cases, hashes
 
 
+def project_code_hashes(root: Path = PROJECT_ROOT) -> dict[str, str]:
+    """Hash package source, including future modules, but never generated files."""
+    package = root / "src/sherlock_rag"
+    paths = sorted(
+        path
+        for path in package.rglob("*.py")
+        if path.is_file()
+        and not path.is_symlink()
+        and not EXCLUDED_CODE_DIRECTORIES.intersection(path.relative_to(package).parts)
+    )
+    present = {path.name for path in paths if path.parent == package}
+    if not REQUIRED_RUNTIME_MODULES <= present:
+        missing = sorted(REQUIRED_RUNTIME_MODULES - present)
+        raise RunError(f"Runtime source modules are missing: {missing}")
+    return {
+        path.relative_to(root).as_posix(): sha256(path.read_bytes()) for path in paths
+    }
+
+
 def build_fingerprint(root: Path = PROJECT_ROOT) -> dict:
     cases, hashes = load_cases(root)
     retrieval, generation, _ = load_settings(root)
@@ -94,6 +129,8 @@ def build_fingerprint(root: Path = PROJECT_ROOT) -> dict:
         )
     }
     fingerprint = {
+        "fingerprint_schema_version": FINGERPRINT_SCHEMA_VERSION,
+        "project_code_files_sha256": project_code_hashes(root),
         "dataset_sha256": hashes,
         "retrieval_config_sha256": sha256(
             (root / "config/retrieval.json").read_bytes()
@@ -102,7 +139,6 @@ def build_fingerprint(root: Path = PROJECT_ROOT) -> dict:
             (root / "config/generation.json").read_bytes()
         ),
         "prompt_sha256": generation["prompt_sha256"],
-        "pipeline_code_sha256": sha256((root / "src/sherlock_rag/rag.py").read_bytes()),
         "source_manifest_sha256": sha256(
             (root / "data/source_manifest.json").read_bytes()
         ),

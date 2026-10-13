@@ -8,6 +8,8 @@ The runner sent **only each query string** to the unchanged local pipeline, in t
 
 The recorded fingerprint SHA-256 is `115287d5caac7917599e324dcd759836aeb0596d69542e6090d2ed21d83ed589`. Its full fields are in `results.json`: hashes of both question files, retrieval and generation configuration, `local-answer-v1` prompt (`5c7d37c1fe34b4e816c4ec5e332efac37049316a5f56e9d7ca140db0fc356267`), pipeline code (`a7fb59ec66557c598c2253786518b48ff5c24a4a4ec6f2975f9f2381b1a12946`), source manifest and raw/processed source, selected 525-chunk JSONL and index metadata/vectors; semantic A, top five; Qwen/Qwen3-4B-Instruct-2507 revision `cdbee75f17c01a7cc42f958dc650907174af0554`; MPS bfloat16; greedy decoding, 6144 input and 768 new-token budgets; and installed torch, transformers, sentence-transformers, NumPy, accelerate, and safetensors versions. Model load took 5.57 seconds in this run.
 
+**Historical fingerprint limit:** `baseline_v1` predates fingerprint schema v2. Its `pipeline_code_sha256` covers `rag.py` only, so a change to `semantic.py` or another imported project module would not have invalidated a partial legacy checkpoint. The frozen raw result and its original fingerprint have not been changed or migrated. The post-run review command still validates and scores them without loading the model. New run IDs use schema v2, which records deterministic relative paths and content hashes for all package Python source, including the runner and retrieval dependencies; missing runtime modules fail before generation. Cache and generated directories are excluded. A current-code run cannot silently resume this legacy run because the fingerprints differ.
+
 ## Automatic results
 
 These numbers are pipeline outputs and structural checks, not semantic entailment. `error` is never counted as a refusal. `answered` means citations mechanically resolved, not that the claim is true.
@@ -22,6 +24,8 @@ These numbers are pipeline outputs and structural checks, not semantic entailmen
 | **All** | **42** | **15** | **20** | **7** | **7** |
 
 Reason codes across all 42: `answered` 15, `insufficient_evidence` 20, and `invalid_model_output` 7. No other technical error or context-budget error occurred. All 42 reached generation. First-pass mechanical success was **20/42 (47.6%)**; **22/42 (52.4%)** used the one allowed repair attempt, and **7/42 (16.7%)** remained invalid. In the 24 answerable cases, only 3/24 passed on the first attempt; 21/24 required repair and 6/24 still failed. The run used 345.39 seconds of model generation (8.22 seconds/case), plus 5.57 seconds to load the model, and generated 5,910 output tokens (140.7/case, including both attempts). Final-attempt input lengths were 2,091–2,370 tokens, below the 6,144-token input budget. Fifteen displayed citations had raw quote lengths 34–922 characters, mean 183.6. These are generation timings, not complete end-to-end retrieval times.
+
+Recomputing `metrics.json` from the frozen results and reviews under the corrected metric code retained every baseline status, reason, success numerator/denominator, timing, token total, and content rating above. All 42 baseline cases have recorded attempt, token, and generation-time fields; none is a `runner_error`. The metric output now makes measurement coverage explicit for each field. For future runner-level exceptions, missing values stay missing, totals/means use only recorded values, and the exception counts as a technical error rather than a refusal or successful answer.
 
 ## Implementation-agent content review
 

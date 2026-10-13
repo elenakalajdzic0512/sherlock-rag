@@ -64,6 +64,7 @@
 - Automatic statuses: 15 answered, 20 abstained, seven invalid-model-output errors. First-pass mechanical success 20/42; 22/42 repair attempts. Generation took 345.39 seconds and produced 5,910 output tokens.
 - Implementation-agent review: supported correct answer 10/24 original answerable; displayed-answer correctness 11/15; unsupported claims 5/15 displayed; sufficient sent context 17/24, with supported correct generation 10/17 and unjustified abstention 0/17. Original unsupported refusals 6/6; unmentioned-detail 6/6; false-premise 3/4 with one invalid output and one supported correction in a refusal reason; other-book 2/2. This is not independent human adjudication.
 - Full offline pytest suite: 113 passed. Ruff check and format check, pip check, and git diff --check passed.
+- **Phase 6b PR #8 review fix:** New fingerprint schema v2 covers sorted relative paths and SHA-256 contents for all package Python source, including `semantic.py` and the runner. A changed module blocks checkpoint resume before model loading and file writes. `baseline_v1` keeps its old, narrower fingerprint and frozen result; review remains available without the model. Metrics now record missing attempt/token/time fields and classify `runner_error` as a technical error. Recomputed baseline metrics retain the original outcome counts and content scores. GitHub visibility was restored to `PRIVATE` and verified. Full offline suite: 116 passed; Ruff check/format, pip check, and git diff --check passed.
 
 ## Planned
 
