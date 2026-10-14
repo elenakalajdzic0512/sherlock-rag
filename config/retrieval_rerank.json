@@ -1,0 +1,14 @@
+{
+  "method": "rerank",
+  "configuration": "w250_o50",
+  "top_k": 5,
+  "bm25_candidates": 20,
+  "semantic_candidates": 20,
+  "model_id": "cross-encoder/ms-marco-MiniLM-L6-v2",
+  "model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "tokenizer_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "max_pair_tokens": 512,
+  "batch_size": 8,
+  "score": "raw sequence-classification logit",
+  "tie_break": "story_index, chunk_index, chunk_id ascending"
+}
