@@ -107,13 +107,21 @@ def project_code_hashes(root: Path = PROJECT_ROOT) -> dict[str, str]:
 
 
 def build_fingerprint(
-    root: Path = PROJECT_ROOT, generation_variant: str = "v1"
+    root: Path = PROJECT_ROOT,
+    generation_variant: str = "v1",
+    retrieval_variant: str = "default",
 ) -> dict:
     cases, hashes = load_cases(root)
-    retrieval, generation, _ = load_settings(root, generation_variant)
+    retrieval, generation, _ = (
+        load_settings(root, generation_variant)
+        if retrieval_variant == "default"
+        else load_settings(root, generation_variant, retrieval_variant)
+    )
     book, _, source = load_verified_source(root)
     config = retrieval["configuration"]
-    if retrieval["method"] != "semantic":
+    if retrieval["method"] != (
+        "semantic" if retrieval_variant == "default" else "rerank"
+    ):
         raise RunError("This baseline expects the frozen semantic retrieval selection")
     chunks, vectors, meta = load_index(config, root)
     del vectors
@@ -137,7 +145,14 @@ def build_fingerprint(
         "project_code_files_sha256": project_code_hashes(root),
         "dataset_sha256": hashes,
         "retrieval_config_sha256": sha256(
-            (root / "config/retrieval.json").read_bytes()
+            (
+                root
+                / (
+                    "config/retrieval.json"
+                    if retrieval_variant == "default"
+                    else "config/retrieval_rerank.json"
+                )
+            ).read_bytes()
         ),
         "generation_config_sha256": sha256(
             (root / GENERATION_CONFIGS[generation_variant]).read_bytes()
@@ -167,6 +182,21 @@ def build_fingerprint(
         "max_input_tokens": generation["max_input_tokens"],
         "versions": versions,
     }
+    if retrieval_variant == "rerank":
+        fingerprint.update(
+            {
+                "retrieval_variant": "rerank",
+                "reranker_model_id": retrieval["model_id"],
+                "reranker_model_revision": retrieval["model_revision"],
+                "reranker_tokenizer_revision": retrieval["tokenizer_revision"],
+                "bm25_source_chunks_sha256": meta["chunks_sha256"],
+                "semantic_vectors_sha256": meta["vectors_sha256"],
+                "candidate_limits": [
+                    retrieval["bm25_candidates"],
+                    retrieval["semantic_candidates"],
+                ],
+            }
+        )
     return fingerprint
 
 
@@ -258,17 +288,26 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--generation-variant", choices=tuple(GENERATION_CONFIGS), default="v1"
     )
+    parser.add_argument(
+        "--retrieval-variant", choices=("default", "rerank"), default="default"
+    )
     args = parser.parse_args(argv)
     try:
         cases, _ = load_cases()
-        fingerprint = build_fingerprint(generation_variant=args.generation_variant)
+        fingerprint = build_fingerprint(
+            generation_variant=args.generation_variant,
+            retrieval_variant=args.retrieval_variant,
+        )
         run_dir = PROJECT_ROOT / "eval/rag_runs" / args.run_id
         result = run_cases(
             run_dir,
             args.run_id,
             fingerprint,
             cases,
-            lambda: load_pipeline(generation_variant=args.generation_variant),
+            lambda: load_pipeline(
+                generation_variant=args.generation_variant,
+                retrieval_variant=args.retrieval_variant,
+            ),
         )
     except (RunError, OSError, ValueError, KeyError, IndexError) as exc:
         print(f"RAG evaluation failed: {exc}", file=sys.stderr)

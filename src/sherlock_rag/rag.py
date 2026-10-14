@@ -186,9 +186,25 @@ def resolve_response(
 
 
 def load_settings(
-    root: Path = PROJECT_ROOT, generation_variant: str = "v1"
+    root: Path = PROJECT_ROOT,
+    generation_variant: str = "v1",
+    retrieval_variant: str = "default",
 ) -> tuple[dict, dict, str]:
-    retrieval = json.loads((root / "config/retrieval.json").read_text(encoding="utf-8"))
+    if retrieval_variant not in ("default", "rerank"):
+        raise RagError(f"Unknown retrieval variant: {retrieval_variant}")
+    retrieval_path = (
+        "config/retrieval.json"
+        if retrieval_variant == "default"
+        else "config/retrieval_rerank.json"
+    )
+    retrieval = json.loads((root / retrieval_path).read_text(encoding="utf-8"))
+    if retrieval_variant == "rerank":
+        from sherlock_rag.rerank import load_config
+
+        if retrieval != load_config(root):
+            raise RagError(
+                "Experimental retrieval config differs from frozen candidate"
+            )
     if generation_variant not in GENERATION_CONFIGS:
         raise RagError(f"Unknown generation variant: {generation_variant}")
     generation = json.loads(
@@ -205,9 +221,12 @@ def load_settings(
             raise RagError(
                 "Experimental generation settings differ from pinned v1 model or budgets"
             )
-    if retrieval.get("method") not in ("bm25", "semantic", "hybrid") or retrieval.get(
-        "configuration"
-    ) not in ("w250_o50", "w500_o100"):
+    if retrieval.get("method") not in (
+        "bm25",
+        "semantic",
+        "hybrid",
+        "rerank",
+    ) or retrieval.get("configuration") not in ("w250_o50", "w500_o100"):
         raise RagError("Unsupported retrieval selection")
     if (
         not isinstance(retrieval.get("top_k"), int)
@@ -364,6 +383,19 @@ class RagPipeline:
             }
         try:
             results = self.retriever.search(query, self.retrieval["top_k"])
+            if self.retrieval["method"] == "rerank":
+                base["retrieval_candidates"] = self.retriever.last_audit["candidates"]
+                base["retrieval_timing"] = {
+                    key: value
+                    for key, value in self.retriever.last_audit.items()
+                    if key
+                    in (
+                        "bm25_seconds",
+                        "semantic_seconds",
+                        "rerank_seconds",
+                        "max_pair_tokens",
+                    )
+                }
             passages = make_passages(results, self.book)
         except (ValueError, OSError, KeyError, IndexError) as exc:
             return {**base, "reason_code": "retrieval_error", "reason": str(exc)}
@@ -454,9 +486,13 @@ class RagPipeline:
 
 
 def load_pipeline(
-    root: Path = PROJECT_ROOT, generation_variant: str = "v1"
+    root: Path = PROJECT_ROOT,
+    generation_variant: str = "v1",
+    retrieval_variant: str = "default",
 ) -> RagPipeline:
-    retrieval, generation, prompt = load_settings(root, generation_variant)
+    retrieval, generation, prompt = load_settings(
+        root, generation_variant, retrieval_variant
+    )
     try:
         book, _, source = load_verified_source(root)
         method, config = retrieval["method"], retrieval["configuration"]
@@ -470,6 +506,10 @@ def load_pipeline(
             chunks, vectors, _ = load_index(config, root)
             encoder, _ = load_encoder()
             index = SemanticIndex(chunks, vectors, encoder)
+        elif method == "rerank":
+            from sherlock_rag.rerank import load_reranked
+
+            index, _ = load_reranked(root)
         else:
             from sherlock_rag.hybrid import load_hybrid
             from sherlock_rag.semantic import load_encoder
@@ -491,6 +531,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--generation-variant", choices=tuple(GENERATION_CONFIGS), default="v1"
     )
+    parser.add_argument(
+        "--retrieval-variant", choices=("default", "rerank"), default="default"
+    )
     args = parser.parse_args(argv)
     if not args.query.strip():
         print(
@@ -504,7 +547,10 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
     try:
-        pipeline = load_pipeline(generation_variant=args.generation_variant)
+        pipeline = load_pipeline(
+            generation_variant=args.generation_variant,
+            retrieval_variant=args.retrieval_variant,
+        )
         result = pipeline.answer(args.query)
         result["model_load_seconds"] = pipeline.generator.load_seconds
         result["device"] = pipeline.generator.device
