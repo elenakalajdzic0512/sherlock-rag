@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import json
+import shutil
 
 import pytest
 
 from sherlock_rag import question_generation as qg
+from sherlock_rag.ingest import PROJECT_ROOT
 
 
 def synthetic_chunks(count: int = 5) -> list[dict]:
@@ -225,3 +227,73 @@ def test_resume_rejects_changed_fingerprint_before_model_load_or_write(
             lambda config: (_ for _ in ()).throw(AssertionError("model loaded")),
         )
     assert (tmp_path / qg.RUN_DIR / "results.json").read_bytes() == saved
+
+
+def config_files(tmp_path):
+    (tmp_path / "config").mkdir()
+    (tmp_path / "prompts").mkdir()
+    for name in ("generation.json", "question_generation_v1.json"):
+        shutil.copyfile(PROJECT_ROOT / "config" / name, tmp_path / "config" / name)
+    shutil.copyfile(
+        PROJECT_ROOT / "prompts/question_generation_v1.txt",
+        tmp_path / "prompts/question_generation_v1.txt",
+    )
+    return tmp_path / "config/question_generation_v1.json"
+
+
+@pytest.mark.parametrize("field", ["max_input_tokens", "max_new_tokens"])
+@pytest.mark.parametrize("value", [True, "6144", 6144.0, None, 0, -1])
+def test_config_rejects_nonpositive_or_noninteger_budgets_before_model(
+    tmp_path, monkeypatch, field, value
+) -> None:
+    config_path = config_files(tmp_path)
+    config = json.loads(config_path.read_text())
+    config[field] = value
+    config_path.write_text(json.dumps(config))
+    with pytest.raises(
+        qg.QuestionGenerationError, match=f"{field} must be a positive integer"
+    ):
+        qg.load_config(tmp_path)
+    monkeypatch.setattr(qg, "prepare", lambda root: {"selected": []})
+    monkeypatch.setattr(qg, "build_fingerprint", lambda root: {})
+    with pytest.raises(
+        qg.QuestionGenerationError, match=f"{field} must be a positive integer"
+    ):
+        qg.run(
+            tmp_path,
+            lambda config: (_ for _ in ()).throw(AssertionError("model loaded")),
+        )
+
+
+def test_config_accepts_exact_valid_budgets(tmp_path) -> None:
+    config_files(tmp_path)
+    config, prompt = qg.load_config(tmp_path)
+    assert config["max_input_tokens"] == 6144
+    assert config["max_new_tokens"] == 512
+    assert prompt
+
+
+def test_frozen_historical_run_is_read_only_after_runtime_code_change(
+    tmp_path, monkeypatch
+) -> None:
+    run_dir = tmp_path / qg.RUN_DIR
+    run_dir.mkdir(parents=True)
+    source = PROJECT_ROOT / qg.RUN_DIR
+    for name in ("results.json", "results.sha256"):
+        shutil.copyfile(source / name, run_dir / name)
+    raw_before = (run_dir / "results.json").read_bytes()
+    hash_before = (run_dir / "results.sha256").read_bytes()
+    saved = json.loads(raw_before)
+    selection = json.loads((source / "selection.json").read_text())
+    current = saved["fingerprint"].copy()
+    current["runtime_code_sha256"] = {"changed.py": "new"}
+    monkeypatch.setattr(qg, "prepare", lambda root: selection)
+    monkeypatch.setattr(qg, "build_fingerprint", lambda root: current)
+    monkeypatch.setattr(qg, "load_config", lambda root: ({}, "prompt"))
+    output = qg.run(
+        tmp_path,
+        lambda config: (_ for _ in ()).throw(AssertionError("model loaded")),
+    )
+    assert output["fingerprint"] == saved["fingerprint"]
+    assert (run_dir / "results.json").read_bytes() == raw_before
+    assert (run_dir / "results.sha256").read_bytes() == hash_before

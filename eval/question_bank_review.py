@@ -24,7 +24,13 @@ class BankReviewError(ValueError):
     """The review does not match locked raw generation or its citations."""
 
 
-def compile_bank(root: Path = PROJECT_ROOT, *, write: bool = False) -> dict:
+def compile_bank(
+    root: Path = PROJECT_ROOT, *, version: int = 2, write: bool = False
+) -> dict:
+    if version not in (1, 2):
+        raise BankReviewError("Unknown review version")
+    if version == 1 and write:
+        raise BankReviewError("Historical v1 review and bank are immutable")
     directory = root / RUN_DIR
     raw_bytes = (directory / "results.json").read_bytes()
     raw_sha = sha256(raw_bytes)
@@ -33,12 +39,21 @@ def compile_bank(root: Path = PROJECT_ROOT, *, write: bool = False) -> dict:
     raw = json.loads(raw_bytes)
     if raw.get("state") != "complete" or len(raw.get("results", [])) != 36:
         raise BankReviewError("Raw run is incomplete")
-    review = json.loads((directory / "reviews.json").read_text(encoding="utf-8"))
+    suffix = "" if version == 1 else "_v2"
+    review_path = directory / f"reviews{suffix}.json"
+    review = json.loads(review_path.read_text(encoding="utf-8"))
     if (
         review.get("results_sha256") != raw_sha
         or review.get("reviewer") != "implementation-agent"
     ):
         raise BankReviewError("Review provenance differs")
+    if version == 2:
+        historical_sha = sha256((directory / "reviews.json").read_bytes())
+        if (
+            review.get("rating_schema") != "question-content-v2"
+            or review.get("supersedes_reviews_sha256") != historical_sha
+        ):
+            raise BankReviewError("V2 review lineage differs")
     ratings = review.get("ratings")
     if not isinstance(ratings, list) or len(ratings) != 36:
         raise BankReviewError("Review must rate all 36 selections")
@@ -100,7 +115,7 @@ def compile_bank(root: Path = PROJECT_ROOT, *, write: bool = False) -> dict:
     )
     output = {
         "raw_results_sha256": raw_sha,
-        "reviews_sha256": sha256((directory / "reviews.json").read_bytes()),
+        "reviews_sha256": sha256(review_path.read_bytes()),
         "bank_sha256": sha256(bank_bytes),
         "total": len(raw["results"]),
         "counts": dict(sorted(counts.items())),
@@ -112,13 +127,16 @@ def compile_bank(root: Path = PROJECT_ROOT, *, write: bool = False) -> dict:
             values["accepted"] > 0 for values in by_story.values()
         ),
     }
+    if version == 2:
+        output["review_version"] = 2
+        output["supersedes_reviews_sha256"] = review["supersedes_reviews_sha256"]
     if write:
-        bank_path = directory / "bank.jsonl"
+        bank_path = directory / "bank_v2.jsonl"
         if bank_path.exists() and bank_path.read_bytes() != bank_bytes:
             raise BankReviewError("Existing reviewed bank differs; refusing overwrite")
         atomic_write(bank_path, bank_bytes)
         atomic_write(
-            directory / "summary.json",
+            directory / "summary_v2.json",
             (
                 json.dumps(output, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
             ).encode(),
@@ -129,10 +147,14 @@ def compile_bank(root: Path = PROJECT_ROOT, *, write: bool = False) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true")
+    parser.add_argument("--version", type=int, choices=(1, 2), default=2)
     args = parser.parse_args()
     print(
         json.dumps(
-            compile_bank(write=args.write), ensure_ascii=False, sort_keys=True, indent=2
+            compile_bank(version=args.version, write=args.write),
+            ensure_ascii=False,
+            sort_keys=True,
+            indent=2,
         )
     )
 

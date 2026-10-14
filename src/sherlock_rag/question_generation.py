@@ -94,6 +94,10 @@ def prepare(root: Path = PROJECT_ROOT) -> dict:
 def load_config(root: Path = PROJECT_ROOT) -> tuple[dict, str]:
     config = json.loads((root / CONFIG_PATH).read_text(encoding="utf-8"))
     baseline = json.loads((root / "config/generation.json").read_text(encoding="utf-8"))
+    for field in ("max_input_tokens", "max_new_tokens"):
+        value = config.get(field)
+        if type(value) is not int or value <= 0:
+            raise QuestionGenerationError(f"{field} must be a positive integer")
     for field in (
         "model_id",
         "model_revision",
@@ -317,10 +321,8 @@ def run(
     result_path, hash_path = run_dir / "results.json", run_dir / "results.sha256"
     if result_path.exists():
         result = json.loads(result_path.read_text(encoding="utf-8"))
-        if result.get("run_id") != RUN_ID or result.get("fingerprint") != fingerprint:
-            raise QuestionGenerationError(
-                "Checkpoint fingerprint differs; refusing resume"
-            )
+        if result.get("run_id") != RUN_ID:
+            raise QuestionGenerationError("Checkpoint run ID differs")
         saved = result.get("results")
         if (
             not isinstance(saved, list)
@@ -332,6 +334,25 @@ def run(
             )
         ):
             raise QuestionGenerationError("Checkpoint case prefix differs")
+        if hash_path.exists():
+            if (
+                sha256(result_path.read_bytes()) != hash_path.read_text().strip()
+                or result["state"] != "complete"
+                or len(saved) != 36
+            ):
+                raise QuestionGenerationError("Frozen results changed or incomplete")
+            historical = result.get("fingerprint")
+            if not isinstance(historical, dict) or any(
+                historical.get(key) != value
+                for key, value in fingerprint.items()
+                if key not in ("runtime_code_sha256", "versions")
+            ):
+                raise QuestionGenerationError("Frozen run inputs differ")
+            return result
+        if result.get("fingerprint") != fingerprint:
+            raise QuestionGenerationError(
+                "Checkpoint fingerprint differs; refusing resume"
+            )
     else:
         if hash_path.exists():
             raise QuestionGenerationError("Frozen hash exists without results")
@@ -345,14 +366,6 @@ def run(
             "results": [],
             "runtime_sessions": [],
         }
-    if hash_path.exists():
-        if (
-            sha256(result_path.read_bytes()) != hash_path.read_text().strip()
-            or result["state"] != "complete"
-            or len(result["results"]) != 36
-        ):
-            raise QuestionGenerationError("Frozen results changed or incomplete")
-        return result
     if len(result["results"]) == 36:
         result["state"] = "complete"
     else:
