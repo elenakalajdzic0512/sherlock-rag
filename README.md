@@ -2,7 +2,38 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 7a provides a frozen, source-traceable question-generation batch and a separately reviewed question bank. The current v2 review accepts five questions from five stories; the original six-question review remains historical. The interface remains planned. Semantic A retrieval and generation v1 remain the defaults.
+**Status:** The local interface uses semantic A retrieval and generation v1 by default. Its current reviewed v2 question bank contains five questions from five of twelve stories. The original six-question bank is historical. The fresh-clone audit is recorded in [the final audit](docs/final-audit.md).
+
+## Run the local app from a fresh clone
+
+On a Mac with conda and Python 3.11, run these commands in order. The repository is private, so cloning requires access to it. Commands are shown with a fresh environment name; use another name if it already exists.
+
+```sh
+git clone https://github.com/elenakalajdzic0512/sherlock-rag.git
+cd sherlock-rag
+conda create -y -n sherlock-rag python=3.11 pip
+conda run -n sherlock-rag python -m pip install -e '.[dev,semantic,generation,ui]'
+conda run -n sherlock-rag python -m sherlock_rag.ingest
+conda run -n sherlock-rag python -m sherlock_rag.chunking --chunk-size-words 250 --overlap-words 50
+conda run -n sherlock-rag python -m sherlock_rag.semantic build --config w250_o50
+conda run --no-capture-output -n sherlock-rag python -m streamlit run app.py --server.address 127.0.0.1 --server.port 8501 --browser.gatherUsageStats false
+```
+
+Open `http://127.0.0.1:8501`. The app checks local inputs and the reviewed bank before loading the answer model. Browsing the bank does not load a model; the first submitted question does. The ingestion command downloads the original Gutenberg TXT and **requires its SHA-256 and derived narrative to match the tracked source manifest**. A changed Gutenberg file is a blocking source mismatch, not a reason to update expected hashes. Chunk configuration B is optional for the app; regenerate it with `--chunk-size-words 500 --overlap-words 100` when reproducing historical experiments.
+
+Git tracks code, prompts, configurations, source/chunk manifests, the v2 reviewed bank, and frozen evaluation results. It does not track the downloaded original, extracted book, generated chunk JSONL files, local semantic index, model cache, virtual environments, or secrets. Recreate the missing local files using the commands above. Pinned Hugging Face models may be fetched to the local cache when first needed; this requires connectivity unless the matching revisions are already cached. The app itself does not download data or models merely by opening its page. The [final audit](docs/final-audit.md) reused an existing model cache and therefore did not prove first-time model downloads.
+
+Inspect the current bank and the locked paired answer comparisons **without loading a model or rewriting results**:
+
+```sh
+conda run -n sherlock-rag python eval/question_bank_review.py
+conda run -n sherlock-rag python -m eval.paired_review
+conda run -n sherlock-rag python -m eval.rerank_paired_review
+```
+
+The baseline remains **10/24 supported-correct answers** under the paired rubric. Mechanical citation validation does not prove a claim is supported by its quote. The question and challenge set has already been seen, and the content reviews are implementation-agent ratings rather than independent human adjudication. Any new generation or evaluation experiment needs a **new run ID**; completed historical runs are locked and must not be regenerated or overwritten.
+
+## Historical and optional workflows
 
 ## Planned features
 
@@ -14,22 +45,6 @@ A book-grounded retrieval-augmented generation (RAG) project based on Arthur Con
 - Provide a simple user interface.
 
 See [the roadmap](docs/roadmap.md), [progress](docs/progress.md), [corpus audit](docs/corpus-audit.md), [chunking audit](docs/chunking-audit.md), [retrieval baseline](docs/retrieval-baseline.md), [semantic baseline](docs/semantic-baseline.md), and [hybrid baseline](docs/hybrid-baseline.md).
-
-## Development setup
-
-Use a dedicated Python 3.11 conda environment:
-
-```sh
-conda create -n sherlock-rag python=3.11 pip
-conda run -n sherlock-rag python -m pip install -e '.[dev]'
-```
-
-On this machine, PyPI's file host was unavailable during Phase 1. The working installation used conda-forge for development tools and the local build backend for the editable package:
-
-```sh
-conda install -n sherlock-rag pytest ruff
-conda run -n sherlock-rag python -m pip install --no-index --no-build-isolation --no-deps -e '.[dev]'
-```
 
 ## Acquire and prepare the book
 
@@ -58,7 +73,7 @@ conda run -n sherlock-rag python -m sherlock_rag.chunking --chunk-size-words 500
 
 The commands write separate ignored `data/processed/chunks_w250_o50.jsonl` and `data/processed/chunks_w500_o100.jsonl` files. The tracked [chunk manifest](data/chunk_manifest.json) retains both configurations, their output hashes, and summary statistics. Chunk sizes and overlaps count `\S+` whitespace-delimited words, not model tokens. Each chunk contains an exact substring of `book.txt` and carries story, word, character, and source-line positions. The command refuses missing or changed source files and never downloads the book.
 
-After a fresh clone, restore the exact `data/raw/sherlock_holmes.txt` and `data/processed/book.txt` files recorded by `data/source_manifest.json`, then run the two commands above in either order. The tracked chunk manifest describes expected JSONL artifacts; missing local JSONL files are regenerated without dropping the other configuration entry. An existing output for the other configuration with a mismatched hash is rejected before any files are changed.
+After a fresh clone, run the ingestion command above to reacquire the exact source and recreate `book.txt`, then run the two chunk commands in either order. The tracked chunk manifest describes expected JSONL artifacts; missing local JSONL files are regenerated without dropping the other configuration entry. An existing output for the other configuration with a mismatched hash is rejected before any files are changed.
 
 ## BM25 retrieval and evaluation
 
@@ -170,7 +185,7 @@ conda run -n sherlock-rag python -m sherlock_rag.question_generation run
 conda run -n sherlock-rag python eval/question_bank_review.py
 ```
 
-The first two commands verify the source and exact frozen inputs. `run` checkpoints every passage and resumes an incomplete batch only with the same full fingerprint. A completed, hash-locked batch is read without model loading or regeneration when its source, selection, prompt, and config still match; its original runtime fingerprint remains unchanged. It saves every raw attempt in `results.json`. The last command validates the current v2 content ratings and reports [`bank_v2.jsonl`](questions/generated_v1/bank_v2.jsonl) without loading the model. The original `reviews.json`, `bank.jsonl`, and `summary.json` remain historical. See the [frozen protocol](docs/question-generation-protocol.md) and [audit and examples](docs/question-generation-audit.md). The v2 bank is the reviewed product content for a future interface, not an independent evaluation benchmark. It currently covers five of twelve stories; rejected outputs remain visible in the raw run and reviews.
+The first two commands verify the source and exact frozen inputs. `run` checkpoints every passage and resumes an incomplete batch only with the same full fingerprint. A completed, hash-locked batch is read without model loading or regeneration when its source, selection, prompt, and config still match; its original runtime fingerprint remains unchanged. It saves every raw attempt in `results.json`. The last command validates the current v2 content ratings and reports [`bank_v2.jsonl`](questions/generated_v1/bank_v2.jsonl) without loading the model. The original `reviews.json`, `bank.jsonl`, and `summary.json` remain historical. See the [frozen protocol](docs/question-generation-protocol.md) and [audit and examples](docs/question-generation-audit.md). The v2 bank is product content used by the local interface, not an independent evaluation benchmark. It currently covers five of twelve stories; rejected outputs remain visible in the raw run and reviews.
 
 ## Local interface (Phase 7b)
 

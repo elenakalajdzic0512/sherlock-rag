@@ -81,7 +81,7 @@
 
 ## Planned
 
-A separate task may address the seven uncovered stories. A fresh-clone final audit is reserved for the next phase. Existing answer-quality limitations remain as recorded in prior reports.
+A separate task may address the seven uncovered stories. Existing answer-quality limitations remain as recorded in prior reports.
 
 ## Phase 6c2 verification
 
@@ -107,6 +107,14 @@ A separate task may address the seven uncovered stories. A fresh-clone final aud
 - Eleven offline UI tests passed with fake pipelines; the full offline suite passed **169 tests**. Ruff check and format check passed, `pip check` found no broken requirements, and `git diff --check` passed.
 - A real localhost browser session displayed all five current v2 bank cards and no historical sixth card. On the same server, the pinned local model answered the Roylott swamp-adder question with a C1 original-source citation and abstained on the smartphone-year question. One checkpoint load served both questions; the second reused the cached pipeline. The layout was inspected at laptop and narrow viewport widths. See [local UI report](local-ui.md).
 - Frozen raw question results retain SHA-256 `1fed79cb75bd77d90269dce030b01a97dd9ad999a72986abb64aa8335976046d`; current bank SHA-256 is `5bfde8a2c2f156dd90aa9cf250ce455de068bdb03c43c1c951e98caab1e453c8`. Baseline, prompt-v2 and reranked answer results retain SHA-256 `18019b31adec06a9ea061e5794e4ffa87317cb6c7160c70a4f7bacc4621d7721`, `50b74c80d81607dfdb3b40324f840133949432cb170c0ee376a54b23f141e782`, and `4f6f71cccd3c7dba6d16e159373323816f6c8c374e6aee5fb87d68f96628dfef`. Source, processed book, A chunks, evaluation questions/challenges, retrieval/generation defaults and prompt v1 retain their recorded hashes.
+
+## Phase 8 verification
+
+- A separate private-repository clone at `/private/tmp/sherlock-rag-audit-20261014` started from `a2cf51a27c91357ee72a58dd5319056a766cb94a` without ignored data or index files. A fresh `sherlock-rag-audit` conda environment installed `dev`, `semantic`, `generation` and `ui` with dependencies resolved; Python 3.11.17 and package versions are recorded in [the audit](final-audit.md). The existing Hugging Face cache was reused.
+- The Gutenberg TXT was newly fetched and matched the frozen raw and processed hashes. The audit found and fixed a tracked source-manifest timestamp rewrite in fresh clones; the ingestion command was rerun on the fix and left the source manifest and corpus audit unchanged. A and B regenerated at 525 and 265 chunks with their original hashes, and a fresh MPS semantic A index was built.
+- The v2 bank and three frozen 42-case result hashes matched. Paired metrics recomputed read-only, and baseline/prompt-v2 metrics recomputed on temporary copies, matched saved metrics. No historical result was rewritten or model experiment rerun.
+- The actual audit-clone browser showed all five cards, an uncovered-story message, reviewed answer reveal and no-generation question transfer; the pinned local model answered the Roylott question with original C1 lines, abstained on the smartphone-year question, and loaded once for both submissions. The answer remained bound to its submitted query across a view change.
+- The fixed-code audit environment passed **171 offline tests**, Ruff check/format, `pip check`, and `git diff --check`. See [demo script](demo.md). These checks do not establish independent human answer support or a cold model download.
 
 ## Blocked
 

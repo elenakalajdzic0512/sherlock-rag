@@ -136,6 +136,46 @@ def test_repeat_ingestion_is_byte_identical_and_preserves_date(tmp_path: Path) -
     assert hashlib.sha256(before[1]).hexdigest() == first["processed"]["sha256"]
 
 
+def test_fresh_clone_reacquisition_preserves_tracked_manifest_and_audit(
+    tmp_path: Path,
+) -> None:
+    raw, processed, manifest_file, audit = paths(tmp_path)
+    ingest(raw, processed, manifest_file, audit, fetcher=lambda *_: source())
+    tracked = (manifest_file.read_bytes(), audit.read_bytes())
+    raw.unlink()
+    processed.unlink()
+
+    result = ingest(raw, processed, manifest_file, audit, fetcher=lambda *_: source())
+
+    assert (manifest_file.read_bytes(), audit.read_bytes()) == tracked
+    assert raw.read_bytes() == source()
+    assert result == json.loads(tracked[0])
+
+
+def test_fresh_clone_rejects_changed_source_without_rewriting_manifest(
+    tmp_path: Path,
+) -> None:
+    raw, processed, manifest_file, audit = paths(tmp_path)
+    ingest(raw, processed, manifest_file, audit, fetcher=lambda *_: source())
+    tracked = (manifest_file.read_bytes(), audit.read_bytes())
+    raw.unlink()
+    processed.unlink()
+
+    with pytest.raises(
+        IngestionError, match="differs from the existing source manifest"
+    ):
+        ingest(
+            raw,
+            processed,
+            manifest_file,
+            audit,
+            fetcher=lambda *_: source(endings="\r\n"),
+        )
+    assert not raw.exists()
+    assert not processed.exists()
+    assert (manifest_file.read_bytes(), audit.read_bytes()) == tracked
+
+
 def test_existing_original_survives_bad_candidate_or_download(tmp_path: Path) -> None:
     raw, processed, manifest_file, audit = paths(tmp_path)
     ingest(raw, processed, manifest_file, audit, fetcher=lambda *_: source())

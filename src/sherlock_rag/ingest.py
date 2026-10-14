@@ -279,11 +279,12 @@ def ingest(
             f"Source changed: existing SHA-256 {sha256(existing)}, candidate SHA-256 {sha256(candidate)}. Existing original was preserved."
         )
     candidate_hash = sha256(candidate)
-    if (
-        existing is not None
-        and previous
-        and previous.get("raw", {}).get("sha256") == candidate_hash
-    ):
+    if previous is not None:
+        if previous.get("raw", {}).get("sha256") != candidate_hash:
+            raise IngestionError(
+                "Downloaded source differs from the existing source manifest; "
+                "the manifest and original were preserved"
+            )
         acquisition = previous["acquisition"]
     elif existing is not None:
         acquisition = {"method": "local-file", "acquired_at_utc": None}
@@ -323,6 +324,11 @@ def ingest(
         },
         "counting": "Lines are str.splitlines() logical lines; a trailing newline adds no line. Words are str.split() whitespace-delimited tokens.",
     }
+    if previous is not None and previous != manifest:
+        raise IngestionError(
+            "Extracted source differs from the existing source manifest; "
+            "the manifest and original were preserved"
+        )
     audit = audit_text(book, manifest).encode("utf-8")
     if existing is None:
         atomic_write(raw_path, candidate)
