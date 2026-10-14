@@ -13,7 +13,7 @@ from pathlib import Path
 
 from sherlock_rag.chunking import load_verified_source
 from sherlock_rag.ingest import PROJECT_ROOT, atomic_write, sha256
-from sherlock_rag.rag import load_pipeline, load_settings
+from sherlock_rag.rag import GENERATION_CONFIGS, load_pipeline, load_settings
 from sherlock_rag.semantic import load_index
 
 QUESTIONS_SHA256 = "fb2dfa8a302055b9993f06933d4fa15190041ca411b582ad5263336f3192de0b"
@@ -106,9 +106,11 @@ def project_code_hashes(root: Path = PROJECT_ROOT) -> dict[str, str]:
     }
 
 
-def build_fingerprint(root: Path = PROJECT_ROOT) -> dict:
+def build_fingerprint(
+    root: Path = PROJECT_ROOT, generation_variant: str = "v1"
+) -> dict:
     cases, hashes = load_cases(root)
-    retrieval, generation, _ = load_settings(root)
+    retrieval, generation, _ = load_settings(root, generation_variant)
     book, _, source = load_verified_source(root)
     config = retrieval["configuration"]
     if retrieval["method"] != "semantic":
@@ -130,13 +132,15 @@ def build_fingerprint(root: Path = PROJECT_ROOT) -> dict:
     }
     fingerprint = {
         "fingerprint_schema_version": FINGERPRINT_SCHEMA_VERSION,
+        "generation_variant": generation_variant,
+        "generation_config_file": GENERATION_CONFIGS[generation_variant],
         "project_code_files_sha256": project_code_hashes(root),
         "dataset_sha256": hashes,
         "retrieval_config_sha256": sha256(
             (root / "config/retrieval.json").read_bytes()
         ),
         "generation_config_sha256": sha256(
-            (root / "config/generation.json").read_bytes()
+            (root / GENERATION_CONFIGS[generation_variant]).read_bytes()
         ),
         "prompt_sha256": generation["prompt_sha256"],
         "source_manifest_sha256": sha256(
@@ -251,12 +255,21 @@ def run_cases(
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-id", required=True)
+    parser.add_argument(
+        "--generation-variant", choices=tuple(GENERATION_CONFIGS), default="v1"
+    )
     args = parser.parse_args(argv)
     try:
         cases, _ = load_cases()
-        fingerprint = build_fingerprint()
+        fingerprint = build_fingerprint(generation_variant=args.generation_variant)
         run_dir = PROJECT_ROOT / "eval/rag_runs" / args.run_id
-        result = run_cases(run_dir, args.run_id, fingerprint, cases, load_pipeline)
+        result = run_cases(
+            run_dir,
+            args.run_id,
+            fingerprint,
+            cases,
+            lambda: load_pipeline(generation_variant=args.generation_variant),
+        )
     except (RunError, OSError, ValueError, KeyError, IndexError) as exc:
         print(f"RAG evaluation failed: {exc}", file=sys.stderr)
         return 1

@@ -1,0 +1,459 @@
+{
+  "automatic": {
+    "all": {
+      "count": 42,
+      "final_attempt_input_tokens": {
+        "maximum": 2495,
+        "minimum": 2196,
+        "missing": 0,
+        "recorded": 42
+      },
+      "final_invalid_model_output": 1,
+      "first_pass_mechanical_success": {
+        "denominator": 42,
+        "numerator": 40,
+        "rate": 0.9523809523809523
+      },
+      "generated_cases": 42,
+      "generation_seconds_mean_per_case": 4.045421630976263,
+      "generation_seconds_total": 169.90770850100307,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 42
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 42
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 42
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 42
+        }
+      },
+      "other_technical_errors": 0,
+      "output_tokens_mean_per_case": 61.523809523809526,
+      "output_tokens_total": 2584,
+      "reason_code_counts": {
+        "answered": 20,
+        "insufficient_evidence": 21,
+        "invalid_model_output": 1
+      },
+      "repair_cases": 2,
+      "repair_frequency": {
+        "denominator": 42,
+        "numerator": 2,
+        "rate": 0.047619047619047616
+      },
+      "resolved_quote_characters": {
+        "count": 21,
+        "maximum": 540,
+        "mean": 132.9047619047619,
+        "minimum": 27
+      },
+      "runner_error_cases": 0,
+      "status_counts": {
+        "abstained": 21,
+        "answered": 20,
+        "error": 1
+      }
+    },
+    "challenge_false_premise": {
+      "count": 4,
+      "final_attempt_input_tokens": {
+        "maximum": 2468,
+        "minimum": 2332,
+        "missing": 0,
+        "recorded": 4
+      },
+      "final_invalid_model_output": 0,
+      "first_pass_mechanical_success": {
+        "denominator": 4,
+        "numerator": 4,
+        "rate": 1.0
+      },
+      "generated_cases": 4,
+      "generation_seconds_mean_per_case": 4.541927625000426,
+      "generation_seconds_total": 18.167710500001704,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 4
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 4
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 4
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 4
+        }
+      },
+      "other_technical_errors": 0,
+      "output_tokens_mean_per_case": 71.75,
+      "output_tokens_total": 287,
+      "reason_code_counts": {
+        "answered": 1,
+        "insufficient_evidence": 3
+      },
+      "repair_cases": 0,
+      "repair_frequency": {
+        "denominator": 4,
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "resolved_quote_characters": {
+        "count": 1,
+        "maximum": 215,
+        "mean": 215,
+        "minimum": 215
+      },
+      "runner_error_cases": 0,
+      "status_counts": {
+        "abstained": 3,
+        "answered": 1
+      }
+    },
+    "challenge_outside_corpus": {
+      "count": 2,
+      "final_attempt_input_tokens": {
+        "maximum": 2418,
+        "minimum": 2377,
+        "missing": 0,
+        "recorded": 2
+      },
+      "final_invalid_model_output": 0,
+      "first_pass_mechanical_success": {
+        "denominator": 2,
+        "numerator": 2,
+        "rate": 1.0
+      },
+      "generated_cases": 2,
+      "generation_seconds_mean_per_case": 2.7866324160022486,
+      "generation_seconds_total": 5.573264832004497,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 2
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 2
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 2
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 2
+        }
+      },
+      "other_technical_errors": 0,
+      "output_tokens_mean_per_case": 36.5,
+      "output_tokens_total": 73,
+      "reason_code_counts": {
+        "insufficient_evidence": 2
+      },
+      "repair_cases": 0,
+      "repair_frequency": {
+        "denominator": 2,
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "resolved_quote_characters": {
+        "count": 0,
+        "maximum": null,
+        "mean": null,
+        "minimum": null
+      },
+      "runner_error_cases": 0,
+      "status_counts": {
+        "abstained": 2
+      }
+    },
+    "challenge_unmentioned_detail": {
+      "count": 6,
+      "final_attempt_input_tokens": {
+        "maximum": 2495,
+        "minimum": 2380,
+        "missing": 0,
+        "recorded": 6
+      },
+      "final_invalid_model_output": 0,
+      "first_pass_mechanical_success": {
+        "denominator": 6,
+        "numerator": 6,
+        "rate": 1.0
+      },
+      "generated_cases": 6,
+      "generation_seconds_mean_per_case": 2.5630877430000205,
+      "generation_seconds_total": 15.378526458000124,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 6
+        }
+      },
+      "other_technical_errors": 0,
+      "output_tokens_mean_per_case": 31.5,
+      "output_tokens_total": 189,
+      "reason_code_counts": {
+        "insufficient_evidence": 6
+      },
+      "repair_cases": 0,
+      "repair_frequency": {
+        "denominator": 6,
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "resolved_quote_characters": {
+        "count": 0,
+        "maximum": null,
+        "mean": null,
+        "minimum": null
+      },
+      "runner_error_cases": 0,
+      "status_counts": {
+        "abstained": 6
+      }
+    },
+    "original_answerable": {
+      "count": 24,
+      "final_attempt_input_tokens": {
+        "maximum": 2478,
+        "minimum": 2196,
+        "missing": 0,
+        "recorded": 24
+      },
+      "final_invalid_model_output": 1,
+      "first_pass_mechanical_success": {
+        "denominator": 24,
+        "numerator": 22,
+        "rate": 0.9166666666666666
+      },
+      "generated_cases": 24,
+      "generation_seconds_mean_per_case": 4.789181277833298,
+      "generation_seconds_total": 114.94035066799916,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 24
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 24
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 24
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 24
+        }
+      },
+      "other_technical_errors": 0,
+      "output_tokens_mean_per_case": 76.45833333333333,
+      "output_tokens_total": 1835,
+      "reason_code_counts": {
+        "answered": 19,
+        "insufficient_evidence": 4,
+        "invalid_model_output": 1
+      },
+      "repair_cases": 2,
+      "repair_frequency": {
+        "denominator": 24,
+        "numerator": 2,
+        "rate": 0.08333333333333333
+      },
+      "resolved_quote_characters": {
+        "count": 20,
+        "maximum": 540,
+        "mean": 128.8,
+        "minimum": 27
+      },
+      "runner_error_cases": 0,
+      "status_counts": {
+        "abstained": 4,
+        "answered": 19,
+        "error": 1
+      }
+    },
+    "original_unsupported": {
+      "count": 6,
+      "final_attempt_input_tokens": {
+        "maximum": 2439,
+        "minimum": 2391,
+        "missing": 0,
+        "recorded": 6
+      },
+      "final_invalid_model_output": 0,
+      "first_pass_mechanical_success": {
+        "denominator": 6,
+        "numerator": 6,
+        "rate": 1.0
+      },
+      "generated_cases": 6,
+      "generation_seconds_mean_per_case": 2.6413093404995984,
+      "generation_seconds_total": 15.847856042997591,
+      "measurement_coverage": {
+        "attempts": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "generation_seconds": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "input_tokens": {
+          "missing": 0,
+          "recorded": 6
+        },
+        "output_tokens": {
+          "missing": 0,
+          "recorded": 6
+        }
+      },
+      "other_technical_errors": 0,
+      "output_tokens_mean_per_case": 33.333333333333336,
+      "output_tokens_total": 200,
+      "reason_code_counts": {
+        "insufficient_evidence": 6
+      },
+      "repair_cases": 0,
+      "repair_frequency": {
+        "denominator": 6,
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "resolved_quote_characters": {
+        "count": 0,
+        "maximum": null,
+        "mean": null,
+        "minimum": null
+      },
+      "runner_error_cases": 0,
+      "status_counts": {
+        "abstained": 6
+      }
+    }
+  },
+  "content_review": {
+    "original_answerable": {
+      "answer_accuracy_among_displayed": {
+        "denominator": 19,
+        "numerator": 15,
+        "rate": 0.7894736842105263
+      },
+      "generation_success_given_sufficient_context": {
+        "denominator": 17,
+        "numerator": 14,
+        "rate": 0.8235294117647058
+      },
+      "null_or_not_applicable_ratings": {
+        "abstention_justified": 20,
+        "all_claims_supported": 5,
+        "answer_correct": 5,
+        "atomic_claims": 5,
+        "context_sufficient": 0,
+        "quote_length_ok": 5,
+        "supported_premise_correction": 24
+      },
+      "sufficient_context_count": 17,
+      "supported_correct_over_all": {
+        "denominator": 24,
+        "numerator": 14,
+        "rate": 0.5833333333333334
+      },
+      "unjustified_abstention_given_sufficient_context": {
+        "denominator": 17,
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "unsupported_claim_among_displayed": {
+        "denominator": 19,
+        "numerator": 4,
+        "rate": 0.21052631578947367
+      }
+    },
+    "unsupported_and_challenges": {
+      "false_premise": {
+        "count": 4,
+        "displayed_unsupported_claim": 1,
+        "invalid_model_output": 0,
+        "other_technical_errors": 0,
+        "strict_refusal": {
+          "denominator": 4,
+          "numerator": 3,
+          "rate": 0.75
+        },
+        "supported_premise_correction": 0,
+        "unresolved_content_reviews": 0
+      },
+      "original_unsupported": {
+        "count": 6,
+        "displayed_unsupported_claim": 0,
+        "invalid_model_output": 0,
+        "other_technical_errors": 0,
+        "strict_refusal": {
+          "denominator": 6,
+          "numerator": 6,
+          "rate": 1.0
+        },
+        "supported_premise_correction": 0,
+        "unresolved_content_reviews": 0
+      },
+      "outside_corpus": {
+        "count": 2,
+        "displayed_unsupported_claim": 0,
+        "invalid_model_output": 0,
+        "other_technical_errors": 0,
+        "strict_refusal": {
+          "denominator": 2,
+          "numerator": 2,
+          "rate": 1.0
+        },
+        "supported_premise_correction": 0,
+        "unresolved_content_reviews": 0
+      },
+      "unmentioned_detail": {
+        "count": 6,
+        "displayed_unsupported_claim": 0,
+        "invalid_model_output": 0,
+        "other_technical_errors": 0,
+        "strict_refusal": {
+          "denominator": 6,
+          "numerator": 6,
+          "rate": 1.0
+        },
+        "supported_premise_correction": 0,
+        "unresolved_content_reviews": 0
+      }
+    }
+  },
+  "results_sha256": "50b74c80d81607dfdb3b40324f840133949432cb170c0ee376a54b23f141e782",
+  "reviewer": "implementation-agent",
+  "reviews_sha256": "1fe704b7b59dfca1d3932dcacaa248d37e19f8bda61743c40a651e7e64fbbb0e",
+  "run_id": "answer_v2_candidate"
+}
