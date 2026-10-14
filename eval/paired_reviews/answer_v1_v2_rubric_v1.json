@@ -1,0 +1,1196 @@
+{
+  "review_method": "Paired read of all displayed claims, exact selected quotes, their full cited chunks, all refusal reasons, and frozen question/source reviews. Applied one rubric to both runs; this is not independent adjudication or automatic semantic verification.",
+  "reviewer": "implementation-agent",
+  "rubric_path": "docs/paired-content-rubric-v1.md",
+  "rubric_sha256": "df72b7cb2a463bc6b932351861eea8fab73b5a303f43802edee2056aefb4b15a",
+  "rubric_version": "paired-content-v1",
+  "runs": {
+    "answer_v2_candidate": {
+      "historical_reviews_sha256": "1fe704b7b59dfca1d3932dcacaa248d37e19f8bda61743c40a651e7e64fbbb0e",
+      "ratings": [
+        {
+          "answer_correct": false,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": false,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q01",
+          "rationale": "Candidate asserts a categorical Inner Temple location from C2 language that is expressly conditional and probable. Baseline displayed no answer; the requested recess evidence is absent from the sent passages.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q02",
+          "rationale": "C2 establishes Adler married Norton. The short answer is correct; the selected reply omits the bride, whose identity is resolved in the same cited passage.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": false,
+          "claims": [
+            {
+              "atomic": false,
+              "quote_precise": false,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q03",
+          "rationale": "C2 is an advertisement for an available League place and salary, not Wilson’s assigned copying task. Both displayed answers miss the question and claim actual assignment from an advertisement.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": false,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q04",
+          "rationale": "C1 explicitly establishes removal of the pawnbroker for hours; it does not establish the added robbery purpose within that cited chunk. The long quote contains unnecessary setup. Candidate limits the claim to the supported removal purpose.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q05",
+          "rationale": "The typewriter defects are correctly stated. Assess the selected words separately for whether they identify Windibank’s note. Candidate quote lists defects without identifying Windibank’s note, although its full cited passage does.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q06",
+          "rationale": "The identical C1 passage explicitly names Westhouse & Marbank as the firm employing Windibank. Both claims are supported and correct. Their identical selected quote omits the company name, so quote sufficiency is false while passage support is true.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": false,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q07",
+          "rationale": "The sent C4 passage reports only the son’s partial hearing. It does not reveal the intended word Ballarat; the two displayed assertions differ in what they actually claim. Candidate accurately repeats the witness account but does not answer the intended-word question.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q08",
+          "rationale": "The cited C2 dialogue explains the left-side wound from behind and Holmes’s left-handed inference.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": false,
+              "quote_precise": false,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q09",
+          "rationale": "C1 supports both Klan identification and the founding detail. Both claims bundle facts, and both selected quotes are unnecessarily long.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": true
+            },
+            {
+              "atomic": false,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q10",
+          "rationale": "C1 identifies Calhoun as leader, but the selected leader quote begins after his name. Treat the candidate’s additional crew claim on its own C2 citation. Candidate C2 says “He and the two mates” without identifying Calhoun inside that chunk; C1 from another claim cannot repair its second claim. The extra crew fact is bundled.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q11",
+          "rationale": "The sent passages omit the washed-beggar reveal; the refusal reason describes the evidence gap without an invented answer.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": false,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q12",
+          "rationale": "C4 supplies St. Clair’s first-person account and the Thames destination. The selected 335-character quote is sufficient but includes unnecessary setup.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q13",
+          "rationale": "C2 identifies the goose jewel as the Countess of Morcar’s blue carbuncle.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q14",
+          "rationale": "C2 names James Ryder directly; the candidate displays a supported answer where baseline displayed none.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q15",
+          "rationale": "The cited C1 passage identifies the swamp adder and links its bite to Roylott’s death.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q16",
+          "rationale": "C3 describes Roylott’s chair, safe, snake and ventilator route. The short selected words describe Holmes driving the snake back, so the passage supports the route but the quote alone omits actor and direction.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q17",
+          "rationale": "The sent text identifies the claimed material, but both runs ended in exact-quote validation errors; no answer was displayed.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": false,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q18",
+          "rationale": "C2 says firemen found a severed thumb. Both displayed answers assign the discovery to Hatherley, an actor error unsupported by their identical cited passage.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q19",
+          "rationale": "C1 directly names Aloysius Doran as Hatty’s father; candidate displays a supported answer.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q20",
+          "rationale": "No sent passage names whom Hatty saw at the altar; refusal is grounded.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q21",
+          "rationale": "C1 explicitly states thirty-nine beryls in the coronet; candidate displays a supported answer.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q22",
+          "rationale": "C4 explicitly states Mary and Sir George Burnwell fled together; candidate displays a supported answer.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q23",
+          "rationale": "Sent material omits the identity of Hunter’s impersonation target. Check each refusal’s extra background claims separately. The candidate’s extra school detail appears in sent C3 and does not invent a target.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q24",
+          "rationale": "The sent £120 figure is a later offer, not the first £100 offer. Baseline asserts the wrong first amount; candidate safely refuses.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q25",
+          "rationale": "No sent evidence gives Holmes a smartphone or a year of use.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q26",
+          "rationale": "No sent evidence gives a 2025 Nobel winner.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q27",
+          "rationale": "No sent evidence gives current Tokyo weather.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q28",
+          "rationale": "No sent evidence gives Watson an email password.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q29",
+          "rationale": "No sent evidence identifies a 2021 Mars lander.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q30",
+          "rationale": "No sent evidence gives a current exchange rate.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c01",
+          "rationale": "Neither sent passages nor the source review supplies Adler’s birth month and day.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c02",
+          "rationale": "Neither sent passages nor the source review supplies Mrs. Hudson’s maiden surname.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c03",
+          "rationale": "Neither sent passages nor the source review supplies the Countess’s given name.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c04",
+          "rationale": "Neither sent passages nor the source review supplies Helen Stoner’s mother’s given name.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c05",
+          "rationale": "The sent passages do not identify St. Clair’s unnamed evening newspaper.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c06",
+          "rationale": "The sent passages do not identify the hydraulic press manufacturer.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": false,
+          "id": "c07",
+          "rationale": "C2 directly supports a swamp-adder correction; C5’s dog is from a different story. Refusal remains acceptable under the frozen challenge rule. Any uncited correction in a refusal reason is not a formal cited correction.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": true
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": false,
+          "id": "c08",
+          "rationale": "C2 directly supports a goose correction. A safe refusal can miss that opportunity without making its reason factually unsafe; baseline has no displayed refusal.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": true
+        },
+        {
+          "answer_correct": false,
+          "claims": [
+            {
+              "atomic": false,
+              "quote_precise": false,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": null,
+          "formal_cited_correction": false,
+          "id": "c09",
+          "rationale": "No sent passage supplies the Encyclopaedia assignment needed to correct the Bible premise. The candidate instead asserts Bible-copying on the basis of a salary advertisement. This is a false-premise acceptance, not a cited correction.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": false
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": false,
+          "id": "c10",
+          "rationale": "The sent passages do not establish a bank robbery or a positive citable alternative; refusal is appropriate.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": false
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c11",
+          "rationale": "The Final Problem is outside the corpus and no sent passage supplies its event.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c12",
+          "rationale": "The Hound of the Baskervilles is outside the corpus; the sent hounds belong to other stories.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        }
+      ],
+      "results_sha256": "50b74c80d81607dfdb3b40324f840133949432cb170c0ee376a54b23f141e782"
+    },
+    "baseline_v1": {
+      "historical_reviews_sha256": "4507af793178a88b23e7139bf698dd8437b00ebee61e5feffe99e4504395cea5",
+      "ratings": [
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q01",
+          "rationale": "Candidate asserts a categorical Inner Temple location from C2 language that is expressly conditional and probable. Baseline displayed no answer; the requested recess evidence is absent from the sent passages.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q02",
+          "rationale": "C2 establishes Adler married Norton. The short answer is correct; the selected reply omits the bride, whose identity is resolved in the same cited passage.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": false,
+          "claims": [
+            {
+              "atomic": false,
+              "quote_precise": false,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q03",
+          "rationale": "C2 is an advertisement for an available League place and salary, not Wilson’s assigned copying task. Both displayed answers miss the question and claim actual assignment from an advertisement.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": false,
+              "quote_precise": false,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q04",
+          "rationale": "C1 explicitly establishes removal of the pawnbroker for hours; it does not establish the added robbery purpose within that cited chunk. The long quote contains unnecessary setup. Baseline adds a robbery motive absent from C1.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q05",
+          "rationale": "The typewriter defects are correctly stated. Assess the selected words separately for whether they identify Windibank’s note. Baseline quote addresses “this note of yours, Mr. Windibank,” so it is sufficient.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q06",
+          "rationale": "The identical C1 passage explicitly names Westhouse & Marbank as the firm employing Windibank. Both claims are supported and correct. Their identical selected quote omits the company name, so quote sufficiency is false while passage support is true.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": false,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q07",
+          "rationale": "The sent C4 passage reports only the son’s partial hearing. It does not reveal the intended word Ballarat; the two displayed assertions differ in what they actually claim. Baseline calls “rat” the intended word, which the passage does not establish.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q08",
+          "rationale": "The cited C2 dialogue explains the left-side wound from behind and Holmes’s left-handed inference.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": false,
+              "quote_precise": false,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q09",
+          "rationale": "C1 supports both Klan identification and the founding detail. Both claims bundle facts, and both selected quotes are unnecessarily long.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q10",
+          "rationale": "C1 identifies Calhoun as leader, but the selected leader quote begins after his name. Treat the candidate’s additional crew claim on its own C2 citation.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q11",
+          "rationale": "The sent passages omit the washed-beggar reveal; the refusal reason describes the evidence gap without an invented answer.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": false,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q12",
+          "rationale": "C4 supplies St. Clair’s first-person account and the Thames destination. The selected 335-character quote is sufficient but includes unnecessary setup.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q13",
+          "rationale": "C2 identifies the goose jewel as the Countess of Morcar’s blue carbuncle.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q14",
+          "rationale": "C2 names James Ryder directly; the candidate displays a supported answer where baseline displayed none.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": true,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q15",
+          "rationale": "The cited C1 passage identifies the swamp adder and links its bite to Roylott’s death.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": true,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": true
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q16",
+          "rationale": "C3 describes Roylott’s chair, safe, snake and ventilator route. The short selected words describe Holmes driving the snake back, so the passage supports the route but the quote alone omits actor and direction.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q17",
+          "rationale": "The sent text identifies the claimed material, but both runs ended in exact-quote validation errors; no answer was displayed.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": false,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q18",
+          "rationale": "C2 says firemen found a severed thumb. Both displayed answers assign the discovery to Hatherley, an actor error unsupported by their identical cited passage.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q19",
+          "rationale": "C1 directly names Aloysius Doran as Hatty’s father; candidate displays a supported answer.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q20",
+          "rationale": "No sent passage names whom Hatty saw at the altar; refusal is grounded.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q21",
+          "rationale": "C1 explicitly states thirty-nine beryls in the coronet; candidate displays a supported answer.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": true,
+          "formal_cited_correction": null,
+          "id": "q22",
+          "rationale": "C4 explicitly states Mary and Sir George Burnwell fled together; candidate displays a supported answer.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q23",
+          "rationale": "Sent material omits the identity of Hunter’s impersonation target. Check each refusal’s extra background claims separately. Its claim that Hunter was mistaken for someone else is not established in any sent passage; this reason adds an unsupported fact.",
+          "reason_adds_unsupported_facts": true,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": false,
+          "claims": [
+            {
+              "atomic": true,
+              "quote_precise": true,
+              "quote_sufficient": false,
+              "supported": false
+            }
+          ],
+          "context_sufficient": false,
+          "formal_cited_correction": null,
+          "id": "q24",
+          "rationale": "The sent £120 figure is a later offer, not the first £100 offer. Baseline asserts the wrong first amount; candidate safely refuses.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q25",
+          "rationale": "No sent evidence gives Holmes a smartphone or a year of use.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q26",
+          "rationale": "No sent evidence gives a 2025 Nobel winner.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q27",
+          "rationale": "No sent evidence gives current Tokyo weather.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q28",
+          "rationale": "No sent evidence gives Watson an email password.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q29",
+          "rationale": "No sent evidence identifies a 2021 Mars lander.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "q30",
+          "rationale": "No sent evidence gives a current exchange rate.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c01",
+          "rationale": "Neither sent passages nor the source review supplies Adler’s birth month and day.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c02",
+          "rationale": "Neither sent passages nor the source review supplies Mrs. Hudson’s maiden surname.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c03",
+          "rationale": "Neither sent passages nor the source review supplies the Countess’s given name.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c04",
+          "rationale": "Neither sent passages nor the source review supplies Helen Stoner’s mother’s given name.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c05",
+          "rationale": "The sent passages do not identify St. Clair’s unnamed evening newspaper.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c06",
+          "rationale": "The sent passages do not identify the hydraulic press manufacturer.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": false,
+          "id": "c07",
+          "rationale": "C2 directly supports a swamp-adder correction; C5’s dog is from a different story. Refusal remains acceptable under the frozen challenge rule. Any uncited correction in a refusal reason is not a formal cited correction.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": true
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": false,
+          "id": "c08",
+          "rationale": "C2 directly supports a goose correction. A safe refusal can miss that opportunity without making its reason factually unsafe; baseline has no displayed refusal.",
+          "reason_adds_unsupported_facts": null,
+          "refusal_appropriate": null,
+          "supported_correction_possible": true
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": false,
+          "id": "c09",
+          "rationale": "No sent passage supplies the Encyclopaedia assignment needed to correct the Bible premise. The candidate instead asserts Bible-copying on the basis of a salary advertisement.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": false
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": false,
+          "id": "c10",
+          "rationale": "The sent passages do not establish a bank robbery or a positive citable alternative; refusal is appropriate.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": false
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c11",
+          "rationale": "The Final Problem is outside the corpus and no sent passage supplies its event.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        },
+        {
+          "answer_correct": null,
+          "claims": [],
+          "context_sufficient": null,
+          "formal_cited_correction": null,
+          "id": "c12",
+          "rationale": "The Hound of the Baskervilles is outside the corpus; the sent hounds belong to other stories.",
+          "reason_adds_unsupported_facts": false,
+          "refusal_appropriate": true,
+          "supported_correction_possible": null
+        }
+      ],
+      "results_sha256": "18019b31adec06a9ea061e5794e4ffa87317cb6c7160c70a4f7bacc4621d7721"
+    }
+  }
+}

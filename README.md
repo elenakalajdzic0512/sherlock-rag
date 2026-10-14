@@ -154,6 +154,12 @@ conda run -n sherlock-rag python -m sherlock_rag.review_rag --run-id answer_v2_c
 
 The recorded run is frozen, so the evaluation command only checks and returns its existing result when the full fingerprint matches. See the [pre-run protocol](docs/answer-reliability-protocol.md) and [comparison report](docs/answer-reliability.md). V2 is a research candidate, not the default. Its mechanical citation checks do not prove semantic support.
 
+The primary content comparison applies one [paired rubric](docs/paired-content-rubric-v1.md) to both frozen runs. The original per-run reviews remain historical. Validate the paired ratings and reproduce their metrics offline without loading a model:
+
+```sh
+conda run -n sherlock-rag python -m eval.paired_review
+```
+
 ## Checks
 
 ```sh
