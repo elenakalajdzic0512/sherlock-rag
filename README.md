@@ -172,6 +172,19 @@ conda run -n sherlock-rag python eval/question_bank_review.py
 
 The first two commands verify the source and exact frozen inputs. `run` checkpoints every passage and resumes an incomplete batch only with the same full fingerprint. A completed, hash-locked batch is read without model loading or regeneration when its source, selection, prompt, and config still match; its original runtime fingerprint remains unchanged. It saves every raw attempt in `results.json`. The last command validates the current v2 content ratings and reports [`bank_v2.jsonl`](questions/generated_v1/bank_v2.jsonl) without loading the model. The original `reviews.json`, `bank.jsonl`, and `summary.json` remain historical. See the [frozen protocol](docs/question-generation-protocol.md) and [audit and examples](docs/question-generation-audit.md). The v2 bank is the reviewed product content for a future interface, not an independent evaluation benchmark. It currently covers five of twelve stories; rejected outputs remain visible in the raw run and reviews.
 
+## Local interface (Phase 7b)
+
+Install the separate UI extra in the existing conda environment, then start the server from this repository on localhost only:
+
+```sh
+conda run -n sherlock-rag python -m pip install -e '.[ui]'
+conda run --no-capture-output -n sherlock-rag python -m streamlit run app.py --server.address 127.0.0.1 --server.port 8501 --browser.gatherUsageStats false
+```
+
+Open `http://127.0.0.1:8501`. The UI extra pins Streamlit 1.65.0. The app offers **Pitaj knjigu** for the existing semantic A retrieval and generation v1 pipeline, and **Pitanja iz knjige** for the five source-reviewed questions in `bank_v2.jsonl`. No model loads while browsing the bank; the shared local pipeline is cached after the first submitted question. A form prevents typing, filtering, or revealing answers from triggering generation. Results stay attached to the submitted question across reruns. The reviewed expected answer in the bank is separate from any newly generated RAG answer.
+
+Restore the verified source and processed book, regenerate A chunks, and rebuild its semantic index using the commands above if those ignored local files are missing. The app checks the source, chunks, index, prompt/config and v2 bank provenance before using them and reports the relevant preparation command; it does not download data or models on page load. See the [UI verification report](docs/local-ui.md) for the real-model smoke checks and limitations. The app is local only and does not authenticate users or deploy publicly.
+
 ## Checks
 
 ```sh
