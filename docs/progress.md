@@ -13,7 +13,8 @@
 - **Phase 6b:** Frozen 30 original and 12 source-reviewed challenge questions, checkpointed 42-case local run, separate implementation-agent content review, explicit-denominator metrics, and [answer baseline report](answer-baseline.md). PR #8 merged as `37ea75dfa67cb522684c39b7bc5417aa947b2b1c`.
 - **Phase 6c1:** One pre-registered [prompt v2 candidate](answer-reliability-protocol.md), unchanged selected retrieval/model settings, frozen 42-case results, separate implementation-agent review, and [baseline comparison](answer-reliability.md). PR #9 merged as `bf239c83b3197ae08032aeda9b9423289be8a2e1`; v1 remains the default.
 - **Phase 6c2 (merged in PR #10):** One pinned [reranking candidate](rerank-protocol.md), source-verified BM25/semantic A union, full pair-length audit, 30-question retrieval comparison, dev-gated frozen 42-case generation-v1 run, and separate [paired content comparison](rerank-experiment.md). Semantic A remains the default.
-- **Phase 7a (ready for review):** A frozen 36-passage local [question-generation run](question-generation-audit.md), historical six-question content review, and a separate corrected five-question v2 bank. Five of twelve stories are covered; the shortfall is reported without replacement questions.
+- **Phase 7a (merged in PR #11):** A frozen 36-passage local [question-generation run](question-generation-audit.md), historical six-question content review, and a separate corrected five-question v2 bank. Five of twelve stories are covered; the shortfall is reported without replacement questions.
+- **Phase 7b (ready for review):** A local Serbian [Streamlit interface](local-ui.md) for the existing semantic A / generation v1 pipeline and the verified five-question v2 bank. The interface has explicit submission, source citations and line numbers, question-bound session results, filtering, and on-demand evidence reveal.
 
 ## Phase 3 verification
 
@@ -80,7 +81,7 @@
 
 ## Planned
 
-A separate task can address the seven uncovered stories and the interface. Neither is part of Phase 7a. Existing answer-quality limitations remain as recorded in prior reports.
+A separate task may address the seven uncovered stories. A fresh-clone final audit is reserved for the next phase. Existing answer-quality limitations remain as recorded in prior reports.
 
 ## Phase 6c2 verification
 
@@ -99,6 +100,13 @@ A separate task can address the seven uncovered stories and the interface. Neith
 - Full offline pytest suite: 143 passed. Ruff check and Ruff format check passed; pip check found no broken requirements; staged `git diff --check` passed. The separate bank compiler reproduced the recorded hashes without loading a model.
 - **PR #11 review fix:** The separate `reviews_v2.json` rates `qg-v1-10-3` premise clarity false because “the narrator” leaves the first-person speaker unidentified. All six previously accepted questions were rechecked; the current `bank_v2.jsonl` accepts five from five stories. Historical reviews, bank and summary remain byte-identical; the locked raw results and original fingerprint remain unchanged. Both token budgets now require positive built-in integers before model loading. Relevant offline regressions verify invalid types/values, valid configuration, review lineage and read-only access to the historical completed run.
 - PR #11 correction checks: 30 relevant offline tests and 158 full-suite tests passed. Ruff check and format check passed; pip check found no broken requirements; `git diff --check` passed. Both historical and v2 bank summaries were recomputed offline, the completed run was read without model loading, and source, chunk, evaluation, prompt, configuration and prior frozen-result hashes were verified unchanged.
+
+## Phase 7b verification
+
+- Streamlit 1.65.0 was installed through the separate `ui` extra. The existing torch, transformers, sentence-transformers, NumPy and accelerate versions remained unchanged. The UI preflights the reviewed v2 bank, source, A chunks, index and v1 settings before loading a model.
+- Eleven offline UI tests passed with fake pipelines; the full offline suite passed **169 tests**. Ruff check and format check passed, `pip check` found no broken requirements, and `git diff --check` passed.
+- A real localhost browser session displayed all five current v2 bank cards and no historical sixth card. On the same server, the pinned local model answered the Roylott swamp-adder question with a C1 original-source citation and abstained on the smartphone-year question. One checkpoint load served both questions; the second reused the cached pipeline. The layout was inspected at laptop and narrow viewport widths. See [local UI report](local-ui.md).
+- Frozen raw question results retain SHA-256 `1fed79cb75bd77d90269dce030b01a97dd9ad999a72986abb64aa8335976046d`; current bank SHA-256 is `5bfde8a2c2f156dd90aa9cf250ce455de068bdb03c43c1c951e98caab1e453c8`. Baseline, prompt-v2 and reranked answer results retain SHA-256 `18019b31adec06a9ea061e5794e4ffa87317cb6c7160c70a4f7bacc4621d7721`, `50b74c80d81607dfdb3b40324f840133949432cb170c0ee376a54b23f141e782`, and `4f6f71cccd3c7dba6d16e159373323816f6c8c374e6aee5fb87d68f96628dfef`. Source, processed book, A chunks, evaluation questions/challenges, retrieval/generation defaults and prompt v1 retain their recorded hashes.
 
 ## Blocked
 
