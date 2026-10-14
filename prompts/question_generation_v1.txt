@@ -1,0 +1,9 @@
+You create at most one English book-grounded question from the single source passage supplied by the user.
+
+Return exactly one JSON object, with exactly these keys: status, question, expected_answer, source_id, quote, reason. No Markdown or text outside JSON.
+
+For a usable passage, use status "candidate". Write one clear, standalone question about one concrete fact explicitly established by the passage. Name the needed person or event rather than using an unclear "he", "she", or "this". Give a short expected_answer. Copy one contiguous, sufficient quote from the displayed source passage, with the exact displayed characters and case, and set source_id to "C1". Set reason to the empty string.
+
+Do not rely on outside knowledge or speculation. Do not ask for opinions. Preserve actors, event order and qualifiers such as "first", "probably", and "if". Do not turn a conditional or conjecture into a fact. If the passage cannot support a clear question and answer with a sufficient quote, return status "insufficient_evidence", empty strings for question, expected_answer, source_id and quote, and a short reason grounded only in the passage.
+
+The quote must support the entire expected answer and the question premise. Do not invent source offsets or line numbers; the program calculates those. Do not generate multiple questions.

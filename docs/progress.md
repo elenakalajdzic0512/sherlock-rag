@@ -12,7 +12,8 @@
 - **Phase 6a:** Local pinned answer model, selected semantic A retrieval, complete-prompt token budgeting, mechanically resolved book citations, basic abstention, one repair attempt, and fixed eight-question engineering smoke audit. PR #7 merged as `da435faf301054de4e5aad1b99b489d93387a67c`. See [local smoke report](local-rag-smoke.md).
 - **Phase 6b:** Frozen 30 original and 12 source-reviewed challenge questions, checkpointed 42-case local run, separate implementation-agent content review, explicit-denominator metrics, and [answer baseline report](answer-baseline.md). PR #8 merged as `37ea75dfa67cb522684c39b7bc5417aa947b2b1c`.
 - **Phase 6c1:** One pre-registered [prompt v2 candidate](answer-reliability-protocol.md), unchanged selected retrieval/model settings, frozen 42-case results, separate implementation-agent review, and [baseline comparison](answer-reliability.md). PR #9 merged as `bf239c83b3197ae08032aeda9b9423289be8a2e1`; v1 remains the default.
-- **Phase 6c2 (ready for review):** One pinned [reranking candidate](rerank-protocol.md), source-verified BM25/semantic A union, full pair-length audit, 30-question retrieval comparison, dev-gated frozen 42-case generation-v1 run, and separate [paired content comparison](rerank-experiment.md). Semantic A remains the default.
+- **Phase 6c2 (merged in PR #10):** One pinned [reranking candidate](rerank-protocol.md), source-verified BM25/semantic A union, full pair-length audit, 30-question retrieval comparison, dev-gated frozen 42-case generation-v1 run, and separate [paired content comparison](rerank-experiment.md). Semantic A remains the default.
+- **Phase 7a (ready for review):** A frozen 36-passage local [question-generation run](question-generation-audit.md), separate implementation-agent content ratings, and a six-question reviewed product bank. Five of twelve stories are covered; the shortfall is reported without replacement questions.
 
 ## Phase 3 verification
 
@@ -79,7 +80,7 @@
 
 ## Planned
 
-The next step depends on answer-quality review. A separate task should address unsupported assertions, false-premise handling, retrieval misses, and remaining invalid structured output before question generation or the interface.
+A separate task can address the seven uncovered stories and the interface. Neither is part of Phase 7a. Existing answer-quality limitations remain as recorded in prior reports.
 
 ## Phase 6c2 verification
 
@@ -88,6 +89,14 @@ The next step depends on answer-quality review. A separate task should address u
 - The one 42-case generation-v1 run froze at SHA-256 `4f6f71cccd3c7dba6d16e159373323816f6c8c374e6aee5fb87d68f96628dfef` with expanded runtime fingerprint `1a17f7b8e49c1c96c6a0b3952222cd6f2e82e828350abff2966fe12f5db79fea`. All cases retained candidate unions and sent passages; every sent context differs from baseline.
 - Under paired content rubric v1, supported-correct original answers stayed 10/24, unsupported displayed claims moved from 5/15 to 4/14, and safe refusal reasons from 19/20 to 17/22. The implementation-agent review is separate from retrieval metrics; see [full report](rerank-experiment.md).
 - Full offline pytest suite: 128 passed. Ruff check and format check passed; pip check found no broken requirements; staged `git diff --check` passed. The frozen result SHA, current rerank fingerprint, and derived paired metrics were revalidated without loading models.
+
+## Phase 7a verification
+
+- Frozen selection: 36 A passages, three quarter positions per each of 12 stories; selection SHA-256 `6d10a4bf2d0ce1ab9047f6982f1b6efd31be165ca1e103f2c161d95213d383c0`. Existing book and A-chunk hashes matched the source and chunk manifests.
+- One pinned local Qwen run loaded once on MPS/bfloat16. The largest full input prompt measured 719 tokens versus the 6,144 limit; 39 attempts yielded 4,073 output tokens in 182.03 generation seconds. Raw results were frozen before review at SHA-256 `1fed79cb75bd77d90269dce030b01a97dd9ad999a72986abb64aa8335976046d`.
+- Outcomes: 28 mechanically valid candidates, five `insufficient_evidence`, three mechanical errors, zero duplicate normalized questions. Separate implementation-agent review accepted six questions from five stories. Stories 02, 03, 06, 07, 08, 09 and 11 remain uncovered. See [audit](question-generation-audit.md) for per-story results and examples.
+- The prior question set, challenges and all three frozen 42-case result files retain their recorded SHA-256 values; source manifests, prompt v1/v2, generation configs, and retrieval settings were not edited. The reviewed bank is product content, not an independent benchmark.
+- Full offline pytest suite: 143 passed. Ruff check and Ruff format check passed; pip check found no broken requirements; staged `git diff --check` passed. The separate bank compiler reproduced the recorded hashes without loading a model.
 
 ## Blocked
 

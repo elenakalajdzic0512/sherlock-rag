@@ -2,7 +2,7 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 6b's frozen answer baseline was merged in PR #8. Phase 6c1 compares one explicitly selected prompt v2 candidate while keeping v1 as the default; question generation and the interface remain planned.
+**Status:** Phase 7a provides a frozen, source-traceable question-generation batch and a separately reviewed question bank. Six questions from five stories passed content review; the interface remains planned. Semantic A retrieval and generation v1 remain the defaults.
 
 ## Planned features
 
@@ -159,6 +159,18 @@ The primary content comparison applies one [paired rubric](docs/paired-content-r
 ```sh
 conda run -n sherlock-rag python -m eval.paired_review
 ```
+
+## Generate source-traceable questions (Phase 7a)
+
+Restore and verify the original book, processed book, and A (250/50) chunks as above. Question generation uses only those passages and the existing pinned local Qwen generation model; it does not load retrieval or embedding models. The first batch is in English. First freeze the deterministic three-per-story selection, then run the 36-passage batch:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.question_generation prepare
+conda run -n sherlock-rag python -m sherlock_rag.question_generation run
+conda run -n sherlock-rag python eval/question_bank_review.py
+```
+
+The first two commands verify the source and exact frozen inputs. `run` checkpoints every passage, resumes only with the same full fingerprint, and refuses to regenerate a completed batch. It saves all raw attempts and locks the final `results.json` with `results.sha256`. The last command validates the separately rated content and reports the reviewed bank without loading the model. See the [frozen protocol](docs/question-generation-protocol.md), [audit and examples](docs/question-generation-audit.md), and [`bank.jsonl`](questions/generated_v1/bank.jsonl). The bank is internally reviewed product content, not an independent evaluation benchmark. It currently covers five of twelve stories; rejected outputs remain visible in the raw run and review.
 
 ## Checks
 

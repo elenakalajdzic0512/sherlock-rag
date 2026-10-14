@@ -14,5 +14,6 @@ Each phase is scoped and reviewed separately. Later criteria describe planned wo
 | 6a | Add local grounded answers. | Run a pinned local model on selected retrieval passages; resolve citation offsets and audit a fixed smoke set. | Complete; PR #7 merged |
 | 6b | Evaluate answers and abstention. | Measure content support, citation quality, and unsupported-question behavior on a documented full set. | Complete; PR #8 merged |
 | 6c1 | Test one prompt-only answer reliability candidate. | Freeze a separate prompt/config and run all 42 cases with unchanged retrieval; review content separately and compare dev/test. | Complete; PR #9 merged |
-| 6c2 | Test one local reranking candidate. | Freeze pinned top-20 BM25 and semantic A union with cross-encoder top five; compare retrieval and, only if dev gate passes, review one generation-v1 run. | Complete; PR under review |
-| 7 | Add question generation and a simple interface. | Generate verifiable questions from source text and expose supported search and answer flows through a usable interface. | Planned; depends on answer quality review |
+| 6c2 | Test one local reranking candidate. | Freeze pinned top-20 BM25 and semantic A union with cross-encoder top five; compare retrieval and, only if dev gate passes, review one generation-v1 run. | Complete; PR #10 merged |
+| 7a | Generate reviewed questions from the book. | Freeze three A passages per story, generate at most one question each, validate citation provenance, and separately review a usable question bank. | Complete; 6 accepted questions from 5/12 stories; PR under review |
+| 7b | Add a simple interface. | Expose supported search, answers, and the reviewed question bank through a usable interface. | Planned |
