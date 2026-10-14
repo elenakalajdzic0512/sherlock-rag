@@ -1,0 +1,13 @@
+{
+  "version": "question-generation-v1",
+  "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+  "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "dtype": "bfloat16",
+  "preferred_device": "mps",
+  "max_input_tokens": 6144,
+  "max_new_tokens": 512,
+  "do_sample": false,
+  "max_repair_attempts": 1,
+  "prompt_file": "prompts/question_generation_v1.txt",
+  "prompt_sha256": "27d70824e32b508226d61480d5095a86416826b685f2109e29cc07fbb49db23f"
+}

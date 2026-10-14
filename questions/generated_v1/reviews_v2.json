@@ -1,0 +1,377 @@
+{
+  "rating_schema": "question-content-v2",
+  "ratings": [
+    {
+      "answer_correct": true,
+      "asks_available_fact": false,
+      "id": "qg-v1-01-1",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The question gives away Count Von Kramm in its own wording, so it does not elicit a useful fact."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-01-2",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The Briony Lodge visit identifies the gentleman by a concrete event in the sent passage, without requiring the reader to resolve an unnamed narrator. The cited sentence gives his appearance directly."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-01-3",
+      "premise_clear_and_true": false,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The question calls Irene Adler only the lady, leaving the person insufficiently identified in a standalone question."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-02-1",
+      "premise_clear_and_true": false,
+      "quote_precise": false,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The narrator is not named as Jabez Wilson in the question. The long quote explains his decision but carries needless competition detail."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-02-2",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": true,
+      "rationale": "The full passage identifies Spaulding as the assistant and gives the month, but the selected reply About a month then lacks that referent."
+    },
+    {
+      "answer_correct": null,
+      "asks_available_fact": null,
+      "id": "qg-v1-02-3",
+      "premise_clear_and_true": null,
+      "quote_precise": null,
+      "quote_sufficient": null,
+      "quote_supports_answer": null,
+      "rationale": "Model returned a separate insufficient_evidence outcome; no candidate question or answer was displayed for content approval."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": false,
+      "id": "qg-v1-03-1",
+      "premise_clear_and_true": false,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": false,
+      "rationale": "The passage describes Miss Sutherland’s father, not Hosmer Angel’s father; it never names the gasfitters association as sender."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": false,
+      "id": "qg-v1-03-2",
+      "premise_clear_and_true": false,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": false,
+      "rationale": "The question asks for a company name while naming Westhouse & Marbank already; claret is the imported product, not a company."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": false,
+      "id": "qg-v1-03-3",
+      "premise_clear_and_true": true,
+      "quote_precise": false,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The question names James Windibank as the person to identify, giving away its own answer; the quote includes extraneous appointment dialogue."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-04-1",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The question names James McCarthy and Boscombe Pool; his testimony identifies Cooee as the signal. The quote gives the call and its use between father and son."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": false,
+      "id": "qg-v1-04-2",
+      "premise_clear_and_true": false,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": true,
+      "rationale": "The phrase glass being high is ambiguous without a barometer context and the question nearly repeats the selected answer; the quote alone has no referent."
+    },
+    {
+      "answer_correct": null,
+      "asks_available_fact": null,
+      "id": "qg-v1-04-3",
+      "premise_clear_and_true": null,
+      "quote_precise": null,
+      "quote_sufficient": null,
+      "quote_supports_answer": null,
+      "rationale": "Both mechanical attempts failed validation; the raw outputs and validation errors remain in locked results. No displayed candidate was approved."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-05-1",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The question identifies the brass box by object rather than an ambiguous pronoun; the cited words directly name the symbol on its lid."
+    },
+    {
+      "answer_correct": null,
+      "asks_available_fact": null,
+      "id": "qg-v1-05-2",
+      "premise_clear_and_true": null,
+      "quote_precise": null,
+      "quote_sufficient": null,
+      "quote_supports_answer": null,
+      "rationale": "Both mechanical attempts failed validation; the raw outputs and validation errors remain in locked results. No displayed candidate was approved."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-05-3",
+      "premise_clear_and_true": true,
+      "quote_precise": false,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The cited passage identifies the Ku Klux Klan and its founding, but the copied quote is hundreds of characters longer than needed and ends mid-sentence."
+    },
+    {
+      "answer_correct": null,
+      "asks_available_fact": null,
+      "id": "qg-v1-06-1",
+      "premise_clear_and_true": null,
+      "quote_precise": null,
+      "quote_sufficient": null,
+      "quote_supports_answer": null,
+      "rationale": "Model returned a separate insufficient_evidence outcome; no candidate question or answer was displayed for content approval."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": false,
+      "id": "qg-v1-06-2",
+      "premise_clear_and_true": false,
+      "quote_precise": false,
+      "quote_sufficient": false,
+      "quote_supports_answer": false,
+      "rationale": "The cited passage is an explicit hypothetical about Boone and St. Clair, not a fact that Boone weighted or threw the coat; the answer converts conjecture into fact."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-06-3",
+      "premise_clear_and_true": false,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": true,
+      "rationale": "The key of the affair is figurative in this exchange, and the selected two-word quote has no Holmes, object or question context."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-07-1",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": true,
+      "rationale": "The full passage supports Holmes’s gas inference and five tallow stains, but the selected sentence only says gas-jets do not make tallow stains."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": false,
+      "id": "qg-v1-07-2",
+      "premise_clear_and_true": false,
+      "quote_precise": false,
+      "quote_sufficient": false,
+      "quote_supports_answer": false,
+      "rationale": "The second goose in the passage is Holmes’s replacement bird; Baker obtained his original bird through the Alpha goose club. The answer confuses the two."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": false,
+      "id": "qg-v1-07-3",
+      "premise_clear_and_true": false,
+      "quote_precise": false,
+      "quote_sufficient": false,
+      "quote_supports_answer": false,
+      "rationale": "John Robinson is the alias the man gives, immediately challenged by Holmes as not his real name; the quote ends before that correction."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-08-1",
+      "premise_clear_and_true": false,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The passage supports the cheetah-and-baboon reason, but the question refers only to the woman instead of naming Helen Stoner or the sisters."
+    },
+    {
+      "answer_correct": null,
+      "asks_available_fact": null,
+      "id": "qg-v1-08-2",
+      "premise_clear_and_true": null,
+      "quote_precise": null,
+      "quote_sufficient": null,
+      "quote_supports_answer": null,
+      "rationale": "Model returned a separate insufficient_evidence outcome; no candidate question or answer was displayed for content approval."
+    },
+    {
+      "answer_correct": null,
+      "asks_available_fact": null,
+      "id": "qg-v1-08-3",
+      "premise_clear_and_true": null,
+      "quote_precise": null,
+      "quote_sufficient": null,
+      "quote_supports_answer": null,
+      "rationale": "Both mechanical attempts failed validation; the raw outputs and validation errors remain in locked results. No displayed candidate was approved."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": false,
+      "id": "qg-v1-09-1",
+      "premise_clear_and_true": false,
+      "quote_precise": false,
+      "quote_sufficient": false,
+      "quote_supports_answer": false,
+      "rationale": "The source of the engineer’s good character is deliberately withheld. The answer repeats same source and supplies no concrete identity."
+    },
+    {
+      "answer_correct": null,
+      "asks_available_fact": null,
+      "id": "qg-v1-09-2",
+      "premise_clear_and_true": null,
+      "quote_precise": null,
+      "quote_sufficient": null,
+      "quote_supports_answer": null,
+      "rationale": "Model returned a separate insufficient_evidence outcome; no candidate question or answer was displayed for content approval."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": true,
+      "id": "qg-v1-09-3",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": false,
+      "rationale": "The narrator estimates the garden was no more than thirty feet below the window; the answer states thirty feet as an exact height and drops the qualifier."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-10-1",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The question names Flora Millar and the morning-paper account. The answer preserves the passage's formerly qualifier: it states her reported past occupation, not a current job."
+    },
+    {
+      "answer_correct": null,
+      "asks_available_fact": null,
+      "id": "qg-v1-10-2",
+      "premise_clear_and_true": null,
+      "quote_precise": null,
+      "quote_sufficient": null,
+      "quote_supports_answer": null,
+      "rationale": "Model returned a separate insufficient_evidence outcome; no candidate question or answer was displayed for content approval."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-10-3",
+      "premise_clear_and_true": false,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The question calls the first-person speaker 'the narrator' without identifying who she is. A reader cannot tell which person Frank left in San Francisco from the standalone question. The answer and sequence are supported by the cited passage, but premise clarity fails."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-11-1",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": true,
+      "rationale": "The full chunk names Mary before calling her the adopted niece; the selected quote begins She and never names Mary."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": false,
+      "id": "qg-v1-11-2",
+      "premise_clear_and_true": false,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The passage says a young lady entered, but the question asks who without identifying her; a young lady is not a meaningful identity answer."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": false,
+      "id": "qg-v1-11-3",
+      "premise_clear_and_true": false,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": false,
+      "rationale": "Holmes tells the banker to write a £4000 cheque; he does not offer to pay the banker that amount for the gems."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-12-1",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": true,
+      "quote_supports_answer": true,
+      "rationale": "The question names Miss Hunter and The Copper Beeches; the letter offers £120 per year for the inconvenience. The selected quote states that amount directly."
+    },
+    {
+      "answer_correct": false,
+      "asks_available_fact": false,
+      "id": "qg-v1-12-2",
+      "premise_clear_and_true": false,
+      "quote_precise": false,
+      "quote_sufficient": false,
+      "quote_supports_answer": false,
+      "rationale": "The wife of Toller is contrasted with Mrs. Rucastle, not identified as Mrs. Rucastle."
+    },
+    {
+      "answer_correct": true,
+      "asks_available_fact": true,
+      "id": "qg-v1-12-3",
+      "premise_clear_and_true": true,
+      "quote_precise": true,
+      "quote_sufficient": false,
+      "quote_supports_answer": true,
+      "rationale": "The full passage says Rucastle waited outside, but the selected reply So said he has no named speaker or location."
+    }
+  ],
+  "rechecked_historical_accepts": [
+    "qg-v1-01-2",
+    "qg-v1-04-1",
+    "qg-v1-05-1",
+    "qg-v1-10-1",
+    "qg-v1-10-3",
+    "qg-v1-12-1"
+  ],
+  "results_sha256": "1fed79cb75bd77d90269dce030b01a97dd9ad999a72986abb64aa8335976046d",
+  "review_method": "Offline recheck of all six historically accepted questions against the same locked raw results and sent A passages. Rate independent question clarity without relying on an unnamed first-person speaker, then retain the other five content dimensions separately. Historical reviews.json and bank.jsonl remain unchanged. These are implementation-agent judgments, not independent semantic verification.",
+  "reviewer": "implementation-agent",
+  "supersedes_reviews_sha256": "1fb9127edff54fabb39d7f916300374fc09662957b8612a0d24c419050181d3f"
+}

@@ -2,7 +2,7 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 6b's frozen answer baseline was merged in PR #8. Phase 6c1 compares one explicitly selected prompt v2 candidate while keeping v1 as the default; question generation and the interface remain planned.
+**Status:** Phase 7a provides a frozen, source-traceable question-generation batch and a separately reviewed question bank. The current v2 review accepts five questions from five stories; the original six-question review remains historical. The interface remains planned. Semantic A retrieval and generation v1 remain the defaults.
 
 ## Planned features
 
@@ -159,6 +159,18 @@ The primary content comparison applies one [paired rubric](docs/paired-content-r
 ```sh
 conda run -n sherlock-rag python -m eval.paired_review
 ```
+
+## Generate source-traceable questions (Phase 7a)
+
+Restore and verify the original book, processed book, and A (250/50) chunks as above. Question generation uses only those passages and the existing pinned local Qwen generation model; it does not load retrieval or embedding models. The first batch is in English. First freeze the deterministic three-per-story selection, then run the 36-passage batch:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.question_generation prepare
+conda run -n sherlock-rag python -m sherlock_rag.question_generation run
+conda run -n sherlock-rag python eval/question_bank_review.py
+```
+
+The first two commands verify the source and exact frozen inputs. `run` checkpoints every passage and resumes an incomplete batch only with the same full fingerprint. A completed, hash-locked batch is read without model loading or regeneration when its source, selection, prompt, and config still match; its original runtime fingerprint remains unchanged. It saves every raw attempt in `results.json`. The last command validates the current v2 content ratings and reports [`bank_v2.jsonl`](questions/generated_v1/bank_v2.jsonl) without loading the model. The original `reviews.json`, `bank.jsonl`, and `summary.json` remain historical. See the [frozen protocol](docs/question-generation-protocol.md) and [audit and examples](docs/question-generation-audit.md). The v2 bank is the reviewed product content for a future interface, not an independent evaluation benchmark. It currently covers five of twelve stories; rejected outputs remain visible in the raw run and reviews.
 
 ## Checks
 

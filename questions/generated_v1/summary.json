@@ -1,0 +1,64 @@
+{
+  "bank_sha256": "dbb0b98ff48f9ba0e8ed2e9d5bd3be774e63734a12e42f1d80403ebe4675f99d",
+  "by_story": {
+    "gutenberg-1661-story-01": {
+      "accepted": 1,
+      "candidate": 3
+    },
+    "gutenberg-1661-story-02": {
+      "candidate": 2,
+      "insufficient_evidence": 1
+    },
+    "gutenberg-1661-story-03": {
+      "candidate": 3
+    },
+    "gutenberg-1661-story-04": {
+      "accepted": 1,
+      "candidate": 2,
+      "error": 1
+    },
+    "gutenberg-1661-story-05": {
+      "accepted": 1,
+      "candidate": 2,
+      "error": 1
+    },
+    "gutenberg-1661-story-06": {
+      "candidate": 2,
+      "insufficient_evidence": 1
+    },
+    "gutenberg-1661-story-07": {
+      "candidate": 3
+    },
+    "gutenberg-1661-story-08": {
+      "candidate": 1,
+      "error": 1,
+      "insufficient_evidence": 1
+    },
+    "gutenberg-1661-story-09": {
+      "candidate": 2,
+      "insufficient_evidence": 1
+    },
+    "gutenberg-1661-story-10": {
+      "accepted": 2,
+      "candidate": 2,
+      "insufficient_evidence": 1
+    },
+    "gutenberg-1661-story-11": {
+      "candidate": 3
+    },
+    "gutenberg-1661-story-12": {
+      "accepted": 1,
+      "candidate": 3
+    }
+  },
+  "counts": {
+    "accepted": 6,
+    "candidate": 28,
+    "error": 3,
+    "insufficient_evidence": 5
+  },
+  "raw_results_sha256": "1fed79cb75bd77d90269dce030b01a97dd9ad999a72986abb64aa8335976046d",
+  "reviews_sha256": "1fb9127edff54fabb39d7f916300374fc09662957b8612a0d24c419050181d3f",
+  "stories_with_accepted_question": 5,
+  "total": 36
+}
