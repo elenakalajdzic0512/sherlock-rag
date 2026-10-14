@@ -122,7 +122,7 @@ def _fingerprint_tree(tmp_path, monkeypatch) -> None:
     monkeypatch.setattr(
         evaluate_rag,
         "load_settings",
-        lambda root: (
+        lambda root, generation_variant="v1": (
             {"configuration": "w250_o50", "method": "semantic", "top_k": 5},
             {
                 "prompt_sha256": "prompt",
@@ -183,6 +183,26 @@ def test_fingerprint_v2_tracks_runtime_source_and_excludes_cache(
         changed["project_code_files_sha256"]["src/sherlock_rag/semantic.py"]
         != files["src/sherlock_rag/semantic.py"]
     )
+
+
+def test_experimental_fingerprint_tracks_selected_config_and_prompt(
+    tmp_path, monkeypatch
+) -> None:
+    _fingerprint_tree(tmp_path, monkeypatch)
+    candidate = tmp_path / "config/generation_answer_v2.json"
+    candidate.write_text('{"prompt_sha256":"candidate"}\n')
+    baseline = build_fingerprint(tmp_path)
+    experimental = build_fingerprint(tmp_path, "answer-v2")
+    assert baseline == build_fingerprint(tmp_path)
+    assert experimental == build_fingerprint(tmp_path, "answer-v2")
+    assert experimental["generation_variant"] == "answer-v2"
+    assert experimental["generation_config_file"] == "config/generation_answer_v2.json"
+    assert (
+        experimental["generation_config_sha256"] != baseline["generation_config_sha256"]
+    )
+    candidate.write_text('{"prompt_sha256":"another candidate"}\n')
+    assert build_fingerprint(tmp_path, "answer-v2") != experimental
+    assert build_fingerprint(tmp_path) == baseline
 
 
 def test_changed_source_fingerprint_blocks_resume_before_model_or_write(

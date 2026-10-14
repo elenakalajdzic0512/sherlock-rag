@@ -10,7 +10,8 @@
 - **Phase 5a:** Pinned local Qwen embedding model, checked MPS encoding, verified float32 indexes for both configurations, exact cosine search, and comparison with the unchanged BM25 reference set. PR #5 merged as `7965d0c100bad64610313a579aaca00ab5153fde`. See [semantic baseline](semantic-baseline.md).
 - **Phase 5b:** Verified equal-weight RRF across existing BM25 and semantic rankings, candidate-union diagnostics, unchanged reference-set evaluation, and a dev-only choice for Phase 6. PR #6 merged as `f2f718797128c557627363bd2d7aa476a9e1e45b`. See [hybrid baseline](hybrid-baseline.md).
 - **Phase 6a:** Local pinned answer model, selected semantic A retrieval, complete-prompt token budgeting, mechanically resolved book citations, basic abstention, one repair attempt, and fixed eight-question engineering smoke audit. PR #7 merged as `da435faf301054de4e5aad1b99b489d93387a67c`. See [local smoke report](local-rag-smoke.md).
-- **Phase 6b (ready for review):** Frozen 30 original and 12 source-reviewed challenge questions, checkpointed 42-case local run, separate implementation-agent content review, explicit-denominator metrics, and [answer baseline report](answer-baseline.md). No generation or retrieval setting was tuned.
+- **Phase 6b:** Frozen 30 original and 12 source-reviewed challenge questions, checkpointed 42-case local run, separate implementation-agent content review, explicit-denominator metrics, and [answer baseline report](answer-baseline.md). PR #8 merged as `37ea75dfa67cb522684c39b7bc5417aa947b2b1c`.
+- **Phase 6c1 (ready for review):** One pre-registered [prompt v2 candidate](answer-reliability-protocol.md), unchanged selected retrieval/model settings, frozen 42-case results, separate implementation-agent review, and [baseline comparison](answer-reliability.md). V1 remains the default.
 
 ## Phase 3 verification
 
@@ -66,9 +67,18 @@
 - Full offline pytest suite: 113 passed. Ruff check and format check, pip check, and git diff --check passed.
 - **Phase 6b PR #8 review fix:** New fingerprint schema v2 covers sorted relative paths and SHA-256 contents for all package Python source, including `semantic.py` and the runner. A changed module blocks checkpoint resume before model loading and file writes. `baseline_v1` keeps its old, narrower fingerprint and frozen result; review remains available without the model. Metrics now record missing attempt/token/time fields and classify `runner_error` as a technical error. Recomputed baseline metrics retain the original outcome counts and content scores. GitHub visibility was restored to `PRIVATE` and verified. Full offline suite: 116 passed; Ruff check/format, pip check, and git diff --check passed.
 
+## Phase 6c1 verification
+
+- The only candidate was frozen before measurement: prompt SHA-256 `9f7e4d13b5d08782b4274899861d5766c5705bf38665fc246c6a947894c50108`, experimental generation config SHA-256 `98e68afb0298dc3da2553a3e48c9160fc50517d2f5bf5d8100e5f26574c87877`, and runtime fingerprint SHA-256 `56b872ab5bc37c4e7967a7c98caba4d2dc72368970c406c7336f794b943ef2df`.
+- All 42 candidate cases completed and froze at results SHA-256 `50b74c80d81607dfdb3b40324f840133949432cb170c0ee376a54b23f141e782`. Each sent passage list and dropped-chunk list exactly matches `baseline_v1`. Baseline result SHA-256 remains `18019b31adec06a9ea061e5794e4ffa87317cb6c7160c70a4f7bacc4621d7721`.
+- First-pass structural success rose from 20/42 to 40/42; final invalid outputs fell from seven to one. Reviewed supported-correct original answers rose from 10/24 to 14/24, while displayed answers with unsupported claims remained five. Four formerly invalid cases became supported answers; q01 became an unsupported displayed answer and c09 accepted a false premise. V2 remains experimental. See [the detailed comparison](answer-reliability.md).
+- Full offline pytest suite: 118 passed. Ruff check and Ruff format check passed; pip check found no broken requirements; git diff --check passed.
+- **PR #9 paired-review correction:** Recorded a common [paired content rubric](paired-content-rubric-v1.md), re-rated every displayed claim and refusal in both frozen runs, and stored separate versioned ratings and metrics under `eval/paired_reviews`. q06 now has identical passage-support and selected-quote ratings in both runs. Candidate q10’s extra crew claim lacks an identifiable Calhoun referent in its own cited chunk. The paired checker found seven identical claim/evidence groups with zero rating disagreements. Safe refusal reasons and missed correction opportunities are separate: c07/c08 candidate refusals are safe and appropriate, although a supported correction was possible. Frozen results and historical reviews remain unchanged.
+- Paired-review correction checks: 120 offline pytest tests passed; Ruff check and format check passed; pip check found no broken requirements; git diff --check passed. Recomputed paired metrics are byte-identical to their saved artifact. Both raw result hashes, both historical review hashes, and v1/v2 prompt and generation-config hashes were verified unchanged.
+
 ## Planned
 
-The next step depends on the answer-quality findings. A separate reviewed task should address retrieval misses, unsupported assertions, and invalid structured outputs before question generation or the interface.
+The next step depends on answer-quality review. A separate task should address unsupported assertions, false-premise handling, retrieval misses, and remaining invalid structured output before question generation or the interface.
 
 ## Blocked
 

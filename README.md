@@ -2,7 +2,7 @@
 
 A book-grounded retrieval-augmented generation (RAG) project based on Arthur Conan Doyle's *The Adventures of Sherlock Holmes*, [Project Gutenberg #1661](https://www.gutenberg.org/ebooks/1661).
 
-**Status:** Phase 6a local grounded answers were merged in PR #7. Phase 6b evaluates the pinned local pipeline on frozen original and challenge questions; question generation and the interface remain planned.
+**Status:** Phase 6b's frozen answer baseline was merged in PR #8. Phase 6c1 compares one explicitly selected prompt v2 candidate while keeping v1 as the default; question generation and the interface remain planned.
 
 ## Planned features
 
@@ -141,6 +141,24 @@ conda run -n sherlock-rag python -m sherlock_rag.evaluate_rag --run-id followup_
 ```
 
 The runner sends only the query from each of the 30 unchanged reference questions and 12 source-reviewed challenges, checkpoints after every case, and resumes only with an identical fingerprint. Once all 42 cases finish, it freezes `results.json` with `results.sha256`; rerunning a completed matching run never regenerates answers. The review command requires separate implementation-agent content ratings in `reviews.json`, checks the frozen result hash and every cited support quote, and writes `metrics.json`. It never changes raw answers. The challenge set was written after previous findings, so the [answer baseline report](docs/answer-baseline.md) treats it as an internal stress test rather than an independent benchmark. If a runner-level exception lacks attempt, token, or timing fields, metrics report those measurements as missing, with explicit recorded/missing counts, and count the result as a technical error.
+
+## Answer reliability candidate (Phase 6c1)
+
+The default answer and evaluation commands still use prompt v1. Explicitly select the frozen v2 candidate with `--generation-variant answer-v2` and a new run ID:
+
+```sh
+conda run -n sherlock-rag python -m sherlock_rag.rag --generation-variant answer-v2 --query "Which company employed James Windibank?"
+conda run -n sherlock-rag python -m sherlock_rag.evaluate_rag --run-id answer_v2_candidate --generation-variant answer-v2
+conda run -n sherlock-rag python -m sherlock_rag.review_rag --run-id answer_v2_candidate
+```
+
+The recorded run is frozen, so the evaluation command only checks and returns its existing result when the full fingerprint matches. See the [pre-run protocol](docs/answer-reliability-protocol.md) and [comparison report](docs/answer-reliability.md). V2 is a research candidate, not the default. Its mechanical citation checks do not prove semantic support.
+
+The primary content comparison applies one [paired rubric](docs/paired-content-rubric-v1.md) to both frozen runs. The original per-run reviews remain historical. Validate the paired ratings and reproduce their metrics offline without loading a model:
+
+```sh
+conda run -n sherlock-rag python -m eval.paired_review
+```
 
 ## Checks
 

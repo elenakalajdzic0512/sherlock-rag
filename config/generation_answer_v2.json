@@ -1,0 +1,12 @@
+{
+  "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+  "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "dtype": "bfloat16",
+  "preferred_device": "mps",
+  "max_input_tokens": 6144,
+  "max_new_tokens": 768,
+  "do_sample": false,
+  "prompt_file": "prompts/local_answer_v2.txt",
+  "prompt_version": "local-answer-v2-candidate",
+  "prompt_sha256": "9f7e4d13b5d08782b4274899861d5766c5705bf38665fc246c6a947894c50108"
+}

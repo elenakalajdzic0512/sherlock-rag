@@ -244,6 +244,52 @@ def test_load_settings_reads_selected_retrieval_without_mutation(tmp_path) -> No
     assert text == "Only evidence."
 
 
+def test_generation_variant_is_explicit_and_keeps_v1_default(tmp_path) -> None:
+    (tmp_path / "config").mkdir()
+    (tmp_path / "prompts").mkdir()
+    (tmp_path / "config/retrieval.json").write_text(
+        json.dumps({"method": "semantic", "configuration": "w250_o50", "top_k": 5})
+    )
+    pinned = {
+        "model_id": "model",
+        "model_revision": "revision",
+        "dtype": "bfloat16",
+        "preferred_device": "mps",
+        "max_input_tokens": 6144,
+        "max_new_tokens": 768,
+        "do_sample": False,
+    }
+    for name, content in (("v1", b"Baseline"), ("answer_v2", b"Candidate")):
+        prompt_path = tmp_path / f"prompts/{name}.txt"
+        prompt_path.write_bytes(content)
+        config_path = tmp_path / (
+            "config/generation.json"
+            if name == "v1"
+            else "config/generation_answer_v2.json"
+        )
+        config_path.write_text(
+            json.dumps(
+                {
+                    **pinned,
+                    "prompt_file": f"prompts/{name}.txt",
+                    "prompt_sha256": sha256(content),
+                    "prompt_version": name,
+                }
+            )
+        )
+    assert load_settings(tmp_path)[2] == "Baseline"
+    assert load_settings(tmp_path, "answer-v2")[2] == "Candidate"
+    with pytest.raises(RagError, match="Unknown generation variant"):
+        load_settings(tmp_path, "unknown")
+    path = tmp_path / "config/generation_answer_v2.json"
+    changed = json.loads(path.read_text())
+    changed["max_new_tokens"] = 999
+    path.write_text(json.dumps(changed))
+    with pytest.raises(RagError, match="pinned v1"):
+        load_settings(tmp_path, "answer-v2")
+    assert load_settings(tmp_path)[2] == "Baseline"
+
+
 @pytest.mark.parametrize("field", ["max_input_tokens", "max_new_tokens"])
 @pytest.mark.parametrize("value", [True, False, "6144", 1.5, None, 0, -1])
 def test_load_settings_rejects_invalid_token_budgets(tmp_path, field, value) -> None:

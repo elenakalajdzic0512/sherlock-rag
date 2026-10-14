@@ -1,0 +1,566 @@
+{
+  "consistency": {
+    "identical_claim_disagreements": 0,
+    "identical_claim_groups": 7
+  },
+  "paired_review_sha256": "7845f0881e8f02b43636a256a79188641be6c7824acc3d26247be5ff89c9ff2f",
+  "rubric_version": "paired-content-v1",
+  "runs": {
+    "answer_v2_candidate": {
+      "all": {
+        "answer_correct_displayed": {
+          "denominator": 20,
+          "numerator": 15
+        },
+        "cases": 42,
+        "correction_possible": {
+          "denominator": 4,
+          "numerator": 2
+        },
+        "displayed": 20,
+        "errors": 1,
+        "formal_cited_correction": {
+          "denominator": 4,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 21,
+          "numerator": 15
+        },
+        "quote_sufficient": {
+          "denominator": 21,
+          "numerator": 11
+        },
+        "reason_safe": {
+          "denominator": 21,
+          "numerator": 21
+        },
+        "refusal_appropriate": {
+          "denominator": 21,
+          "numerator": 21
+        },
+        "refusals": 21,
+        "supported_correct_answerable": {
+          "denominator": 24,
+          "numerator": 14
+        },
+        "supported_correct_given_context": {
+          "denominator": 17,
+          "numerator": 14
+        },
+        "unsupported_displayed": {
+          "denominator": 20,
+          "numerator": 5
+        }
+      },
+      "dev": {
+        "answer_correct_displayed": {
+          "denominator": 9,
+          "numerator": 6
+        },
+        "cases": 15,
+        "correction_possible": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "displayed": 9,
+        "errors": 1,
+        "formal_cited_correction": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 9,
+          "numerator": 6
+        },
+        "quote_sufficient": {
+          "denominator": 9,
+          "numerator": 6
+        },
+        "reason_safe": {
+          "denominator": 5,
+          "numerator": 5
+        },
+        "refusal_appropriate": {
+          "denominator": 5,
+          "numerator": 5
+        },
+        "refusals": 5,
+        "supported_correct_answerable": {
+          "denominator": 12,
+          "numerator": 6
+        },
+        "supported_correct_given_context": {
+          "denominator": 7,
+          "numerator": 6
+        },
+        "unsupported_displayed": {
+          "denominator": 9,
+          "numerator": 2
+        }
+      },
+      "false_premise": {
+        "answer_correct_displayed": {
+          "denominator": 1,
+          "numerator": 0
+        },
+        "cases": 4,
+        "correction_possible": {
+          "denominator": 4,
+          "numerator": 2
+        },
+        "displayed": 1,
+        "errors": 0,
+        "formal_cited_correction": {
+          "denominator": 4,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 1,
+          "numerator": 0
+        },
+        "quote_sufficient": {
+          "denominator": 1,
+          "numerator": 0
+        },
+        "reason_safe": {
+          "denominator": 3,
+          "numerator": 3
+        },
+        "refusal_appropriate": {
+          "denominator": 3,
+          "numerator": 3
+        },
+        "refusals": 3,
+        "supported_correct_answerable": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "supported_correct_given_context": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "unsupported_displayed": {
+          "denominator": 1,
+          "numerator": 1
+        }
+      },
+      "outside_corpus": {
+        "answer_correct_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "cases": 2,
+        "correction_possible": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "displayed": 0,
+        "errors": 0,
+        "formal_cited_correction": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_sufficient": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "reason_safe": {
+          "denominator": 2,
+          "numerator": 2
+        },
+        "refusal_appropriate": {
+          "denominator": 2,
+          "numerator": 2
+        },
+        "refusals": 2,
+        "supported_correct_answerable": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "supported_correct_given_context": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "unsupported_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        }
+      },
+      "test": {
+        "answer_correct_displayed": {
+          "denominator": 10,
+          "numerator": 9
+        },
+        "cases": 15,
+        "correction_possible": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "displayed": 10,
+        "errors": 0,
+        "formal_cited_correction": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 11,
+          "numerator": 9
+        },
+        "quote_sufficient": {
+          "denominator": 11,
+          "numerator": 5
+        },
+        "reason_safe": {
+          "denominator": 5,
+          "numerator": 5
+        },
+        "refusal_appropriate": {
+          "denominator": 5,
+          "numerator": 5
+        },
+        "refusals": 5,
+        "supported_correct_answerable": {
+          "denominator": 12,
+          "numerator": 8
+        },
+        "supported_correct_given_context": {
+          "denominator": 10,
+          "numerator": 8
+        },
+        "unsupported_displayed": {
+          "denominator": 10,
+          "numerator": 2
+        }
+      },
+      "unmentioned_detail": {
+        "answer_correct_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "cases": 6,
+        "correction_possible": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "displayed": 0,
+        "errors": 0,
+        "formal_cited_correction": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_sufficient": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "reason_safe": {
+          "denominator": 6,
+          "numerator": 6
+        },
+        "refusal_appropriate": {
+          "denominator": 6,
+          "numerator": 6
+        },
+        "refusals": 6,
+        "supported_correct_answerable": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "supported_correct_given_context": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "unsupported_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        }
+      }
+    },
+    "baseline_v1": {
+      "all": {
+        "answer_correct_displayed": {
+          "denominator": 15,
+          "numerator": 11
+        },
+        "cases": 42,
+        "correction_possible": {
+          "denominator": 4,
+          "numerator": 2
+        },
+        "displayed": 15,
+        "errors": 7,
+        "formal_cited_correction": {
+          "denominator": 4,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 15,
+          "numerator": 11
+        },
+        "quote_sufficient": {
+          "denominator": 15,
+          "numerator": 6
+        },
+        "reason_safe": {
+          "denominator": 20,
+          "numerator": 19
+        },
+        "refusal_appropriate": {
+          "denominator": 20,
+          "numerator": 20
+        },
+        "refusals": 20,
+        "supported_correct_answerable": {
+          "denominator": 24,
+          "numerator": 10
+        },
+        "supported_correct_given_context": {
+          "denominator": 17,
+          "numerator": 10
+        },
+        "unsupported_displayed": {
+          "denominator": 15,
+          "numerator": 5
+        }
+      },
+      "dev": {
+        "answer_correct_displayed": {
+          "denominator": 6,
+          "numerator": 4
+        },
+        "cases": 15,
+        "correction_possible": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "displayed": 6,
+        "errors": 4,
+        "formal_cited_correction": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 6,
+          "numerator": 4
+        },
+        "quote_sufficient": {
+          "denominator": 6,
+          "numerator": 4
+        },
+        "reason_safe": {
+          "denominator": 5,
+          "numerator": 4
+        },
+        "refusal_appropriate": {
+          "denominator": 5,
+          "numerator": 5
+        },
+        "refusals": 5,
+        "supported_correct_answerable": {
+          "denominator": 12,
+          "numerator": 4
+        },
+        "supported_correct_given_context": {
+          "denominator": 7,
+          "numerator": 4
+        },
+        "unsupported_displayed": {
+          "denominator": 6,
+          "numerator": 2
+        }
+      },
+      "false_premise": {
+        "answer_correct_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "cases": 4,
+        "correction_possible": {
+          "denominator": 4,
+          "numerator": 2
+        },
+        "displayed": 0,
+        "errors": 1,
+        "formal_cited_correction": {
+          "denominator": 4,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_sufficient": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "reason_safe": {
+          "denominator": 3,
+          "numerator": 3
+        },
+        "refusal_appropriate": {
+          "denominator": 3,
+          "numerator": 3
+        },
+        "refusals": 3,
+        "supported_correct_answerable": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "supported_correct_given_context": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "unsupported_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        }
+      },
+      "outside_corpus": {
+        "answer_correct_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "cases": 2,
+        "correction_possible": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "displayed": 0,
+        "errors": 0,
+        "formal_cited_correction": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_sufficient": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "reason_safe": {
+          "denominator": 2,
+          "numerator": 2
+        },
+        "refusal_appropriate": {
+          "denominator": 2,
+          "numerator": 2
+        },
+        "refusals": 2,
+        "supported_correct_answerable": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "supported_correct_given_context": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "unsupported_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        }
+      },
+      "test": {
+        "answer_correct_displayed": {
+          "denominator": 9,
+          "numerator": 7
+        },
+        "cases": 15,
+        "correction_possible": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "displayed": 9,
+        "errors": 2,
+        "formal_cited_correction": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 9,
+          "numerator": 7
+        },
+        "quote_sufficient": {
+          "denominator": 9,
+          "numerator": 2
+        },
+        "reason_safe": {
+          "denominator": 4,
+          "numerator": 4
+        },
+        "refusal_appropriate": {
+          "denominator": 4,
+          "numerator": 4
+        },
+        "refusals": 4,
+        "supported_correct_answerable": {
+          "denominator": 12,
+          "numerator": 6
+        },
+        "supported_correct_given_context": {
+          "denominator": 10,
+          "numerator": 6
+        },
+        "unsupported_displayed": {
+          "denominator": 9,
+          "numerator": 3
+        }
+      },
+      "unmentioned_detail": {
+        "answer_correct_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "cases": 6,
+        "correction_possible": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "displayed": 0,
+        "errors": 0,
+        "formal_cited_correction": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_precise": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "quote_sufficient": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "reason_safe": {
+          "denominator": 6,
+          "numerator": 6
+        },
+        "refusal_appropriate": {
+          "denominator": 6,
+          "numerator": 6
+        },
+        "refusals": 6,
+        "supported_correct_answerable": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "supported_correct_given_context": {
+          "denominator": 0,
+          "numerator": 0
+        },
+        "unsupported_displayed": {
+          "denominator": 0,
+          "numerator": 0
+        }
+      }
+    }
+  }
+}

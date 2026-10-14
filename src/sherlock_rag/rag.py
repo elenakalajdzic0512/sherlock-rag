@@ -26,6 +26,21 @@ class RetrievalSetupError(RagError):
     """Selected verified source, chunks, or index could not be loaded."""
 
 
+GENERATION_CONFIGS = {
+    "v1": "config/generation.json",
+    "answer-v2": "config/generation_answer_v2.json",
+}
+PINNED_GENERATION_FIELDS = (
+    "model_id",
+    "model_revision",
+    "dtype",
+    "preferred_device",
+    "max_input_tokens",
+    "max_new_tokens",
+    "do_sample",
+)
+
+
 @dataclass
 class Passage:
     source_id: str
@@ -170,11 +185,26 @@ def resolve_response(
     }
 
 
-def load_settings(root: Path = PROJECT_ROOT) -> tuple[dict, dict, str]:
+def load_settings(
+    root: Path = PROJECT_ROOT, generation_variant: str = "v1"
+) -> tuple[dict, dict, str]:
     retrieval = json.loads((root / "config/retrieval.json").read_text(encoding="utf-8"))
+    if generation_variant not in GENERATION_CONFIGS:
+        raise RagError(f"Unknown generation variant: {generation_variant}")
     generation = json.loads(
-        (root / "config/generation.json").read_text(encoding="utf-8")
+        (root / GENERATION_CONFIGS[generation_variant]).read_text(encoding="utf-8")
     )
+    if generation_variant != "v1":
+        baseline = json.loads(
+            (root / GENERATION_CONFIGS["v1"]).read_text(encoding="utf-8")
+        )
+        if any(
+            generation.get(field) != baseline.get(field)
+            for field in PINNED_GENERATION_FIELDS
+        ):
+            raise RagError(
+                "Experimental generation settings differ from pinned v1 model or budgets"
+            )
     if retrieval.get("method") not in ("bm25", "semantic", "hybrid") or retrieval.get(
         "configuration"
     ) not in ("w250_o50", "w500_o100"):
@@ -423,8 +453,10 @@ class RagPipeline:
         return {**base, "reason_code": "invalid_model_output", "reason": failure}
 
 
-def load_pipeline(root: Path = PROJECT_ROOT) -> RagPipeline:
-    retrieval, generation, prompt = load_settings(root)
+def load_pipeline(
+    root: Path = PROJECT_ROOT, generation_variant: str = "v1"
+) -> RagPipeline:
+    retrieval, generation, prompt = load_settings(root, generation_variant)
     try:
         book, _, source = load_verified_source(root)
         method, config = retrieval["method"], retrieval["configuration"]
@@ -456,6 +488,9 @@ def load_pipeline(root: Path = PROJECT_ROOT) -> RagPipeline:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--query", required=True)
+    parser.add_argument(
+        "--generation-variant", choices=tuple(GENERATION_CONFIGS), default="v1"
+    )
     args = parser.parse_args(argv)
     if not args.query.strip():
         print(
@@ -469,7 +504,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
     try:
-        pipeline = load_pipeline()
+        pipeline = load_pipeline(generation_variant=args.generation_variant)
         result = pipeline.answer(args.query)
         result["model_load_seconds"] = pipeline.generator.load_seconds
         result["device"] = pipeline.generator.device
